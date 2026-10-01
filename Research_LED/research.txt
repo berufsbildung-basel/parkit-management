@@ -68,3 +68,78 @@ Ein Beispiel könnte so aussehen:
 Computer mit einer Applikation ==> WLAN/Ethernet ==> ESP32/LED Controller ==> Datenkabel ==> LED matrix
 
 Der Controller aktualisiert die Matrix normalerweise sehr oft pro Sekunde. Dadurch können nicht nur Bilder und Text sondern auch Animationen und Videos dargestellt werden.
+
+
+
+Englishe Version: !Translated with AI!
+
+LED matrix:
+
+An RGB LED matrix is like a display. It consists of many pixels.
+RGB stands for Red Green Blue.
+Each pixel contains red, green and blue LEDs.
+By adjusting the brightness of the RGB LEDs, the color changes. For example, red and green on, blue off => Yellow.
+If all three colors are at full brightness, they create white. If all of them are off, the pixel is black or turned off.
+By using different brightness levels of red, green and blue, many different colors can be created.
+
+LED matrices can be divided into these main types:
+  -Single Color LED matrix
+  -RGB LED matrix
+  -Addressable RGB LED matrix
+  
+A Single Color matrix can only display one color. The color cannot be changed, you can only control whether a pixel is on or off.
+An RGB matrix can display different colors by combining red, green and blue in different ways.
+With an Addressable RGB matrix, each pixel can be controlled individually. You can control which color and brightness each pixel should have.
+
+There are different ways an LED matrix can be controlled.
+Small addressable matrices often use LEDs like the WS2812B. These LEDs already contain a small chip and the data is passed from one LED to the next. Because of this, only a few data lines are needed.
+Larger RGB panels often use HUB75. Here, multiple rows and columns are controlled very quickly one after another. This happens so fast that to the human eye it looks like all LEDs are on at the same time.
+
+Common sizes are for example:
+  -8x8
+  -16x16
+  -32x32
+  -64x64
+  -64x32
+
+For example, an 8x8 matrix has 8 times 8 pixels => 64 pixels.
+A 64x64 matrix already has 4096 pixels.
+
+They can also be combined to create larger matrices, for example 2x 8x8 => either 16x8 or 8x16.
+Larger panels can also be connected together. For example, multiple 64x64 panels can be used to build a much larger display.
+
+In addition to the resolution, LED matrices also have a pixel pitch. This describes the distance between the individual pixels.
+For example, P2.5 means that the distance between the pixels is approximately 2.5mm.
+A smaller pixel pitch means that the pixels are closer together and the image looks more detailed from a short distance.
+
+To use an LED matrix, the following hardware is normally needed:
+  -Controller
+  -Power supply / power cable, for example 5V
+  -LED matrix
+  -Data cable
+
+The controller can for example be an Arduino, ESP32, Raspberry Pi or a dedicated LED controller.
+The controller receives the data that should be displayed and sends the correct signals to the LED matrix.
+Which controller is needed depends on the matrix. A small 8x8 matrix requires much less performance from the controller than multiple large panels.
+
+The power supply provides power to the LEDs.
+The required voltage depends on the matrix, but for example 5V is commonly used.
+It is also important how much current the power supply can provide. The more LEDs that are on at the same time and at high brightness, the more current is needed.
+For large matrices, a much more powerful power supply may therefore be necessary.
+
+A typical setup could look like this:
+  -Application/Server/Computer
+  -Controller
+  -LED matrix
+
+Application/Computer/Server (Sends what should be displayed) ==> Controller (Receives the information from the application and converts it into signals that the matrix can understand) ==> LED matrix (Receives the signals and displays the image/text)
+
+The LED matrix is additionally connected to a power supply.
+
+The connection between the application/computer and the controller can for example use USB, Wi-Fi or Ethernet.
+The application does not necessarily need to know how each individual LED is controlled. It can for example send an image, text or other data to the controller. The controller then handles the actual control of the LEDs.
+
+An example could look like this:
+Computer with an application ==> Wi-Fi/Ethernet ==> ESP32/LED Controller ==> Data cable ==> LED matrix
+
+The controller normally updates the matrix many times per second. This makes it possible to display not only images and text but also animations and videos.
