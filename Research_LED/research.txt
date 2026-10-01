@@ -1,0 +1,35 @@
+LED matrix:
+
+Eine RGB LED matrix ist wie ein display. Es besteht aus vielen Pixeln.
+RGB steht für Rot Grün Blau. 
+In jedem Pixel befinden sich Rote, Grüne und Blaue LEDs.
+In dem man Die helligkeit von den RGB LEDs anpasst verändert sich die Farbe z.b Rot aus, Grün und Blau an => Gelb
+
+Man kann die LED matrizen in diese Haupttypen unterscheiden:
+    -Single Color LED matrix
+    -Adressierbare LED matrix
+    
+Die Single color matrix kann nur genau eine Frabe einnehmen man kann nichts an der Farbe ändern sondern nur sagen ob ein Pixel an oder aus ist.
+Bei einer Adressierbaren matrix kann man jedes pixel genau ansteuern man kann sagen in welcher Farbe und ob es an oder aus sein sollte.
+
+Die normalen Grössen sind folgende:
+    -8x8
+    -16x16
+    -32x32
+    -64x64
+
+z.b bei einer 8x8 matrix gibt es 8 mal 8 pixel => 64pixel
+
+Man kann diese auch zu grössen kombinieren z.b 2x 8x8 => entweder 16x8 oder 8x16
+
+Um eine LED matrix zu nutzen braucht es normalerweise diese Hardware:
+    -Controller
+    -Power kabel 5v
+    -LED matrix
+
+Eind typischer aufbau sieht z.b so aus:
+    -Applikation/Server/Computer
+    -Controller
+    -LED matrix
+
+Applikation/Computer/Server(Sendet was angezeigt werden soll) ==> Controller(Bekommt die gewünschte information von der Applikation und verwandelt diese in für die Matrix verständliche signale) ==> LED matrix(Bekommt die Signale und gibt das Bild/Text aus)
