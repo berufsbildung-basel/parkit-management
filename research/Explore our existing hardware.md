@@ -25,8 +25,8 @@
 | Controller      | Pimoroni Interstate 75 W | Interstate 75 W (Pico W Aboard(RP2040))                 | Connecting the microcontroller to the LED panel and the power supply.                                      | [Device guide, usage examples, and further documentation](https://github.com/pimoroni/interstate75)<br>[Connection Guide](https://learn.pimoroni.com/article/getting-started-with-interstate-75)<br> |
 | Microcontroller | Raspberry Pi Pico W      | Raspberry Pi Pico W (RP2040)                            | Data acquisition and image visualization on two LED panels.                                                | [Raspberry Pi PIco W guide, further documentation](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html)                                                                      |
 | Orchestrator    | Intel NUC                | Intel NUC 13 Pro (NUC13ANHi7000)                        | Retrieving data from the server, distributing the information, and transmitting it to the microcontrollers | [Device manual, additional documentation](https://download.intel.com/newsroom/2023/client-computing/Intel-NUC-13-Pro-Tech-Product-Spec.pdf)                                                          |
-- [ ] prototipe
-- [ ]  kabel supplie
+
+
 
 
 ## Component Descriptions & Use Cases
