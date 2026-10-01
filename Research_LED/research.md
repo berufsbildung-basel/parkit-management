@@ -1,5 +1,5 @@
-**LED matrix:**
-
+# **LED Matrix research**
+**LED matrix:** 
 Eine RGB LED matrix ist wie ein display. Es besteht aus vielen Pixeln.
 RGB steht für Rot Grün Blau.
 In jedem Pixel befinden sich Rote, Grüne und Blaue LEDs.
@@ -69,6 +69,8 @@ Computer mit einer Applikation ==> WLAN/Ethernet ==> ESP32/LED Controller ==> Da
 
 Der Controller aktualisiert die Matrix normalerweise sehr oft pro Sekunde. Dadurch können nicht nur Bilder und Text sondern auch Animationen und Videos dargestellt werden.
 
+
+# **Gehe zu ./Screenshots/Options um mögliche realistische Setups anzuschauen die zu unserem Projekt passen könnten**
 
 
 **Englishe Version: !Translated with AI!**
