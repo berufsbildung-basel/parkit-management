@@ -2,6 +2,10 @@
 
 ## LED Matrix
 
+> **Translated with AI**
+
+> **Formatierung wurde mit Chatgpt gemacht**
+
 Eine RGB LED matrix ist wie ein display. Es besteht aus vielen Pixeln.  
 RGB steht für Rot Grün Blau.  
 In jedem Pixel befinden sich Rote, Grüne und Blaue LEDs.
@@ -97,12 +101,12 @@ Der Controller aktualisiert die Matrix normalerweise sehr oft pro Sekunde. Dadur
 
 > **Gehe zu `./Screenshots/Options` um mögliche realistische Setups anzuschauen die zu unserem Projekt passen könnten.**
 
-> Formatierung wurde mit Chatgpt gemacht
+
 ---
 
 # English Version
 
-> **Translated with AI**
+
 
 ## LED Matrix
 
