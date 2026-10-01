@@ -2,9 +2,7 @@
 
 ## LED Matrix
 
-> **Translated with AI**
 
-> **Formatted by ChatGPT**
 
 Eine RGB LED matrix ist wie ein display. Es besteht aus vielen Pixeln.  
 RGB steht für Rot Grün Blau.  
@@ -203,3 +201,7 @@ An example could look like this:
 `Computer with an application` → `Wi-Fi/Ethernet` → `ESP32/LED Controller` → `Data cable` → `LED matrix`
 
 The controller normally updates the matrix many times per second. This makes it possible to display not only images and text but also animations and videos.
+
+> **Translated with AI**
+
+> **Formatted by ChatGPT**
