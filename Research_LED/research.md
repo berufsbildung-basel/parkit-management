@@ -96,6 +96,7 @@ Ein Beispiel könnte so aussehen:
 Der Controller aktualisiert die Matrix normalerweise sehr oft pro Sekunde. Dadurch können nicht nur Bilder und Text sondern auch Animationen und Videos dargestellt werden.
 
 > **Gehe zu `./Screenshots/Options` um mögliche realistische Setups anzuschauen die zu unserem Projekt passen könnten.**
+
 > Formatierung wurde mit Chatgpt gemacht
 ---
 
