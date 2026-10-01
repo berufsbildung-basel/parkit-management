@@ -8,7 +8,7 @@ Wenn alle drei Farben mit voller Helligkeit leuchten entsteht Weiss. Wenn alle a
 Durch unterschiedliche Helligkeiten von Rot, Grün und Blau können sehr viele verschiedene Farben erzeugt werden.
 
 Man kann die LED matrizen in diese Haupttypen unterscheiden:
-  -Single Color LED matrix
+  - Single Color LED matrix
   -RGB LED matrix
   -Adressierbare RGB LED matrix
   
