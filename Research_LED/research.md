@@ -4,7 +4,7 @@
 
 > **Translated with AI**
 
-> **Formatierung wurde mit Chatgpt gemacht**
+> **Formatted by ChatGPT**
 
 Eine RGB LED matrix ist wie ein display. Es besteht aus vielen Pixeln.  
 RGB steht für Rot Grün Blau.  
