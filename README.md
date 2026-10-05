@@ -15,7 +15,7 @@ management/
 ├── README.md
 ├── CURRENT_TASKS.md
 │
-├── docs/
+├── project-notes/
 │   ├── meetings-notes.md
 │   ├── problem.md
 │   ├── risks.md
@@ -43,7 +43,7 @@ management/
 
 **`workstreams/`** - working materials organized by major project area.
 
-**`docs`** - needed documentation of current work, milestones and blocks
+**`project-notes`** - needed documentation of current work, milestones and blocks
 
 ---
 
