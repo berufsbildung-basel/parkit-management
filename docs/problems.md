@@ -13,6 +13,9 @@
 - Install an LED matrix to display the current status of each parking spot and clearly indicate which spots are available, occupied, or reserved. 
 - This should make it easier for users to identify their assigned spot and reduce incorrect parking.
 
+**Related work**
+- Detailed information about the LED integration can be found in `workstream/led-integration`.
+
 
 **Status** - In progress
 
@@ -28,6 +31,9 @@
 **Proposed solution**
 - Send an automatic reminder notification before the reservation expires (e.g. 30, 15, or 10 minutes in advance). 
 - The notification should remind the user that their reservation is about to expire and that the parking spot should be vacated.
+
+**Related work**
+- Detailed information about the LED integration can be found in `workstream/reservation-reminder`.
 
 **Status** - Planned
 
