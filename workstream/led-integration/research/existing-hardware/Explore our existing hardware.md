@@ -6,6 +6,8 @@
 | Thema | P.A.R.K.I.T                   |
 |       | Explore our existing hardware |
 
+---
+
 ## Contents
 
 -  Hardware
@@ -17,6 +19,7 @@
 		- Intel NUC 13 Pro (Arena Canyon) Orchestrator
 	- System Power Consumption & Annual Costs
 
+---
 
 ## Summary Table & Hardware Overview
 
@@ -27,6 +30,7 @@
 | Microcontroller | Raspberry Pi Pico W      | Raspberry Pi Pico W (RP2040)                            | Data acquisition and image visualization on two LED panels.                                                | [Raspberry Pi PIco W guide, further documentation](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html)                                                                      |
 | Orchestrator    | Intel NUC                | Intel NUC 13 Pro (NUC13ANHi7000)                        | Retrieving data from the server, distributing the information, and transmitting it to the microcontrollers | [Device manual, additional documentation](https://download.intel.com/newsroom/2023/client-computing/Intel-NUC-13-Pro-Tech-Product-Spec.pdf)                                                          |
 
+---
 
 
 
@@ -38,11 +42,12 @@
 
 The **P3 2020 64x64-32s-m6** is a high-density, full-color indoor **RGB LED matrix panel** measuring 192×192mm. It features a fine **3mm pixel pitch** and a native resolution of **64×64 pixels**, packing 4,096 vibrant SMD 2121 LEDs into a compact footprint. Driven via a standard **HUB75 interface** with a **1/32 multiplexing scan rate**, this display requires a dedicated **5V power supply (minimum 4A)** and an addressable "E line" connection to handle its intensive row multiplexing.
 
+
 #### Use Cases
 
 This is the display that will show information about the parking space. Two such panels will be mounted horizontally.
 
-
+---
 
 ### Interstate 75 W 
 
@@ -54,6 +59,7 @@ The Interstate 75 W (Pico W Aboard) is an all-in-one controller and driver board
 
 Connecting the microcontroller to the LED panel and power supply
 
+---
 
 
 ### Raspberry Pi PIco W
@@ -66,7 +72,7 @@ The **Raspberry Pi Pico W** is a compact, low-cost **microcontroller board** tha
 
 The Raspberry Pi Pico W is a microcontroller used to control the process of displaying images on two displays. It is integrated into the Interstate 75 W kit
 
-
+---
 
 ### Intel NUC 
 
@@ -77,6 +83,8 @@ The Intel NUC 13 Pro (NUC13ANHi7), codenamed **Arena Canyon**, is a high-perform
 #### Use Cases
 
 This is a orchestrator; it will distribute data to the appropriate microcontrollers, and the parking reservation service will run on it.
+
+---
 
 
 ## System Power Consumption & Annual Costs
