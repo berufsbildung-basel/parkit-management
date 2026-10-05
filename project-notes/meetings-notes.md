@@ -4,9 +4,8 @@ Short notes from project meetings: topics discussed, agreed directions, clarific
 
 29-09-26
 
-**Topic:** discussion of tickets and documentation
+ ### Discussed
 
-During the meeting, we discussed:
 - Subtickets and what information should be included in their documentation.    
 - What should be included in the overview presentation.
 - We visited the parking area and had a look around.
@@ -24,3 +23,33 @@ softare decisions needed:
 
 
 ---
+
+05-10-26
+
+ ### Discussed
+
+ - **Project management & documentation**
+  - Add technical and non-technical **requirements**
+  - Define **features**
+  - Define generic **criteria** for comparing and replacing different options/components
+- **Research**
+  - Presentation of research on existing hardware and possible options, including **LoRa**, in the related sub-ticket.
+  - We now have a better overview of the hardware and options currently available.
+
+ ### Open Questions
+
+- Do we need an **Intel NUC**, or could another **Raspberry Pi** be used as the orchestrator?
+- Why do we need **Raspberry Pi Pico W** specifically?
+- Which hardware, software, libraries, and communication options are suitable?
+- What are the costs of the different options, including potential replacement costs?
+
+ ### Next Steps
+
+ Before making any technical decisions or scheduling a meeting with the hardware expert, we will:
+
+- Investigate and compare the available options.
+- Define their main advantages, limitations, connections, and costs.
+- Research the required software/libraries.
+- Run a small test using the components we already have, including displaying a message on the LED panel.
+
+ **No final technical decisions have been made yet.**
