@@ -15,6 +15,7 @@
 		- Interstate 75 W Driver Board
 		- Raspberry Pi Pico W Microcontroller 
 		- Intel NUC 13 Pro (Arena Canyon) Orchestrator
+	- System Power Consumption & Annual Costs
 
 
 ## Summary Table & Hardware Overview
@@ -77,3 +78,11 @@ The Intel NUC 13 Pro (NUC13ANHi7), codenamed **Arena Canyon**, is a high-perform
 
 This is a orchestrator; it will distribute data to the appropriate microcontrollers, and the parking reservation service will run on it.
 
+
+## System Power Consumption & Annual Costs
+
+| System Component                                                          | Unit Power | Qty | Total Active Power | Annual Consumption | Estimated Annual Cost (0.334 CHF/kWh) |
+| :------------------------------------------------------------------------ | :--------: | :-: | :----------------: | :----------------: | :-----------------------------------: |
+| **Bay Logic & Displays**<br>*(2x P3 RGB Matrix Panels + Interstate 75 W)* |    25 W    |  8  |       200 W        |     ~1,752 kWh     |              585.17 CHF               |
+| **Central Orchestrator**<br>*(Intel NUC 13 Pro )*                         |    25 W    |  1  |        25 W        |      ~219 kWh      |             <br>73.15 CHF             |
+| **System Total** <br>*(Including PSU efficiency overhead ~247 W)*         |     —      |  —  |     **247 W**      |  **~2,167.6 kWh**  |              723.98 CHF               |
