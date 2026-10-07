@@ -22,3 +22,16 @@ Server  -> LoRa Gateway->Gateway-> display with built-in microcontroler with lor
 Server  -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
 
 
+## Display Options
+
+- RGB P3 Matrix Panel (2x)
+- Display ePaper 10"
+- LCD Screen HDMI 10"
+
+
+| name | cost | cost per year | pro | contra |
+| :-- | :-- | :--| :-- | :-- |
+| RGB P3 Matrix Panel | 35chf | 700chf| 
+| Display ePaper | 158chf | - |
+| LCD Screen | 115chf | - |
+
