@@ -161,7 +161,8 @@ Server  - (type of connection)-> Orchestrator  - (type of connection)-> microc
 | **7. [E-Ink Color Display 7.3" Spectra 6](https://core-electronics.com.au/7-3inch-6-color-e-paper-display-e-ink-hat.html)** | ~90–120 CHF per place <br> | **0.07 W** <br>(max. during refresh, standby ≈ 0) | SPI (driver HAT, 3.3 V / 5 V) | **High:** Works with Pico W / ESP32 / Raspberry Pi, Waveshare provides SPI demo code. | **Medium:** Waveshare-specific panel. | **0.20 CHF** <br> |
 | **8. [LED Matrix P5 (3–4x)](https://www.robotshop.com/products/waveshare-rgb-full-color-led-matrix-panel-5mm-pitch-6432-pixels-adjustable-brightness)** | ~60–110 CHF per place <br> | **24–32 W** <br>(3–4 panels, max. 20 W each) | HUB75, separate 5 V supply per panel | **High:** Same HUB75 interface as option 1. For a chain of 3–4 panels, check the maximum resolution of the Interstate 75 W. | **High:** Standard HUB75 panels, chainable. | **69.90 – 93.21 CHF** <br> |
 
-> The P5 panels from Waveshare have 64x32 pixels (320 × 160 mm), several are chained for option 8.
+
+
 
 
 | Type                       | Component Name                                                                                                                                                                                                                                                                                    | Hardware Price (Est.)        | Average Power Draw                                      | Connectivity                                              | Compatibility                                                                                                         | Replaceability / Scalability                                              | Exact 1-Year Electricity Cost |
