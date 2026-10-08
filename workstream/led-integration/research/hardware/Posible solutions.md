@@ -5,6 +5,8 @@
 ## Contents
 
 - Overview
+	- Structure
+- Possible structure
 - Components
 	- Orchestrator
 		- Table of options
@@ -24,15 +26,24 @@
 
 ## Overview
 
+This document outlines the proposed architectural structure for the project and evaluates the technical components required for its implementation. It serves as a comprehensive reference to guide the selection of hardware, software, and communication interfaces.
+
+
 -  Structure: 
+
+The following structure serves as the baseline architecture from which all system variations are derived
 
 `Server ➔ [Type of Connection 1] ➔ Orchestrator ➔ [Type of Connection 2] ➔ Microcontroller ➔ Display`
 
+## Possible structure
+
+####  !!!!!!!!!hier soll etwas sein!!!!!!!!!!!!
+
+
 
 ## Components
-
-
 ### Orchestrator 
+
 #### Table of options:
 
 | Component Name                                  | Hardware Price (Est.) | Average Power Draw | Connectivity               | Compatibility                                                          | Replaceability / Scalability                                                    | Exact 1-Year Electricity Cost |
@@ -67,15 +78,15 @@
 
 ### Microcontroller
 
-Table of options:
+#### Table of options:
 
-|Component Name|Hardware Price (Est.)|Average Power Draw|Connectivity|Compatibility|Replaceability / Scalability|Exact 1-Year Electricity Cost|
-|---|---|---|---|---|---|---|
-|**Raspberry Pi Pico W**  <br>(Microcontroller chip)|6.00 – 8.00 CHF|**0.2 W**|Wi-Fi, BLE, GPIO|**Maximum:** 100% native fit with Pimoroni Interstate 75 W footprint.|**Maximum:** Mass-market board, hot-swappable in seconds.|**0.58 CHF**|
-|**MCU with Native LoRa**  <br>(e.g., ESP32-S3 LoRa)|10.00 – 20.00 CHF|**0.5 W**|LoRa, Wi-Fi, BLE, GPIO|**Medium:** Requires custom wiring; breaks Interstate 75 footprint.|**Medium:** Readily available on the market, but relies on custom code templates.|**1.46 CHF**|
-|**Built-in MCU**  <br>(All-in-one Smart Display)|Included in panel|**1.5 W** (Logic only)|RS-485, Ethernet|**Low:** Bound to proprietary closed-source manufacturer SDKs.|**Low:** Monolithic setup; cannot change the processor core.|**4.37 CHF**|
+| Component Name                                      | Hardware Price (Est.) | Average Power Draw     | Connectivity           | Compatibility                                                         | Replaceability / Scalability                                                      | Exact 1-Year Electricity Cost |
+| --------------------------------------------------- | --------------------- | ---------------------- | ---------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------- |
+| **Raspberry Pi Pico W**  <br>(Microcontroller chip) | 6.00 – 8.00 CHF       | **0.2 W**              | Wi-Fi, BLE, GPIO       | **Maximum:** 100% native fit with Pimoroni Interstate 75 W footprint. | **Maximum:** Mass-market board, hot-swappable in seconds.                         | **0.58 CHF**                  |
+| **MCU with Native LoRa**  <br>(e.g., ESP32-S3 LoRa) | 10.00 – 20.00 CHF     | **0.5 W**              | LoRa, Wi-Fi, BLE, GPIO | **Medium:** Requires custom wiring; breaks Interstate 75 footprint.   | **Medium:** Readily available on the market, but relies on custom code templates. | **1.46 CHF**                  |
+| **Built-in MCU**  <br>(All-in-one Smart Display)    | Included in panel     | **1.5 W** (Logic only) | RS-485, Ethernet       | **Low:** Bound to proprietary closed-source manufacturer SDKs.        | **Low:** Monolithic setup; cannot change the processor core.                      | **4.37 CHF**                  |
 
-Pros and cons:
+#### Pros and cons:
 
 **Raspberry Pi Pico W**
 
@@ -94,16 +105,15 @@ Pros and cons:
     - **Dual-Core Processing Core:** Massive clock speed headroom to parse radio data in the background while updating screen text.
     - **Built-In Power Regulators:** Typically features integrated lithium-polymer battery connectors and charging chips directly on-board.
 - **Cons:**
-    - **Custom Circuit Overhead:** Requires fully custom PCB baseboards or complex manual wire mapping since commercial shields like the Interstate 75 cannot be used.
-    - **Fragmented Code Ecosystem:** Driving HUB75 panels on ESP32 requires entirely different libraries (like ESP32-HUB75-MatrixPanel-I2S-DMA), forcing a software rewrite.
+    - **LED Connection Difficulties:** Lack of off-the-shelf breakout boards on the market combining LoRa and HUB75 makes physical integration with the LED panel highly challenging.
+	 - **Software Rewrite Needed:** Driving HUB75 panels on alternative MCUs requires entirely different libraries, forcing a complete overhaul of your display code.
 
 **Built-in MCU (All-in-one Smart Display)**
 
 - **Pros:**
     - **Commercial Clean Aesthetics:** Factory-sealed industrial presentation with zero loose component wires or external development enclosures.
-    - **Hardened Power Input:** Internal step-down circuits handle dirty or fluctuating garage line power without needing external brick adapters.
+    - **Hardened Power Input:** built-in voltage regulation circuitry ensures stable operation—even with poor-quality power or voltage fluctuations—without the need for external adapters
     - **Lower Assembly Time:** Arrives pre-built and pre-wired from the vendor, eliminating field bench assembly labor.
-        
 - **Cons:**
     - **Complete Vendor Lock-In:** Software features, security patches, and network protocols are entirely dependent on the manufacturer's updates.
     - **Monolithic Hardware Failure:** If a single component on the micro-controller fails, the entire visual display panel must be discarded and replaced.
@@ -115,9 +125,12 @@ Pros and cons:
 
 
 
-
+####  !!!!!!!!!hier soll etwas sein!!!!!!!!!!!!
 ---
 ### Type of Connection 1
+
+
+####  !!!!!!!!!hier soll etwas sein!!!!!!!!!!!!
 
 | Indoor LoRaWAN Gateway              | 70.00 – 250.00 CHF | 4 W | RS-485 Serial Bus, Ethernet  | **Native Server Ecosystem:** Runs internal LoRaWAN stacks (ChirpStack, etc.).     | **High:** Fully integrated industrial-grade chassis with standardized protocols. | 11.65 CHF |
 | ----------------------------------- | ------------------ | --- | ---------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | --------- |
@@ -129,7 +142,7 @@ Pros and cons:
 ### Type of Connection 2
 
 
-
+####  !!!!!!!!!hier soll etwas sein!!!!!!!!!!!!
 
 мікроконтролер!!!
 ```
