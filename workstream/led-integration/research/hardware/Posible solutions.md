@@ -1,7 +1,5 @@
 # Posible solutions
 
-hallo dimo
-
 
 ## Contents
 
