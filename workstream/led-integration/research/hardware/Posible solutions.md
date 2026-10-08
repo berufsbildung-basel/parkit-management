@@ -1,26 +1,25 @@
 # Posible solutions
 
-
 ## Contents
 
 - Overview
 - Possible structure
 - Components
-    - Orchestrator
-        - Table of options
-        - Pros and cons
-    - Microcontroller
-        - Table of options
-        - Pros and cons
-    - Display
-        - Table of options
-        - Pros and cons
-    - Type of Connection 1
-        - Table of options
-        - Pros and cons
-    - Type of Connection 2
-        - Table of options
-        - Pros and cons
+    - Orchestrator
+        - Table of options
+        - Pros and cons
+    - Microcontroller
+        - Table of options
+        - Pros and cons
+    - Display
+        - Table of options
+        - Pros and cons
+        - Type of Connection 1
+        - Table of options
+        - Pros and cons
+    - Type of Connection 2
+        - Table of options
+        - Pros and cons
 
 ## Overview
 
