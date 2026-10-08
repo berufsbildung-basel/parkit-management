@@ -26,18 +26,15 @@ Server  -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
 
 # Display-Optionen für 8 Parkplätze (Tiefgarage)
 
-## Übersicht & Bezugsquellen
 
-| # | Option | Hersteller-/Produktseite | Händler / Bezugsquelle |
-|---|---|---|---|
-| 1 | RGB P3 Matrix Panel 64x64 (2x) | [Waveshare RGB-Matrix-P3-64x64](https://www.waveshare.com/rgb-matrix-p3-64x64.htm) | Waveshare direkt; Schweizer Händler (z. B. Bastelgarage) bitte nach "RGB Matrix P3 64x64" suchen |
-| 2 | ePaper 10.3" (IT8951 HAT) | [Waveshare Wiki 10.3inch e-Paper HAT](https://www.waveshare.com/wiki/10.3inch_e-Paper_HAT) | [RobotShop](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80), [Eckstein-Shop (DE)](https://eckstein-shop.de/WaveShare103inche-Papere-InkDisplayHATForRaspberryPi2C1872C39714042CBlack2FWhite2C16GreyScales2CUSB2FSPI2FI80EN) |
-| 3 | LCD HDMI 13–15" (z. B. 15.6" Monitor) | Kein konkretes Produkt gefunden | [Suche bei Galaxus](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor) (Suchlink) |
-| 4 | ePaper 12.48" Rot/Schwarz/Weiss | [Waveshare 12.48inch e-Paper Module (B)](https://www.waveshare.com/product/displays/e-paper/12.48inch-e-paper-module-b.htm) | Waveshare direkt |
-| 5 | Hybrid: ePaper 10.3" + RGB Status-LED-Strip | ePaper: [Waveshare 10.3inch e-Paper HAT](https://www.waveshare.com/wiki/10.3inch_e-Paper_HAT) | LED-Strip: kein konkretes Produkt verifiziert, z. B. [Suche bei Galaxus](https://www.galaxus.ch/de/search?q=ws2812b%20led%20strip) (Suchlink) |
-| 6 | LCD 10.1" HDMI + Statusleuchte | [Waveshare Wiki 10.1inch HDMI LCD (B)](https://waveshare.com/wiki/10.1inch_HDMI_LCD_(B)) | [RobotShop UK](https://uk.robotshop.com/products/waveshare-101-capacitive-touch-screen-lcd-b-w-case-1280800-hdmi-ips-screen-low-power-uk), [Eckstein-Shop (DE)](https://eckstein-shop.de/Top__1280x800_1); Statusleuchte separat |
-| 7 | E-Ink Farbdisplay 7.3" Spectra 6 | [Waveshare 7.3inch e-Paper HAT (E)](https://www.waveshare.com/product/displays/7.3inch-e-paper-hat-e.htm) | [Core Electronics (AU)](https://core-electronics.com.au/7-3inch-6-color-e-paper-display-e-ink-hat.html), [Eckstein-Shop (DE)](https://eckstein-shop.de/Neu_2__73_4) |
-| 8 | LED-Matrix P5 (3–4x) | [Waveshare RGB-Matrix-P5-64x32](https://www.waveshare.com/product/rgb-matrix-p5-64x32.htm) | [RobotShop](https://www.robotshop.com/products/waveshare-rgb-full-color-led-matrix-panel-5mm-pitch-6432-pixels-adjustable-brightness) |
+1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm)
+2. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80)
+3. [LCD HDMI 13–15" (z. B. 15.6" Monitor)](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor) (Suchlink)
+4. [ePaper 12.48" Rot/Schwarz/Weiss](https://www.waveshare.com/product/displays/e-paper/12.48inch-e-paper-module-b.htm)
+5. [Hybrid: ePaper 10.3" + RGB Status-LED-Strip](https://www.waveshare.com/wiki/10.3inch_e-Paper_HAT) (LED-Strip: [Suchlink](https://www.galaxus.ch/de/search?q=ws2812b%20led%20strip))
+6. [LCD 10.1" HDMI + Statusleuchte](https://uk.robotshop.com/products/waveshare-101-capacitive-touch-screen-lcd-b-w-case-1280800-hdmi-ips-screen-low-power-uk)
+7. [E-Ink Farbdisplay 7.3" Spectra 6](https://www.waveshare.com/product/displays/7.3inch-e-paper-hat-e.htm)
+8. [LED-Matrix P5 (3–4x)](https://www.robotshop.com/products/waveshare-rgb-full-color-led-matrix-panel-5mm-pitch-6432-pixels-adjustable-brightness)
 
 > Hinweis: Die Waveshare-P5-Panels haben 64x32 Pixel (320 × 160 mm). Für Option 8 werden mehrere Panels verkettet.
 
