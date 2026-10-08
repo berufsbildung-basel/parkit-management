@@ -133,40 +133,118 @@ Server -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
 
 ### Display
 
+### Display
+
 #### Table of options:
 
-1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm) (Waveshare Shop)
-2. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80) (RobotShop)
-3. [LCD HDMI 13–15" (z. B. 15.6" Monitor)](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor) (Galaxus, Suchlink)
-4. [ePaper 12.48" Rot/Schwarz/Weiss](https://www.waveshare.com/product/displays/e-paper/12.48inch-e-paper-module-b.htm) (Waveshare Shop)
-5. [Hybrid: ePaper 10.3" + RGB Status-LED-Strip](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80) (RobotShop; LED-Strip: [Galaxus, Suchlink](https://www.galaxus.ch/de/search?q=ws2812b%20led%20strip))
-6. [LCD 10.1" HDMI + Statusleuchte](https://uk.robotshop.com/products/waveshare-101-capacitive-touch-screen-lcd-b-w-case-1280800-hdmi-ips-screen-low-power-uk) (RobotShop UK)
-7. [E-Ink Farbdisplay 7.3" Spectra 6](https://core-electronics.com.au/7-3inch-6-color-e-paper-display-e-ink-hat.html) (Core Electronics)
-8. [LED-Matrix P5 (3–4x)](https://www.robotshop.com/products/waveshare-rgb-full-color-led-matrix-panel-5mm-pitch-6432-pixels-adjustable-brightness) (RobotShop)
+| Component Name | Hardware Price (Est.) | Average Power Draw | Connectivity | Compatibility | Replaceability / Scalability | Exact 1-Year Electricity Cost |
+| --- | --- | --- | --- | --- | --- | --- |
+| **1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm)** | ~72 CHF per place <br>(×8: ~576 CHF) | **16 W** <br>(2 panels, max. 40 W) | HUB75, separate 5 V supply per panel | **Maximum:** Native fit with Pimoroni Interstate 75 W + Pico W. | **High:** Standard HUB75 panels from many vendors, chainable. | **46.60 CHF** <br>(×8: 372.83 CHF) |
+| **2. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80)** | ~158 CHF per place <br>(×8: ~1'264 CHF) | **0.1 W** <br>(Standby; 1.2 W only during refresh) | USB / SPI / I80 via IT8951 driver HAT | **Medium:** HAT is built for the Raspberry Pi 40-pin header. Pico W possible via SPI wiring, but needs custom code. | **Medium:** Waveshare-specific panel and driver board. | **0.29 CHF** <br>(×8: 2.33 CHF) |
+| **3. [LCD HDMI 13–15"](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor)** (e.g. 15.6" monitor, search link) | ~130–250 CHF per place <br>(×8: ~1'040–2'000 CHF) | **12 W** | HDMI + power supply | **Low–Medium:** Needs a Raspberry Pi (or similar SBC) per place. A Pico W cannot drive HDMI. | **High:** Standard monitor with VESA mount, available everywhere. | **34.95 CHF** <br>(×8: 279.62 CHF) |
+| **4. [ePaper 12.48" Red/Black/White](https://www.waveshare.com/product/displays/e-paper/12.48inch-e-paper-module-b.htm)** | ~210 CHF per place <br>(×8: ~1'680 CHF) | **0.1 W** <br>(Standby, estimated) | SPI via driver board | **Medium:** Works with Raspberry Pi / ESP32. The framebuffer (~320 KB for 2 colors) exceeds the RAM of a Pico W (264 KB). | **Medium:** Waveshare-specific panel. | **0.29 CHF** <br>(×8: 2.33 CHF) |
+| **5. [Hybrid: ePaper 10.3" + RGB Status LED Strip](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80)** (LED strip: [search link](https://www.galaxus.ch/de/search?q=ws2812b%20led%20strip)) | ~170 CHF per place <br>(×8: ~1'360 CHF) | **2.1 W** <br>(ePaper 0.1 W + LED strip ~2 W) | USB / SPI / I80 (ePaper) + 1 GPIO data line (LED strip) | **Medium:** Same as option 2. The LED strip needs only one GPIO and runs on a Pico W. | **Medium:** ePaper is Waveshare-specific, the LED strip is standard. | **6.12 CHF** <br>(×8: 48.93 CHF) |
+| **6. [LCD 10.1" HDMI + Status Light](https://uk.robotshop.com/products/waveshare-101-capacitive-touch-screen-lcd-b-w-case-1280800-hdmi-ips-screen-low-power-uk)** | ~120–200 CHF per place <br>(×8: ~960–1'600 CHF) | **5 W** <br>(LCD ~4 W + light ~1 W) | HDMI + USB, GPIO / relay for the status light | **Low–Medium:** Needs a Raspberry Pi per place (HDMI). GPIO controls the light. | **High:** Standard HDMI, any HDMI display can replace it. | **14.56 CHF** <br>(×8: 116.51 CHF) |
+| **7. [E-Ink Color Display 7.3" Spectra 6](https://core-electronics.com.au/7-3inch-6-color-e-paper-display-e-ink-hat.html)** | ~90–120 CHF per place <br>(×8: ~720–960 CHF) | **0.07 W** <br>(max. during refresh, standby ≈ 0) | SPI (driver HAT, 3.3 V / 5 V) | **High:** Works with Pico W / ESP32 / Raspberry Pi, Waveshare provides SPI demo code. | **Medium:** Waveshare-specific panel. | **0.20 CHF** <br>(×8: 1.63 CHF) |
+| **8. [LED Matrix P5 (3–4x)](https://www.robotshop.com/products/waveshare-rgb-full-color-led-matrix-panel-5mm-pitch-6432-pixels-adjustable-brightness)** | ~60–110 CHF per place <br>(×8: ~480–880 CHF) | **24–32 W** <br>(3–4 panels, max. 20 W each) | HUB75, separate 5 V supply per panel | **High:** Same HUB75 interface as option 1. For a chain of 3–4 panels, check the maximum resolution of the Interstate 75 W. | **High:** Standard HUB75 panels, chainable. | **69.90 – 93.21 CHF** <br>(×8: 559.24 – 745.65 CHF) |
 
-> Hinweis: Die Waveshare-P5-Panels haben 64x32 Pixel (320 × 160 mm). Für Option 8 werden mehrere Panels verkettet.
-
-##### Vergleichstabelle
-
-| Name | ca. Kosten pro Platz | ca. Kosten für 8 Plätze | Kosten pro Jahr* | Stromverbrauch | Platz für Informationen (Textlänge & Formate) | Lesbarkeit & Sichtbarkeit aus Distanz | Gehäuseschutz & Hardware-Sicherheit (Tiefgarage) | Schnittstellen & Ansteuerung (I/O) | Netzwerksicherheit & Autorisierung | Eignung für unser Projekt | Pro | Contra |
-|---|---:|---:|---:|---|---|---|---|---|---|---|---|---|
-| **1. RGB P3 Matrix Panel 64x64 (2x)** | ~72 CHF | ~576 CHF | ~60–100 CHF | Hoch | ⭐⭐⭐ (Pixelbegrenzung bei langen Namen / Schilderformaten) | ⭐⭐⭐⭐⭐ (Sehr gute Sichtbarkeit beim Einfahren) | Niedrig (Offene Platine, Acryl-Schutzgehäuse nötig) | HUB75 via ESP32 / Raspberry Pi | Gut (Microcontroller mit HTTPS/MQTT) | ⭐⭐⭐⭐⭐ | Sehr hell, grosse Schrift, Signalfarben (Grün/Rot), viel Fläche | Hoher Stromverbrauch, Textlänge durch Auflösung limitiert, Zusatzgehäuse nötig |
-| **2. ePaper 10.3" (Waveshare HAT)** | 158 CHF | 1'264 CHF | ~5 CHF | Sehr niedrig | ⭐⭐⭐⭐ (Gute Darstellung aller Textformate & Zeiten) | ⭐⭐⭐ (Gut nah, mässig aus Distanz) | Mittel (Stossempfindlich, Schutzglas nötig) | SPI / IT8951 Controller via RPi / MCU | Hoch (Standard-OS / verschlüsselte Protokolle) | ⭐⭐⭐⭐ | Extrem stromsparend, schneller Refresh (<1 s), Name, Kennzeichen (CH/DE/FR) und Zeit gut lesbar | Keine Signalfarben, schlechte Fernsicht im dunklen Parkhaus ohne Lampe |
-| **3. LCD HDMI 13–15" (z. B. 15.6" Monitor)** | ~130–250 CHF | ~1'040–2'000 CHF | ~50–100 CHF | Mittel | ⭐⭐⭐⭐⭐ (Uneingeschränkt, Platz für Logos & Sonderzeichen) | ⭐⭐⭐⭐⭐ (Auch im Vorbeifahren gut lesbar) | Hoch (Oft robuste Metall-/VESA-Gehäuse) | HDMI / VGA / DisplayPort | Hoch (Linux/Windows Client mit VNC/HTTPS) | ⭐⭐⭐⭐⭐ | Viel Platz, grosse Schrift, hohe Auflösung, sehr flexibel | Höherer Stromverbrauch, Netzteil-Verkabelung zu jedem Platz |
-| **4. ePaper 12.48" Rot/Schwarz/Weiss (Waveshare)** | ~210 CHF | ~1'680 CHF | ~5 CHF | Sehr niedrig | ⭐⭐⭐⭐⭐ (Hohe Auflösung + roter Farbakzent für Status) | ⭐⭐⭐⭐ (Gute Lesbarkeit, Rot unterstützt Fernwirkung) | Mittel (Rahmen mit Acrylglas-Schutz nötig) | SPI / USB via Raspberry Pi oder ESP32 | Hoch (WPA3/TLS) | ⭐⭐⭐⭐⭐ | Farbliche Statusanzeige (Besetzt/Frei), extrem stromsparend, viel Platz | Aktualisierung dauert ca. 37 Sek. laut Hersteller (bei Parkplätzen meist unproblematisch) |
-| **5. Hybrid: ePaper 10.3" + RGB Status-LED-Strip** | ~170 CHF | ~1'360 CHF | ~10 CHF | Sehr niedrig | ⭐⭐⭐⭐ (Klare Textdarstellung + LED-Fernwirkung) | ⭐⭐⭐⭐⭐ (Farbe weithin sichtbar, Details nah lesbar) | Hoch (Kompaktes Verbundgehäuse möglich) | SPI (ePaper) + GPIO/PWM (LED-Strip) | Hoch (Saubere Trennung der Ansteuereinheiten) | ⭐⭐⭐⭐⭐ | Sehr geringer Verbrauch, beste Fernsichtbarkeit beim Einfahren | Individuelle Montage & Verkabelung der LED-Leiste |
-| **6. LCD 10.1" HDMI + Statusleuchte** | ~120–200 CHF | ~960–1'600 CHF | ~35–70 CHF | Mittel | ⭐⭐⭐⭐⭐ (Details auf LCD, Fernwirkung via LED) | ⭐⭐⭐⭐⭐ (Status aus ~30 m sofort erkennbar) | Mittel-Hoch (Schutzgehäuse für LCD & LED-Bar nötig) | HDMI + GPIO / Relais für Statusleuchte | Hoch (Trennung von Ansteuerung und Status-Hardware möglich) | ⭐⭐⭐⭐⭐ | Status sofort sichtbar, LCD zeigt Name, Kennzeichen, Zeit detailliert | Zusätzliche Hardware, Verkabelung und Steuerung |
-| **7. E-Ink Farbdisplay 7.3" Spectra 6 (Waveshare 7.3" ePaper HAT (E))** | ~90–120 CHF | ~720–960 CHF | ~5 CHF | Sehr niedrig | ⭐⭐⭐ (800x480 px, reicht für Name, Kennzeichen, Zeit in grosser Schrift) | ⭐⭐⭐⭐ (Mehrfarbig, aber nicht selbstleuchtend) | Mittel (Schutzgehäuse mit Acrylscheibe nötig) | SPI via ESP32 / Raspberry Pi Pico W | Hoch (ESP32/Pico mit TLS/MQTT) | ⭐⭐⭐⭐ | Günstig, mehrfarbig, extrem stromsparend, Pico-W-kompatibel | Langsame Aktualisierung (ca. 12 Sek. laut Hersteller), kleiner als 10", schlecht ohne Beleuchtung |
-| **8. LED-Matrix P5 Indoor/Outdoor-Modul (3–4x)** | ~60–110 CHF | ~480–880 CHF | ~70–130 CHF | Hoch | ⭐⭐⭐⭐ (Bei 3–4 Modulen genug Fläche für 2–3 Zeilen) | ⭐⭐⭐⭐⭐ (Sehr hell, auch aus grosser Distanz lesbar) | Mittel-Hoch (Oft schon in Alu-Gehäuse, Staub-/Feuchtigkeitsschutz) | HUB75 via ESP32 / Raspberry Pi | Gut (ESP32 mit HTTPS/MQTT) | ⭐⭐⭐⭐ | Preiswert, sehr hell, robuste Bauweise, Signalfarben möglich | Grössere Pixel als P3/P4, hoher Stromverbrauch, aufwändigere Verkabelung |
-
-\* Die Kosten pro Jahr sind grobe Schätzungen für den Dauerbetrieb (Strompreis ca. 0.25–0.30 CHF/kWh). Preise der Optionen 7 und 8 sind Richtwerte und sollten vor der Bestellung geprüft werden.
+> The P5 panels from Waveshare have 64x32 pixels (320 × 160 mm), several are chained for option 8.
 
 #### Pros and cons:
 
-- **Beste Gesamtlösung:** Option 5 (Hybrid ePaper + LED-Strip): sehr niedrige Betriebskosten und gute Fernsicht.
-- **Bestes Preis-Leistungs-Verhältnis bei Sichtbarkeit:** Option 1 (P3 Matrix): günstig und sehr hell, aber höherer Stromverbrauch.
-- **Maximale Flexibilität:** Option 3 (LCD 13–15"): teurer, aber am einfachsten zu gestalten.
+**1. RGB P3 Matrix Panel 64x64 (2x)**
 
+- **Pros:**
+    - **Excellent Visibility:** Self-illuminating and very bright, readable when driving in and in a dark garage.
+    - **Signal Colors:** Green/red status can be seen from far away.
+    - **Native Pico W Fit:** Drop-in with the Interstate 75 W, low assembly effort.
+- **Cons:**
+    - **Limited Text Space:** Pixel limit makes long names or license plate formats tight (rated 3 of 5 stars in the earlier comparison).
+    - **High Power Draw:** Highest running cost of the LED options after the P5 panels.
+    - **Low Hardware Protection:** Open PCB, needs an acrylic or IP54 enclosure in the garage.
+
+**2. ePaper 10.3" (IT8951 HAT)**
+
+- **Pros:**
+    - **Very Low Power:** Only the refresh uses energy, the image stays without power.
+    - **Fast Refresh:** Full refresh under 1 s according to Waveshare, partial refresh supported.
+    - **Good Text Capacity:** 1872×1404 pixels, name, license plate (CH/DE/FR) and time fit well.
+- **Cons:**
+    - **Poor Distance Readability:** Not self-illuminating, hard to read from a distance in a dark garage without an extra lamp.
+    - **No Signal Colors:** Black/white only.
+    - **Fragile:** Needs protective glass against impact.
+
+**3. LCD HDMI 13–15"**
+
+- **Pros:**
+    - **Maximum Flexibility:** Unlimited text, logos and special characters.
+    - **Excellent Readability:** Large text, readable even while driving past.
+    - **Robust Housing:** Many models come with metal frames and VESA mounts.
+- **Cons:**
+    - **Extra SBC Per Place:** Each display needs its own Raspberry Pi, which adds cost and maintenance.
+    - **Highest Running Cost of the Single Displays:** 12 W continuous.
+    - **Cabling:** Power and HDMI have to be routed to every place.
+
+**4. ePaper 12.48" Red/Black/White**
+
+- **Pros:**
+    - **Color Accent:** Red allows a simple occupied/free status.
+    - **Large Area:** 1304×984 pixels, plenty of space for all information.
+    - **Very Low Power:** Static image without power use.
+- **Cons:**
+    - **Very Slow Refresh:** About 37 s per update according to Waveshare, fine for parking spaces but not for quick changes.
+    - **Needs a Stronger Controller:** The framebuffer is too big for a Pico W.
+    - **Needs a Frame:** Protective acrylic or glass is needed.
+
+**5. Hybrid: ePaper 10.3" + RGB Status LED Strip**
+
+- **Pros:**
+    - **Best Visibility Per Watt:** The LED strip shows the status from far away, the ePaper shows the details up close.
+    - **Low Running Cost:** 2.1 W, about 6 CHF per year per place.
+    - **Compact Housing Possible:** Both parts fit in one enclosure.
+- **Cons:**
+    - **Custom Assembly:** The strip needs its own mounting and wiring.
+    - **Two Components Per Place:** More parts that can fail.
+    - **Same Limits as Option 2:** No signal color on the ePaper itself.
+
+**6. LCD 10.1" HDMI + Status Light**
+
+- **Pros:**
+    - **Clear Status From Far Away:** The light is visible immediately, the LCD shows the details.
+    - **High Resolution:** 1280×800, flexible layout.
+    - **Standard Interface:** HDMI is easy to replace.
+- **Cons:**
+    - **Extra SBC Per Place:** Needs a Raspberry Pi, plus GPIO or relay for the light.
+    - **More Hardware:** Housing for LCD and light, more wiring.
+    - **10" Can Be Small:** Three pieces of information are hard to read from a larger distance.
+
+**7. E-Ink Color Display 7.3" Spectra 6**
+
+- **Pros:**
+    - **Low Price:** Cheapest e-paper option with color.
+    - **Pico W Compatible:** SPI interface, no SBC needed.
+    - **Almost No Power:** Under 0.20 CHF per year.
+- **Cons:**
+    - **Slow Refresh:** About 12 s according to Waveshare.
+    - **Small Area:** 800×480 pixels, only large text for name, plate and time.
+    - **Not Self-Illuminating:** Hard to read in a dark garage without a lamp.
+
+**8. LED Matrix P5 (3–4x)**
+
+- **Pros:**
+    - **Very Bright:** Readable from a large distance.
+    - **Low Price:** Cheapest option per place.
+    - **Robust:** Often delivered with a solid frame.
+- **Cons:**
+    - **Coarse Pixels:** 5 mm pitch, larger than P3/P4.
+    - **Highest Power Draw:** Up to 93 CHF per year per place.
+    - **Complex Wiring:** Several panels and power supplies per place.
+
+**Summary**
+
+- **Best Overall:** Option 5 (Hybrid ePaper + LED strip): very low running cost and good visibility from far away.
+- **Best Value for Visibility:** Option 1 (P3 Matrix): cheap and very bright, but higher power draw.
+- **Maximum Flexibility:** Option 3 (LCD 13–15"): more expensive, but easiest to design.
 ---
 
 ### Type of Connection 1
