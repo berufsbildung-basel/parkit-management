@@ -26,15 +26,14 @@ Server  -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
 
 # Display-Optionen für 8 Parkplätze (Tiefgarage)
 
-
-1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm)
-2. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80)
-3. [LCD HDMI 13–15" (z. B. 15.6" Monitor)](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor) (Suchlink)
-4. [ePaper 12.48" Rot/Schwarz/Weiss](https://www.waveshare.com/product/displays/e-paper/12.48inch-e-paper-module-b.htm)
-5. [Hybrid: ePaper 10.3" + RGB Status-LED-Strip](https://www.waveshare.com/wiki/10.3inch_e-Paper_HAT) (LED-Strip: [Suchlink](https://www.galaxus.ch/de/search?q=ws2812b%20led%20strip))
-6. [LCD 10.1" HDMI + Statusleuchte](https://uk.robotshop.com/products/waveshare-101-capacitive-touch-screen-lcd-b-w-case-1280800-hdmi-ips-screen-low-power-uk)
-7. [E-Ink Farbdisplay 7.3" Spectra 6](https://www.waveshare.com/product/displays/7.3inch-e-paper-hat-e.htm)
-8. [LED-Matrix P5 (3–4x)](https://www.robotshop.com/products/waveshare-rgb-full-color-led-matrix-panel-5mm-pitch-6432-pixels-adjustable-brightness)
+1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm) (Waveshare Shop)
+2. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80) (RobotShop)
+3. [LCD HDMI 13–15" (z. B. 15.6" Monitor)](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor) (Galaxus, Suchlink)
+4. [ePaper 12.48" Rot/Schwarz/Weiss](https://www.waveshare.com/product/displays/e-paper/12.48inch-e-paper-module-b.htm) (Waveshare Shop)
+5. [Hybrid: ePaper 10.3" + RGB Status-LED-Strip](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80) (RobotShop; LED-Strip: [Galaxus, Suchlink](https://www.galaxus.ch/de/search?q=ws2812b%20led%20strip))
+6. [LCD 10.1" HDMI + Statusleuchte](https://uk.robotshop.com/products/waveshare-101-capacitive-touch-screen-lcd-b-w-case-1280800-hdmi-ips-screen-low-power-uk) (RobotShop UK)
+7. [E-Ink Farbdisplay 7.3" Spectra 6](https://core-electronics.com.au/7-3inch-6-color-e-paper-display-e-ink-hat.html) (Core Electronics)
+8. [LED-Matrix P5 (3–4x)](https://www.robotshop.com/products/waveshare-rgb-full-color-led-matrix-panel-5mm-pitch-6432-pixels-adjustable-brightness) (RobotShop)
 
 > Hinweis: Die Waveshare-P5-Panels haben 64x32 Pixel (320 × 160 mm). Für Option 8 werden mehrere Panels verkettet.
 
