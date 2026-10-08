@@ -24,7 +24,7 @@ Server  -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
 
 
 
-# Display-Optionen für 8 Parkplätze (Tiefgarage)
+# Display-Optionen
 
 1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm) (Waveshare Shop)
 2. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80) (RobotShop)
