@@ -66,33 +66,34 @@ Server  - (type of connection)-> Orchestrator  - (type of connection)-> microc
 
 #### Table of options:
 
-| Component Name                                  | Hardware Price (Est.) | Average Power Draw | Connectivity               | Compatibility                                                          | Replaceability / Scalability                                                    | Exact 1-Year Electricity Cost |
-| ----------------------------------------------- | --------------------- | ------------------ | -------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------- |
-| **Intel NUC**  <br>(Intel Core i3 / i5 Mini PC) | 350.00 – 650.00 CHF   | **25 W**           | Ethernet, Wi-Fi, USB       | **Native:** Runs standard x86 Parkit backend binaries out-of-the-box.  | **High / Limited:** Easily hot-swapped, but physical port counts limit scaling. | **72.82 CHF**                 |
-| **Raspberry Pi 4 / 5**  <br>                    | 60.00 – 135.00 CHF    | **5 W**            | Ethernet, Wi-Fi, GPIO, USB | **High:** Linux-based. Can run local script parsing and queue routing. | **High / Max:** Multi-display routing via single script orchestration.          | **14.56 CHF**                 |
+| Type    | Component Name                                  | Hardware Price (Est.) | Average Power Draw  | Connectivity               | Compatibility                                                          | Replaceability / Scalability                                                    | Exact 1-Year Electricity Cost |
+| ------- | ----------------------------------------------- | --------------------- | ------------------- | -------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------- |
+| Mini PC | **Intel NUC**  <br>(Intel/ASUS NUC)             | 350.00 – 650.00 CHF   | ~10 W (idle 5–15 W) | Ethernet, Wi-Fi, USB       | **Native:** Runs standard x86 Parkit backend binaries out-of-the-box.  | **High / Limited:** Easily hot-swapped, but physical port counts limit scaling. | **29.13CHF**                  |
+|         | **Raspberry Pi 4 / 5** <br>                     | 60.00 – 135.00 CHF    | **5 W**             | Ethernet, Wi-Fi, GPIO, USB | **High:** Linux-based. Can run local script parsing and queue routing. | **High / Max:** Multi-display routing via single script orchestration.          | **14.56 CHF**                 |
+| MCU     |                                                 |                       |                     |                            |                                                                        |                                                                                 |                               |
 #### Pros and cons:
 
 **Intel NUC**
 
 - **Pros:**
-    - **Zero Code Modification:** Runs enterprise x86 binaries natively without cross-compilation delays .
-    - **Industrial Data Redundancy:** Native NVMe SSDs completely prevent filesystem corruption during sudden power drops.
-    - **Offline Heavy Autonomy:** Vast processing headroom to host local booking backups if main servers crash.
-    - **Active Internal Cooling:** Factory fan assembly prevents hardware thermal throttling under heavy room temperatures.
+	- **Zero Code Modification:** Runs enterprise x86 binaries natively without cross-compilation delays.
+	- **Reliable Storage**: NVMe SSDs are far more durable than microSD cards; a UPS is still recommended against sudden power loss
+	- **Offline Heavy Autonomy:** Vast processing headroom to host local booking backups if main servers crash.
+	- **Active Internal Cooling:** Factory fan assembly prevents hardware thermal throttling under heavy room temperatures.
 - **Cons:**
-    - **High Financial Footprint:** Highest initial hardware cost (up to 650 CHF) and annual power overhead (72.82 CHF).
-    - **Sealed Cabinet Risk:** Generates 25W of continuous heat; cannot be locked inside tight, unventilated electrical boxes.
-    - **No Native GPIO Pins:** Requires extra external USB-to-Serial converter boxes to talk to raw hardware components.
+	- **High Financial Footprint:** Highest initial hardware cost (up to 650 CHF) and annual power overhead (72.82 CHF).
+	- **Sealed Cabinet Risk:** Generates 25W of continuous heat; cannot be locked inside tight, unventilated electrical boxes.
+	- **No Native GPIO Pins:** Requires extra external USB-to-Serial converter boxes to talk to raw hardware components.
 
-**Raspberry Pi 4 / 5
+**Raspberry Pi 4 / 5**
 
 - **Pros:**
-    - **Cost-Efficient Queueing:** Great balance of low hardware cost (60–135 CHF) and minimal power draw (14.56 CHF/year).
-    - **Direct Hardware Pins:** Exposed physical GPIO layout connects directly to industrial transceivers without USB adapters.
-    - **Massive Automation Libraries:** Complete Linux OS support for standard Python/Node.js display distribution scripts.
+	- **Cost-Efficient Queueing:** Great balance of low hardware cost (60–135 CHF) and minimal power draw (14.56 CHF/year).
+	- **Direct Hardware Pins:** Exposed physical GPIO layout connects directly to industrial transceivers without USB adapters.
+	- **Massive Automation Libraries:** Complete Linux OS support for standard Python/Node.js display distribution scripts.
 - **Cons:**
-    - **MicroSD Storage Fragility:** Standard memory cards wear down fast and corrupt easily during abrupt power outages.
-    - **Hidden Accessory Cost:** Requires separate purchases of industrial cases, heatsinks, and specialized power regulators for production.
+	- **MicroSD Storage Fragility:** Standard memory cards wear down fast and corrupt easily during abrupt power outages.
+	- **Hidden Accessory Cost:** Requires separate purchases of industrial cases, heatsinks, and specialized power regulators for production.
 
 ---
 
@@ -111,33 +112,32 @@ Server  - (type of connection)-> Orchestrator  - (type of connection)-> microc
 **Raspberry Pi Pico W**
 
 - **Pros:**
-    - **Glitch-Free Video Driving:** Features dedicated PIO (Programmable I/O) hardware state machines to drive HUB75 matrix panels flawlessly without CPU lag.
-    - **Native Shield Ecosystem:** Direct physical drop-in compatibility with the Pimoroni Interstate 75 W, lowering production soldering time.
-    - **Ultra-Low Electrical Overhead:** Costs under 0.60 CHF per year in continuous 24/7 background operation.
+	- **Glitch-Free Video Driving:** Features dedicated PIO (Programmable I/O) hardware state machines to drive HUB75 matrix panels flawlessly without CPU lag.
+	- **Native Shield Ecosystem:** Direct physical drop-in compatibility with the Pimoroni Interstate 75 W, lowering production soldering time.
+	- **Ultra-Low Electrical Overhead:** Costs under 0.60 CHF per year in continuous 24/7 background operation.
 - **Cons:**
-    - **No On-Board Battery Logic:** Lacks native battery charging/management circuitry, requiring external power distribution boards.
-    - **Highly Constrained RAM:** Limited volatile memory prevents processing heavy visual content or full video streaming.
+	- **No On-Board Battery Logic:** Lacks native battery charging/management circuitry, requiring external power distribution boards.
+	- **Highly Constrained RAM:** Limited volatile memory prevents processing heavy visual content or full video streaming.
 
 **MCU with Native LoRa (e.g., ESP32-S3 LoRa)**
 
 - **Pros:**
-    - **Single-Chip Wireless Link:** Combines processing logic and long-range sub-GHz radio reception onto one board without auxiliary modules.
-    - **Dual-Core Processing Core:** Massive clock speed headroom to parse radio data in the background while updating screen text.
-    - **Built-In Power Regulators:** Typically features integrated lithium-polymer battery connectors and charging chips directly on-board.
+	- **Single-Chip Wireless Link:** Combines processing logic and long-range sub-GHz radio reception onto one board without auxiliary modules.
+	- **Dual-Core Processing Core:** Massive clock speed headroom to parse radio data in the background while updating screen text.
+	- **Built-In Power Regulators:** Typically features integrated lithium-polymer battery connectors and charging chips directly on-board.
 - **Cons:**
-    - **LED Connection Difficulties:** Lack of off-the-shelf breakout boards on the market combining LoRa and HUB75 makes physical integration with the LED panel highly challenging.
-     - **Software Rewrite Needed:** Driving HUB75 panels on alternative MCUs requires entirely different libraries, forcing a complete overhaul of your display code.
+	    - **LED Connection Difficulties:** Lack of off-the-shelf breakout boards on the market combining LoRa and HUB75 makes physical integration with the LED panel highly challenging.
+	- **Software Rewrite Needed:** Driving HUB75 panels on alternative MCUs requires entirely different libraries, forcing a complete overhaul of your display code.
 
 **Built-in MCU (All-in-one Smart Display)**
 
 - **Pros:**
-    - **Commercial Clean Aesthetics:** Factory-sealed industrial presentation with zero loose component wires or external development enclosures.
-    - **Hardened Power Input:** built-in voltage regulation circuitry ensures stable operation—even with poor-quality power or voltage fluctuations—without the need for external adapters
-    - **Lower Assembly Time:** Arrives pre-built and pre-wired from the vendor, eliminating field bench assembly labor.
+	- **Commercial Clean Aesthetics:** Factory-sealed industrial presentation with zero loose component wires or external development enclosures.
+	- **Hardened Power Input:** built-in voltage regulation circuitry ensures stable operation—even with poor-quality power or voltage fluctuations—without the need for external adapters
+	- **Lower Assembly Time:** Arrives pre-built and pre-wired from the vendor, eliminating field bench assembly labor.
 - **Cons:**
-    - **Complete Vendor Lock-In:** Software features, security patches, and network protocols are entirely dependent on the manufacturer's updates.
-    - **Monolithic Hardware Failure:** If a single component on the micro-controller fails, the entire visual display panel must be discarded and replaced.
-
+	- **Complete Vendor Lock-In:** Software features, security patches, and network protocols are entirely dependent on the manufacturer's updates.
+	- **Monolithic Hardware Failure:** If a single component on the micro-controller fails, the entire visual display panel must be discarded and replaced.
 
 
 
@@ -258,20 +258,58 @@ Server  - (type of connection)-> Orchestrator  - (type of connection)-> microc
 - **Best Overall:** Option 5 (Hybrid ePaper + LED strip): very low running cost and good visibility from far away.
 - **Best Value for Visibility:** Option 1 (P3 Matrix): cheap and very bright, but higher power draw.
 - **Maximum Flexibility:** Option 3 (LCD 13–15"): more expensive, but easiest to design.
+
 ---
 
 ### Type of Connection 1
 
 #### Table of options:
 
-| Component Name | Hardware Price (Est.) | Average Power Draw | Connectivity | Compatibility | Replaceability / Scalability | Exact 1-Year Electricity Cost |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Indoor LoRaWAN Gateway** | 70.00 – 250.00 CHF | 4 W | RS-485 Serial Bus, Ethernet | **Native Server Ecosystem:** Runs internal LoRaWAN stacks (ChirpStack, etc.). | **High:** Fully integrated industrial-grade chassis with standardized protocols. | 11.65 CHF |
-| **Single Board Computer with LoRa HAT** | 85.00 – 140.00 CHF | 6 W | USB, RS-485, Wi-Fi, Ethernet | **Full OS Control:** Linux-based; runs scripts to parse and route any server APIs | **Maximum:** Full Linux OS. Open market platform compatible with any module. | 17.48 CHF |
 
+| Type           | Component Name                                                                                                           | Hardware Price (Est.)                                | Average Power Draw | Connectivity                              | Compatibility                                                                                                  | Replaceability / Scalability                                                                                                                   | Exact 1-Year Electricity Cost |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- | ------------------ | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| LoRaWAN        | **Indoor LoRaWAN Gateway** (one Indoor LoRaWAN Gateway must be placed next to the server)                                | 70.00 – 250.00 CHF                                   | 4 W                | RS-485 Serial Bus, Ethernet               | **Native Server Ecosystem:** Runs internal LoRaWAN stacks (e.g., ChirpStack).                                  | **High:** Fully integrated industrial-grade chassis with standardized protocols.                                                               | 11.65 CHF                     |
+|                | **LoRa HAT** (for a single-board computer / orchestrator) (one Indoor LoRaWAN Gateway must be placed next to the server) | 90–130 CHF                                           | 0.1 W – 0.5 W      | SPI / UART                                | **Hardware Module:** Requires a compatible 40-pin header on the single-board computer.                         | **Maximum:** Detachable board. Can be easily replaced or swapped onto a different host computer.                                               | 0.29 – 1.46 CHF               |
+|                | **Swisscom LPN LoRaWAN**                                                                                                 | Requires an LPN subscription: ~5.40 – 42.00 CHF/year | –                  | LoRaWAN via public Swisscom base stations | **Cloud Webhook Integration:** Swisscom Network Server relays data directly to your Parkit API via HTTPS POST. | **Maximum:** No physical gateway hardware to manage; instant scaling over the air.                                                             | –                             |
+| Physical Cable | Physical Cable Laying                                                                                                    | 1'200.00 – 2'800.00 CHF                              | –                  | RJ45                                      | **Universal Standard:** Instantly compatible with all standard routers, switches, and NUC/Pi setups.           | **Low / Fixed:** Physical wires are fixed in conduits and hard to re-route, but they can handle future bandwidth upgrades without replacement. | –                             |
 #### Pros and cons:
 
-*(noch offen)*
+**Indoor LoRaWAN Gateway**
+
+- **Pros:**
+    - **Local Control:** Runs localized network stacks (e.g., ChirpStack), keeping data processing completely within the facility boundary.
+    - **Industrial Housing:** Standardized factory enclosures protect the radio core from building dust and power drops.
+- **Cons:**
+    - **Initial Hardware Footprint:** Requires buying and securing a dedicated physical router unit near the server room.
+    - **Data Rate Caps:** Constrained by regional 868 MHz airtime regulations, limiting updates to short text packs.
+
+**LoRa HAT** (for Single Board Computer)
+
+- **Pros:**
+    - **Lowest Core Cost:** The cheapest physical hardware option (25.00 – 40.00 CHF) to add long-range radio features to an existing setup.
+    - **Direct Host Swapping:** Plugs into standard 40-pin computer rails, making component replacement fast and simple.
+- **Cons:**
+    - **Host Thermal Throttling Risk:** Mounting the expansion shield directly over the host computer's main processor blocks airflow, leading to high thermal risks inside tight electrical enclosures.
+    - **Hardware Resource Conflicts:** Occupying the SPI and GPIO bus lanes for the LoRa link often locks out the physical ability to simultaneously attach other industrial hats (such as hardware RS-485 shields).
+
+**Swisscom LPN LoRaWAN**
+
+- **Pros:**
+    - **Zero Local Hardware Setup:** Bypasses buying, mounting, or maintaining private radio routers on the facility floor.
+    - **Direct Web Integration:** Relays garage data straight to your Parkit API endpoint via encrypted cloud webhooks .
+- **Cons:**
+    - **Underground Penetration Failure:** Public telecom waves often struggle to penetrate thick basement concrete, risking dead zones.
+    - **Continuous Opex Fees:** Replaces upfront installation capital with rolling multi-year contract subscription costs per node.
+
+**Physical Cable Laying**
+
+- **Pros:**
+    - **Infinite Data Flow:** No network packet limits or wireless lag; moves heavy logging or debug files seamlessly.
+    - **Zero Interference Shadows:** Completely unaffected by moving vehicles, heavy garage doors, or basement concrete structures.
+- **Cons:**
+    - **Severe Structural Labor:** Demands structural core drilling across three concrete floor fire barriers and layout positioning inside vertical technical risers.
+    - **Highest Upfront Capital:** Initial deployment costs are significantly higher.
+
 
 ---
 
