@@ -133,7 +133,6 @@ Server -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
 
 ### Display
 
-### Display
 
 #### Table of options:
 
