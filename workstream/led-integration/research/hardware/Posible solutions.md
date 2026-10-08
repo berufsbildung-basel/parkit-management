@@ -264,10 +264,10 @@ Server  - (type of connection)-> Orchestrator  - (type of connection)-> microc
 
 #### Table of options:
 
-| Component Name                          | Hardware Price (Est.) | Average Power Draw | Connectivity                 | Compatibility                                                                     | Replaceability / Scalability                                                     | Exact 1-Year Electricity Cost |
-| --------------------------------------- | --------------------- | ------------------ | ---------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------- |
-| **Indoor LoRaWAN Gateway**              | 70.00 – 250.00 CHF    | 4 W                | RS-485 Serial Bus, Ethernet  | **Native Server Ecosystem:** Runs internal LoRaWAN stacks (ChirpStack, etc.).     | **High:** Fully integrated industrial-grade chassis with standardized protocols. | 11.65 CHF                     |
-| **Single Board Computer with LoRa HAT** | 85.00 – 140.00 CHF    | 6 W                | USB, RS-485, Wi-Fi, Ethernet | **Full OS Control:** Linux-based; runs scripts to parse and route any server APIs | **Maximum:** Full Linux OS. Open market platform compatible with any module.     | 17.48 CHF                     |
+| Component Name | Hardware Price (Est.) | Average Power Draw | Connectivity | Compatibility | Replaceability / Scalability | Exact 1-Year Electricity Cost |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Indoor LoRaWAN Gateway** | 70.00 – 250.00 CHF | 4 W | RS-485 Serial Bus, Ethernet | **Native Server Ecosystem:** Runs internal LoRaWAN stacks (ChirpStack, etc.). | **High:** Fully integrated industrial-grade chassis with standardized protocols. | 11.65 CHF |
+| **Single Board Computer with LoRa HAT** | 85.00 – 140.00 CHF | 6 W | USB, RS-485, Wi-Fi, Ethernet | **Full OS Control:** Linux-based; runs scripts to parse and route any server APIs | **Maximum:** Full Linux OS. Open market platform compatible with any module. | 17.48 CHF |
 
 #### Pros and cons:
 
