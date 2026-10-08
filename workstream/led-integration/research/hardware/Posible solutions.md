@@ -22,29 +22,7 @@ Server  -> LoRa Gateway->Gateway-> display with built-in microcontroler with lor
 Server  -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
 
 
-## Display Options
 
-- [RGB P3 Matrix Panel 64x64 (2x) – Waveshare / Bastelgarage](https://www.bastelgarage.ch/rgb-p3-matrix-panel-64x64-hub75)
-- [ePaper 10" – Waveshare 10.3" ePaper HAT](https://www.waveshare.com/product/displays/e-paper/10.3inch-e-paper-hat.htm)
-- [LCD HDMI 10" – Waveshare 10.1" HDMI LCD](https://www.waveshare.com/10.1inch-HDMI-LCD.htm)
-- [ePaper 13,3" – Waveshare 13.3" ePaper](https://www.waveshare.com/13.3inch-e-paper.htm)
-- [LCD HDMI 13–15" – Beispiel 15.6" HDMI Monitor](https://www.waveshare.com/product/displays/lcd-oled/lcd-oled-1.htm)
-- [LED Dot-Matrix groß – Beispielprodukt](https://www.adafruit.com/product/2278)
-- [RGB P4 Matrix Panel (2–3x) – Beispielprodukt](https://www.waveshare.com/rgb-matrix-p4-64x32.htm)
-- [LCD 10–13" + Statusleuchte – Waveshare 10.1" HDMI LCD](https://www.waveshare.com/10.1inch-HDMI-LCD-E.htm)
-
-| Name | ca. Kosten pro Platz | ca. Kosten für 8 Plätze | Kosten pro Jahr* | Stromverbrauch | Platz für Informationen | Lesbarkeit aus Distanz | Eignung für unser Projekt | Pro | Contra |
-| :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
-| **RGB P3 Matrix Panel 64x64 (2x)** | ~72 CHF | ~576 CHF | ~700 CHF | Hoch | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Sehr hell, große Schrift, Farben für Status möglich, zwei Panels bieten viel Fläche | Hoher Stromverbrauch, Controller und Netzteil nötig |
-| **ePaper 10"** | 158 CHF | 1'264 CHF | ~5 CHF | Sehr niedrig | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Name, Kennzeichen und Zeit gut darstellbar, extrem stromsparend | Für große Schrift etwas knapp, langsame Aktualisierung |
-| **LCD HDMI 10"** | 115 CHF | 920 CHF | ~100–200 CHF | Mittel | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Hohe Auflösung, flexible Darstellung, einfach anzusteuern | 10" könnte für drei Informationen aus größerer Distanz etwas klein sein |
-| **ePaper 13,3"** | ~250–400 CHF | ~2'000–3'200 CHF | ~5–20 CHF | Sehr niedrig | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Viel Platz für Name, Kennzeichen und Zeit, extrem niedriger Stromverbrauch | Sehr hohe Anschaffungskosten bei 8 Parkplätzen |
-| **LCD HDMI 13–15"** | ~130–250 CHF | ~1'040–2'000 CHF | ~150–300 CHF | Mittel | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Viel Platz, große Schrift, hohe Auflösung und sehr flexible Darstellung | Höherer Stromverbrauch und teurer als LED-Matrix |
-| **LED Dot-Matrix groß** | ~80–150 CHF | ~640–1'200 CHF | ~250–450 CHF | Mittel | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Sehr gute Lesbarkeit aus Distanz und große Schrift möglich | Begrenzte Auflösung für Name + Kennzeichen + Zeit |
-| **RGB P4 Matrix Panel (2–3x)** | ~70–150 CHF | ~560–1'200 CHF | ~400–600 CHF | Hoch | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Große Anzeige, sehr gut sichtbar und relativ günstig | Gröbere Pixel als P3 und hoher Stromverbrauch |
-| **LCD 10–13" + Statusleuchte** | ~120–200 CHF | ~960–1'600 CHF | ~100–250 CHF | Mittel | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Status aus Distanz sofort sichtbar, LCD zeigt Name, Kennzeichen und Zeit | Zusätzliche Hardware, Verkabelung und Steuerung nötig |
-
-\* Die jährlichen Kosten sind grobe Schätzwerte für den Strombetrieb bei dauerhaft eingeschalteten Displays. Bei ePaper ist der Verbrauch im statischen Zustand sehr gering; die tatsächlichen Kosten hängen vom konkreten Modell und Strompreis ab.
 
 # Display-Optionen für 8 Parkplätze (Tiefgarage)
 
