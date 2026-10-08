@@ -33,7 +33,64 @@ The following structure serves as the baseline architecture from which all syste
 
 ## Possible structure
 
-####  !!!!!!!!!hier soll etwas sein!!!!!!!!!!!!
+## Possible structure
+
+Legend: `(×8)` = one unit per parking space.
+
+### Solution 1: Cable + Raspberry Pi
+
+```
+Server ➔ Physical cable (Ethernet) ➔ Raspberry Pi 4/5 ➔ Wi-Fi (MQTT) ➔ Raspberry Pi Pico W (×8) ➔ Display (×8)
+```
+
+- Simplest and cheapest setup, native fit with HUB75 panels (Pico W + Interstate 75 W).
+- Needs a Wi-Fi access point in the garage and the cable laying.
+
+### Solution 2: Cable + Intel NUC
+
+```
+Server ➔ Physical cable (Ethernet) ➔ Intel NUC ➔ Wi-Fi (MQTT) ➔ Raspberry Pi Pico W (×8) ➔ Display (×8)
+```
+
+- Same as Solution 1, but the Parkit backend binaries run natively and the NVMe SSD is more robust.
+- Higher hardware cost (350–650 CHF) and higher power draw than the Raspberry Pi.
+
+### Solution 3: LoRa gateway + orchestrator with LoRa HAT
+
+```
+Server ➔ Indoor LoRaWAN Gateway ➔ LoRa ➔ Raspberry Pi + LoRa HAT (orchestrator) ➔ Wi-Fi (MQTT) ➔ Raspberry Pi Pico W (×8) ➔ Display (×8)
+```
+
+- No cable between server room and garage, but the gateway must be placed next to the server.
+- Keeps the Pico W and the HUB75 displays, LoRa is only used up to the orchestrator.
+
+### Solution 4: LoRa gateway + microcontroller with native LoRa
+
+```
+Server ➔ Indoor LoRaWAN Gateway ➔ LoRa ➔ MCU with Native LoRa, e.g. ESP32-S3 LoRa (×8) ➔ ePaper Display (×8)
+```
+
+- No orchestrator and no Wi-Fi needed.
+- Best suited for ePaper: LED panels are hard to connect to LoRa boards (see Microcontroller cons).
+
+### Solution 5: Swisscom LoRaWAN
+
+```
+Server ➔ Internet (HTTPS) ➔ Swisscom LPN LoRaWAN ➔ LoRa ➔ MCU with Native LoRa, e.g. ESP32-S3 LoRa (×8) ➔ ePaper Display (×8)
+```
+
+- No own gateway to buy or maintain, only the LPN subscription (~5.40 – 42.00 CHF/year).
+- Signal coverage in the underground garage must be tested first.
+
+### Overview
+
+| # | Connection 1 | Orchestrator | Connection 2 | Microcontroller | Display |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Physical cable | Raspberry Pi 4/5 | Wi-Fi (MQTT) | Raspberry Pi Pico W | Any (e.g. HUB75 panel) |
+| 2 | Physical cable | Intel NUC | Wi-Fi (MQTT) | Raspberry Pi Pico W | Any (e.g. HUB75 panel) |
+| 3 | LoRaWAN Gateway | Raspberry Pi + LoRa HAT | Wi-Fi (MQTT) | Raspberry Pi Pico W | Any (e.g. HUB75 panel) |
+| 4 | LoRaWAN Gateway | – | LoRa | MCU with Native LoRa | ePaper |
+| 5 | Swisscom LPN | – | LoRa | MCU with Native LoRa | ePaper |
 
 ```
 Server -(cable or something else)-> Intel Nuc -> Raspberry Pi Pico W (8) -> display
