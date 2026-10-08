@@ -14,7 +14,7 @@
     - Display
         - Table of options
         - Pros and cons
-        - Type of Connection 1
+    - Type of Connection 1
         - Table of options
         - Pros and cons
     - Type of Connection 2
