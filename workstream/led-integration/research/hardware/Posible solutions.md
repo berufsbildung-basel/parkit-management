@@ -35,37 +35,37 @@ The following structure serves as the baseline architecture from which all syste
 
 `Server ➔ [Type of Connection 1] ➔ Orchestrator ➔ [Type of Connection 2] ➔ Microcontroller ➔ Display`
 
-### Possible structure
+#### Possible structure
 
-#### Solution 1: Cable + Raspberry Pi
+##### Solution 1: Cable + Raspberry Pi
 
 ```
-Server ➔ Physical cable (Ethernet) ➔ Raspberry Pi 4/5 ➔ Wi-Fi (MQTT) ➔ Raspberry Pi Pico W + Interstate 75 W  ➔ RGB P3 Matrix Panel 64x64, 2 panels per place 
+Server ➔ Physical cable (Ethernet) ➔ Raspberry Pi 4/5 ➔ Wi-Fi (MQTT) ➔ Raspberry Pi Pico W + Interstate 75 W  ➔ RGB P3 Matrix Panel 64x64, 2 panels per place
 ```
 
-- Simplest and cheapest setup, native fit with HUB75 panels (Pico W + Interstate 75 W).
+- Simplest setup with the most reliable data link (wired), native fit with HUB75 panels (Pico W + Interstate 75 W).
 - Needs a Wi-Fi access point in the garage and the cable laying.
 
-#### Solution 2: LoRa gateway + microcontroller with native LoRa
+##### Solution 2: LoRa gateway + microcontroller with native LoRa
 
 ```
-Server ➔ Indoor LoRaWAN Gateway ➔ LoRa ➔ MCU with Native LoRa, e.g. ESP32-S3 LoRa ➔ E-Ink Color Display 7.3" Spectra 6 
+Server ➔ Indoor LoRaWAN Gateway ➔ LoRa ➔ MCU with Native LoRa, e.g. ESP32-S3 LoRa ➔ E-Ink Color Display 7.3" Spectra 6
 ```
 
 - No orchestrator and no Wi-Fi needed.
 - Best suited for ePaper: LED panels are hard to connect to LoRa boards (see Microcontroller cons).
 - The gateway must be placed next to the server.
 
-#### Solution 3: Swisscom LoRaWAN
+##### Solution 3: Swisscom LoRaWAN
 
 ```
-Server ➔ Internet (HTTPS) ➔ Swisscom LPN LoRaWAN ➔ LoRa ➔ MCU with Native LoRa, e.g. ESP32-S3 LoRa  ➔ E-Ink Color Display 7.3" Spectra 6 
+Server ➔ Internet (HTTPS) ➔ Swisscom LPN LoRaWAN ➔ LoRa ➔ MCU with Native LoRa, e.g. ESP32-S3 LoRa  ➔ E-Ink Color Display 7.3" Spectra 6
 ```
 
 - No own gateway to buy or maintain, only the LPN subscription (~5.40 – 42.00 CHF/year).
 - Signal coverage in the underground garage must be tested first.
 
-#### Overview (for Possible structure)
+##### Overview (for Possible structure)
 
 |#|Server|Connection 1|Orchestrator|Connection 2|Microcontroller|Display|
 |---|---|---|---|---|---|---|
@@ -73,7 +73,7 @@ Server ➔ Internet (HTTPS) ➔ Swisscom LPN LoRaWAN ➔ LoRa ➔ MCU with Nativ
 |2|Server|LoRaWAN Gateway|–|LoRa|MCU with Native LoRa (e.g. ESP32-S3 LoRa)|E-Ink Color Display 7.3" Spectra 6|
 |3|Server|Swisscom LPN|–|LoRa|MCU with Native LoRa (e.g. ESP32-S3 LoRa)|E-Ink Color Display 7.3" Spectra 6|
 
-#### Cost and risk comparison (8 parking spaces)
+##### Cost and risk comparison (8 parking spaces)
 
 Prices are estimates based on the component tables. The Interstate 75 W board, power supplies, enclosures and the Wi-Fi access point are not included.
 
@@ -166,16 +166,16 @@ Prices are estimates based on the component tables. The Interstate 75 W board, p
 ---
 
 
-### Display
+#### Display
 
-#### Table of options:
+##### Table of options:
 
-| Type               | Component Name                                                                                                                                                                  | Hardware Price (Est.)  | Average Power Draw                                  | Connectivity                          | Compatibility                                                                                                       | Replaceability / Scalability                                      | Exact 1-Year Electricity Cost |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------- |
-| LED Matrix (HUB75) | **1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm)**                                                                                      | ~72 CHF per place      | **16 W**  <br>(2 panels, max. 40 W)                 | HUB75, separate 5 V supply per panel  | **Maximum:** Native fit with Pimoroni Interstate 75 W + Pico W.                                                     | **High:** Standard HUB75 panels from many vendors, chainable.     | **46.60 CHF**                 |
-| ePaper / E-Ink     | **2. [E-Ink Color Display 7.3" Spectra 6](https://core-electronics.com.au/7-3inch-6-color-e-paper-display-e-ink-hat.html)**                                                     | ~90–120 CHF per place  | **0.07 W**  <br>(max. during refresh, standby ≈ 0)  | SPI (driver HAT, 3.3 V / 5 V)         | **High:** Works with Pico W / ESP32 / Raspberry Pi, Waveshare provides SPI demo code.                               | **Medium:** Waveshare-specific panel.                             | **0.20 CHF**                  |
-|                    | **3. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80)** | ~158 CHF per place     | **0.1 W**  <br>(Standby; 1.2 W only during refresh) | USB / SPI / I80 via IT8951 driver HAT | **Medium:** HAT is built for the Raspberry Pi 40-pin header. Pico W possible via SPI wiring, but needs custom code. | **Medium:** Waveshare-specific panel and driver board.            | **0.29 CHF**                  |
-| LCD (HDMI)         | **4. [LCD HDMI 13–15"](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor)** (e.g. 15.6" monitor, search link)                                                     | ~130–250 CHF per place | **12 W**                                            | HDMI + power supply                   | **Low–Medium:** Needs a Raspberry Pi (or similar SBC) per place. A Pico W cannot drive HDMI.                        | **High:** Standard monitor with VESA mount, available everywhere. | **34.95 CHF**                 |
+|Type|Component Name|Hardware Price (Est.)|Average Power Draw|Connectivity|Compatibility|Replaceability / Scalability|Exact 1-Year Electricity Cost|
+|---|---|---|---|---|---|---|---|
+|LED Matrix (HUB75)|**1. [RGB P3 Matrix Panel 64x64 (2x)](https://www.waveshare.com/rgb-matrix-p3-64x64.htm)**|~72 CHF per place|**16 W**  <br>(2 panels, max. 40 W)|HUB75, separate 5 V supply per panel|**Maximum:** Native fit with Pimoroni Interstate 75 W + Pico W.|**High:** Standard HUB75 panels from many vendors, chainable.|**46.60 CHF**|
+|ePaper / E-Ink|**2. [E-Ink Color Display 7.3" Spectra 6](https://core-electronics.com.au/7-3inch-6-color-e-paper-display-e-ink-hat.html)**|~90–120 CHF per place|**0.07 W**  <br>(max. during refresh, standby ≈ 0)|SPI (driver HAT, 3.3 V / 5 V)|**High:** Works with Pico W / ESP32 / Raspberry Pi, Waveshare provides SPI demo code.|**Medium:** Waveshare-specific panel.|**0.20 CHF**|
+||**3. [ePaper 10.3" (IT8951 HAT)](https://www.robotshop.com/products/waveshare-103-e-paper-e-ink-display-hat-for-raspberry-pi-18721404-black-white-16-grey-scales-usb-spi-i80)**|~158 CHF per place|**0.1 W**  <br>(Standby; 1.2 W only during refresh)|USB / SPI / I80 via IT8951 driver HAT|**Medium:** HAT is built for the Raspberry Pi 40-pin header. Pico W possible via SPI wiring, but needs custom code.|**Medium:** Waveshare-specific panel and driver board.|**0.29 CHF**|
+|LCD (HDMI)|**4. [LCD HDMI 13–16"](https://www.galaxus.ch/de/search?q=15.6%20zoll%20hdmi%20monitor)** (e.g. 15.6" monitor, search link)|~130–250 CHF per place (without Pi)|**12 W** (without Pi)|HDMI + power supply|**Low–Medium:** Needs a Raspberry Pi (or similar SBC) per place. A Pico W cannot drive HDMI.|**High:** Standard monitor with VESA mount, available everywhere.|**34.95 CHF** (without Pi)|
 
 ##### Pros and cons:
 
@@ -187,7 +187,7 @@ Prices are estimates based on the component tables. The Interstate 75 W board, p
     - **Native Pico W Fit:** Drop-in with the Interstate 75 W, low assembly effort.
 - **Cons:**
     - **Limited Text Space:** Pixel limit makes long names or license plate formats tight.
-    - **High Power Draw:** About 47 CHF per year per place, the highest running cost of all options.
+    - **High Power Draw:** About 47 CHF per year per place, much higher than the ePaper options.
     - **Low Hardware Protection:** Open PCB, needs an acrylic or IP54 enclosure in the garage.
     - **Hard to Combine with LoRa:** No off-the-shelf boards combine LoRa and HUB75, so it fits only the Wi-Fi/Pico W setup.
 
@@ -196,7 +196,7 @@ Prices are estimates based on the component tables. The Interstate 75 W board, p
 - **Pros:**
     - **Low Price:** Cheapest e-paper option with color.
     - **Pico W / ESP32 Compatible:** SPI interface, no SBC needed.
-    - **Almost No Power:** Under 0.20 CHF per year.
+    - **Almost No Power:** About 0.20 CHF per year.
 - **Cons:**
     - **Slow Refresh:** About 12 s according to Waveshare.
     - **Small Area:** 800×480 pixels, only large text for name, plate and time.
@@ -215,7 +215,7 @@ Prices are estimates based on the component tables. The Interstate 75 W board, p
     - **More Integration Work:** Built for the Raspberry Pi header, so an ESP32 needs custom SPI wiring and code.
     - **Fragile:** Needs protective glass against impact.
 
-**4. LCD HDMI 13–15"**
+**4. LCD HDMI 13–16"**
 
 - **Pros:**
     - **Maximum Flexibility:** Unlimited text, logos and special characters.
@@ -223,7 +223,7 @@ Prices are estimates based on the component tables. The Interstate 75 W board, p
     - **Robust Housing:** Many models come with metal frames and VESA mounts.
 - **Cons:**
     - **Extra SBC Per Place:** Each display needs its own Raspberry Pi, which adds cost and maintenance.
-    - **High Running Cost:** 12 W continuous, about 35 CHF per year per place.
+    - **High Running Cost:** 12 W continuous, about 35 CHF per year per place, plus about 15 CHF per year for the Raspberry Pi.
     - **Cabling:** Power and HDMI have to be routed to every place.
     - **Not Compatible with LoRa Setups:** Needs a Raspberry Pi per place, so it only fits a Wi-Fi-based structure.
 
@@ -232,13 +232,7 @@ Prices are estimates based on the component tables. The Interstate 75 W board, p
 - **Best Visibility:** Option 1 (P3 Matrix): very bright and readable from far away, but high power draw.
 - **Lowest Running Cost:** Option 2 (E-Ink Spectra 6): almost no power and the cheapest ePaper per place, but slow and hard to read in the dark.
 - **Most Text Space (ePaper):** Option 3 (ePaper 10.3"): fast refresh and a lot of space, but black/white only and more integration work.
-- **Maximum Flexibility:** Option 4 (LCD 13–15"): easiest to design, but the most expensive setup per place and high running cost.
-
-
-
-
----
-
+- **Maximum Flexibility:** Option 4 (LCD 13–16"): easiest to design, but needs a Raspberry Pi per place and has high running cost.
 ### Type of Connection 1
 
 #### Table of options:
