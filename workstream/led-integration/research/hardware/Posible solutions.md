@@ -4,6 +4,12 @@
 
 - Overview
 - Possible structure
+	- Solution 1: Cable + Raspberry Pi
+	- Solution 2: Cable + Intel NUC
+	- Solution 3: LoRa gateway + orchestrator with LoRa HAT
+	- Solution 4: LoRa gateway + microcontroller with native LoRa
+	- Solution 5: Swisscom LoRaWAN
+	- Overview (for Possible structure)
 - Components
     - Orchestrator
         - Table of options
@@ -80,13 +86,14 @@ Server ➔ Internet (HTTPS) ➔ Swisscom LPN LoRaWAN ➔ LoRa ➔ MCU with Nativ
 
 ### Overview (for Possible structure)
 
-| # | Connection 1 | Orchestrator | Connection 2 | Microcontroller | Display |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Physical cable | Raspberry Pi 4/5 | Wi-Fi (MQTT) | Raspberry Pi Pico W | Any (e.g. HUB75 panel) |
-| 2 | Physical cable | Intel NUC | Wi-Fi (MQTT) | Raspberry Pi Pico W | Any (e.g. HUB75 panel) |
-| 3 | LoRaWAN Gateway | Raspberry Pi + LoRa HAT | Wi-Fi (MQTT) | Raspberry Pi Pico W | Any (e.g. HUB75 panel) |
-| 4 | LoRaWAN Gateway | – | LoRa | MCU with Native LoRa | ePaper |
-| 5 | Swisscom LPN | – | LoRa | MCU with Native LoRa | ePaper |
+| #   | Connection 1    | Orchestrator            | Connection 2 | Microcontroller      | Display                |
+| --- | --------------- | ----------------------- | ------------ | -------------------- | ---------------------- |
+| 1   | Physical cable  | Raspberry Pi 4/5        | Wi-Fi (MQTT) | Raspberry Pi Pico W  | Any (e.g. HUB75 panel) |
+| 2   | Physical cable  | Intel NUC               | Wi-Fi (MQTT) | Raspberry Pi Pico W  | Any (e.g. HUB75 panel) |
+| 3   | LoRaWAN Gateway | Raspberry Pi + LoRa HAT | Wi-Fi (MQTT) | Raspberry Pi Pico W  | Any (e.g. HUB75 panel) |
+| 4   | LoRaWAN Gateway | –                       | LoRa         | MCU with Native LoRa | ePaper                 |
+| 5   | LoRaWAN Gateway | LoRaWAN Gateway         | LoRa         | MCU with Native LoRa | ePaper                 |
+| 6   | Swisscom LPN    | –                       | LoRa         | MCU with Native LoRa | ePaper                 |
 
 ## Components
 ### Orchestrator 
