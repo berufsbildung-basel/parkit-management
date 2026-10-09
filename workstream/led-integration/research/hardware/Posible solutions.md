@@ -25,13 +25,9 @@
 
 This document outlines the proposed architectural structure for the project and evaluates the technical components required for its implementation. It serves as a comprehensive reference to guide the selection of hardware, software, and communication interfaces.
 
-
-
 The following structure serves as the baseline architecture from which all system variations are derived:
 
 `Server ➔ [Type of Connection 1] ➔ Orchestrator ➔ [Type of Connection 2] ➔ Microcontroller ➔ Display`
-
-## Possible structure
 
 ## Possible structure
 
@@ -82,7 +78,7 @@ Server ➔ Internet (HTTPS) ➔ Swisscom LPN LoRaWAN ➔ LoRa ➔ MCU with Nativ
 - No own gateway to buy or maintain, only the LPN subscription (~5.40 – 42.00 CHF/year).
 - Signal coverage in the underground garage must be tested first.
 
-### Overview
+### Overview (for Possible structure)
 
 | # | Connection 1 | Orchestrator | Connection 2 | Microcontroller | Display |
 | --- | --- | --- | --- | --- | --- |
@@ -91,32 +87,6 @@ Server ➔ Internet (HTTPS) ➔ Swisscom LPN LoRaWAN ➔ LoRa ➔ MCU with Nativ
 | 3 | LoRaWAN Gateway | Raspberry Pi + LoRa HAT | Wi-Fi (MQTT) | Raspberry Pi Pico W | Any (e.g. HUB75 panel) |
 | 4 | LoRaWAN Gateway | – | LoRa | MCU with Native LoRa | ePaper |
 | 5 | Swisscom LPN | – | LoRa | MCU with Native LoRa | ePaper |
-
-```
-Server -(cable or something else)-> Intel Nuc -> Raspberry Pi Pico W (8) -> display
-
-Server -(cable or something else)-> raspbery pi-> Raspberry Pi Pico W (8) -> display
-
-
-
-
-
-Lora solutions:
-
-Server -(cable or something else)-> LoRa Gateway->Node ->Orchestator -> Raspberry Pi  Pico W (8) -> display
-
-Server -(cable or something else)-> LoRa Gateway-> Orchestator(node) -> Raspberry Pi Pico W (8) -> display
-
-Server  -> LoRa Gateway->Gateway-> (with some lora modul)Raspberry Pi Pico W (8) -> display
-
-Server  -> LoRa Gateway->Gateway->new microcontrolers with built-in lora fuctions -> display
-
-Server  -> LoRa Gateway->Gateway-> display with built-in microcontroler with lora fuctions
-
-Server  -> Swisscom Server -> Swisscom Lora -> microcontoler -> displai
-
-Server  - (type of connection)-> Orchestrator  - (type of connection)-> microcontroller  -> display
-```
 
 ## Components
 ### Orchestrator 
