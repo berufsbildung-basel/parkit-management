@@ -4,7 +4,7 @@
 - Possible structure
     - Architecture 1: Intel NUC + Interstate 75 W + HUB75 LED matrix
     - Architecture 2: Raspberry Pi 5 + Interstate 75 W + HUB75 LED matrix
-    - Architecture 3: Private LoRaWAN + Heltec LoRa 32 V3 + ePaper
+    - Architecture 3: Private LoRaWAN + Seeed XIAO ESP32S3 / Wio-SX1262 + ePaper
     - Overall comparison
     - Open points
 - Components
@@ -43,7 +43,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 
 1. Intel NUC Orchestrator + Wi-Fi/MQTT + Interstate 75 W (Pico W) Controllers + HUB75 LED Matrix
 2. Raspberry Pi 5 Orchestrator (Ethernet or LoRa uplink) + Wi-Fi/MQTT + Interstate 75 W (Pico W) Controllers + HUB75 LED Matrix
-3. Private LoRaWAN Gateway + Heltec LoRa 32 V3 Controllers + ePaper Displays
+3. Private LoRaWAN Gateway + Seeed XIAO ESP32S3 / Wio-SX1262 Controllers + ePaper Displays
 
 ---
 
@@ -51,16 +51,15 @@ This section evaluates three possible architectures for integrating the Parkit a
 
 ##### 1. Architecture Diagram
 
-![[Pasted image 20261012102657.png|496]]
-
+<img src="workstream/led-integration/research/hardware/imgg/Pasted image 20261012102657.png" width=400 heigth= auto>
 ##### 2. Components
 
-|Component|Qty.|Role|
-|---|---|---|
-|Server|1|Python-based Parkit API integration (HTTPS)|
-|Intel NUC|1|Orchestrator: receives Parkit data, runs the MQTT broker and routes data to the controllers|
-|Interstate 75 W + Pico W|8|MCU: receives MQTT messages and drives the LED panel|
-|LED Matrix Panels|8|Displays parking information|
+| Component                | Qty. | Role                                                                                        |
+| ------------------------ | ---- | ------------------------------------------------------------------------------------------- |
+| Server                   | 1    | Python-based Parkit API integration (HTTPS)                                                 |
+| Intel NUC                | 1    | Orchestrator: receives Parkit data, runs the MQTT broker and routes data to the controllers |
+| Interstate 75 W + Pico W | 8    | MCU: receives MQTT messages and drives the LED panel                                        |
+| LED Matrix Panels        | 8    | Displays parking information                                                                |
 
 ##### 3. Software & Libraries
 
@@ -110,18 +109,17 @@ This section evaluates three possible architectures for integrating the Parkit a
 #### Architecture 2 — Raspberry Pi 5 Orchestrator + Interstate 75 W Controllers + HUB75 LED Matrix
 
 ##### 1. Architecture Diagram
-
-![[Pasted image 20261012100345.png|483]]
-
+<img src="workstream/led-integration/research/hardware/imgg/Pasted image 20261012100345.png" width=400, heigth=auto>
+ 
 ##### 2. Components
 
-|Component|Qty.|Role|
-|---|---|---|
-|Server|1|Parkit API integration|
-|Raspberry Pi 5|1|Orchestrator: receives Parkit data, runs the MQTT broker and routes data to the controllers|
-|LoRa HAT (SPI/UART)|1|Hardware add-on — required for Option B only|
-|Interstate 75 W + Pico W|8|MCU: receives MQTT messages and drives the LED panel|
-|LED Matrix Panels|8|Displays parking information|
+| Component                | Qty. | Role                                                                                        |
+| ------------------------ | ---- | ------------------------------------------------------------------------------------------- |
+| Server                   | 1    | Parkit API integration                                                                      |
+| Raspberry Pi 5           | 1    | Orchestrator: receives Parkit data, runs the MQTT broker and routes data to the controllers |
+| LoRa HAT (SPI/UART)      | 1    | Hardware add-on — required for Option B only                                                |
+| Interstate 75 W + Pico W | 8    | MCU: receives MQTT messages and drives the LED panel                                        |
+| LED Matrix Panels        | 8    | Displays parking information                                                                |
 
 ##### 3. Software & Libraries
 
@@ -169,11 +167,11 @@ This section evaluates three possible architectures for integrating the Parkit a
 
 ---
 
-#### Architecture 3 — Private LoRaWAN Gateway + Heltec LoRa 32 V3 Controllers + ePaper Displays
+#### Architecture 3 — Private LoRaWAN Gateway + Seeed XIAO ESP32S3 / Wio-SX1262 Controllers + ePaper Displays
 
 ##### 1. Architecture Diagram
 
-![[Pasted image 20261012100449.png|494]]
+<img src="workstream/led-integration/research/hardware/imgg/architecture-3-lorawan-epaper.png" width=400, heigth=auto>
 
 ##### 2. Components
 
@@ -181,7 +179,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 |---|---|---|
 |Server|1|Python-based Parkit API integration (HTTPS)|
 |RAK7268V2 (WisGate Edge Lite 2)|1|LoRaWAN gateway: connects the server side to the LoRa devices|
-|Heltec LoRa 32 V3|8|MCU: receives parking data via LoRaWAN and controls the display|
+|Seeed XIAO ESP32S3 + Wio-SX1262|8|MCU: receives parking data via LoRaWAN (868 MHz) and controls the display|
 |ePaper Display 7.3" Spectra 6|8|Displays parking information|
 
 ##### 3. Software & Libraries
@@ -190,7 +188,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 |---|---|---|
 |Server|Python 3, API integration (HTTPS)|`requests`|
 |RAK7268V2|ChirpStack network server|—|
-|Heltec LoRa 32 V3|Arduino core for ESP32 (PlatformIO)|`RadioLib` (SX1262 LoRaWAN), `ArduinoJson`, `GxEPD2`|
+|Seeed XIAO ESP32S3 + Wio-SX1262|Arduino core for ESP32 (PlatformIO)|`RadioLib` (SX1262 LoRaWAN), `ArduinoJson`, `GxEPD2`|
 |ePaper Display 7.3" Spectra 6|—|`GxEPD2` (`GxEPD2_730c_GDEP073E01`), `Adafruit_GFX`|
 
 ##### 4. Advantages / Disadvantages
@@ -202,7 +200,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 - One gateway can communicate with multiple controllers.
 - Low controller power consumption.
 - ePaper only consumes power when the image changes.
-- Display connects to the MCU via SPI — no additional adapter hardware.
+- Display connects to the MCU via SPI; ESP32-S3 with Arduino/MicroPython support and 11 GPIOs.
 
 **Disadvantages**
 
@@ -214,6 +212,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 - Pushing updates to battery-optimised LoRaWAN nodes needs a defined downlink strategy (device class / polling interval).
 - 868 MHz duty-cycle limits apply to uplinks.
 - Embedded firmware (C++/Arduino) must be developed and maintained for 8 MCUs.
+- The ePaper HAT must be wired to the XIAO headers by hand; the board has only one SPI interface, which the LoRa module likely shares (pin assignment to be checked).
 
 ##### 5. Requirements & Criteria
 
