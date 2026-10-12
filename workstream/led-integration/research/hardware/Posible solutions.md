@@ -53,7 +53,7 @@ Server ➔ Cat6 Ethernet cable ➔ Raspberry Pi 5 (4 GB) ➔ Wi-Fi (MQTT) ➔ Pi
 - Needs Wi-Fi access point and cable laying
 
 ![[Pasted image 20261012100345.png|483]]
-abeme
+§
 
 #### Solution 2: LoRa gateway + microcontroller with native LoRa
 
@@ -67,8 +67,9 @@ Server ➔ RAK7268V2 WisGate Edge Lite 2 (EU868) ➔ LoRa 868 MHz ➔ Heltec WiF
 
 ![[Pasted image 20261012100449.png|494]]
 
-![[Pasted image 20261012100542.png|490]]
 
+
+![[Pasted image 20261012102657.png|496]]
 #### Solution 3: Swisscom LoRaWAN
 
 ```
