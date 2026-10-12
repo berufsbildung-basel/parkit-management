@@ -51,21 +51,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 
 ##### 1. Architecture Diagram
 
-```text
-[Server]
-       │
-       │ Cat6 Ethernet cable
-       ▼
-[Intel NUC — Orchestrator]
-       │
-       │ Wi-Fi (MQTT)
-       ▼
-[8 × Interstate 75 W + Pico W — MCU]
-       │
-       │ HUB75 ribbon cable
-       ▼
-[8 × LED Matrix Panels — Display]
-```
+![[Pasted image 20261012102657.png|496]]
 
 ##### 2. Components
 
@@ -125,22 +111,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 
 ##### 1. Architecture Diagram
 
-```text
-[Server]
-       │
-       │ Option A: Cat6 Ethernet cable
-       │ Option B: LoRa 868 MHz (gateway)
-       ▼
-[Raspberry Pi 5 — Orchestrator]
-       │
-       │ Wi-Fi (MQTT)
-       ▼
-[8 × Interstate 75 W + Pico W — MCU]
-       │
-       │ HUB75 ribbon cable
-       ▼
-[8 × LED Matrix Panels — Display]
-```
+![[Pasted image 20261012100345.png|483]]
 
 ##### 2. Components
 
@@ -202,21 +173,7 @@ This section evaluates three possible architectures for integrating the Parkit a
 
 ##### 1. Architecture Diagram
 
-```text
-[Server]
-       │
-       │ Ethernet (same floor)
-       ▼
-[RAK7268V2 — LoRaWAN Gateway]
-       │
-       │ LoRa 868 MHz (wireless)
-       ▼
-[8 × Heltec LoRa 32 V3 — MCU]
-       │
-       │ SPI (built-in)
-       ▼
-[8 × ePaper Display 7.3" Spectra 6]
-```
+![[Pasted image 20261012100449.png|494]]
 
 ##### 2. Components
 
