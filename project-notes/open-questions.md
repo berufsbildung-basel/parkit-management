@@ -15,9 +15,8 @@ Detailed research belongs in the relevant workstream. Resulting tasks are tracke
 | Question | Status |
 |---|---|
 | Is the Intel NUC required as the orchestrator, or can a Raspberry Pi be used instead? | Open |
-| Which of the three architecture options should be selected? | Open |
 | Which existing hardware can be reused, and what additional components are required? | Open |
-| What is the role of the Raspberry Pi Pico W / Interstate 75 W in the final architecture? | Open |
+| Can the existing Raspberry Pi Pico W / Interstate 75 W be reused in the proposed architectures? | Open |
 | How are the components connected in each architecture, including required cables and adapters? | Open |
 | What power supplies are required for the controllers and LED panels? | Open |
 
@@ -34,7 +33,7 @@ Detailed research belongs in the relevant workstream. Resulting tasks are tracke
 
 | Question | Status |
 |---|---|
-| What information must be displayed to the driver? | Open |
+| What exact information and format should be shown on the display? | Open |
 | Where should the information be displayed: at the entrance, at each parking space, or both? | Open |
 | Are the existing two 64×64 LED panels per parking space sufficient for the required information? | Open |
 | What viewing distance and lighting conditions must the display support? | Open |
@@ -54,7 +53,7 @@ Detailed research belongs in the relevant workstream. Resulting tasks are tracke
 
 | Question | Status |
 |---|---|
-| Which exact cable/connector is required to connect and test the existing LED hardware? | Open |
+| Which exact power supply, cable, and connector are required to connect and test the existing LED hardware? | Open |
 | Is any additional hardware required for the test setup? | Open |
 | Which software/library should be used to display a test message? | Open |
 
@@ -66,7 +65,6 @@ Detailed research belongs in the relevant workstream. Resulting tasks are tracke
 
 | Question | Status |
 |---|---|
-| What information and documentation does Facility Management require for approval? | Open |
 | Are the proposed LED panel and equipment locations acceptable? | Open |
 | What cable routing, power source, and mounting method are permitted? | Open |
 | Are there building, electrical, or fire-safety requirements that affect the installation? | Open |
