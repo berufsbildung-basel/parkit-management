@@ -34,6 +34,41 @@ Before implementation, the available LED hardware, communication options, softwa
 
 ---
 
+### User Survey
+
+A short user survey will be used to better understand parking demand and user behaviour. The results may be used to validate assumptions and refine the parking and LED display requirements.
+
+The survey should cover:
+
+- **Main mode of commuting**
+  - Car
+  - Bicycle
+  - Public transportation
+  - Motorcycle
+  - On foot
+  - Other
+
+- **Vehicle type**
+  - Electric
+  - Non-electric
+
+- **Parking frequency**
+  - Number of days per week
+  - Typical days of the week
+
+- **Required parking duration**
+  - Morning
+  - Afternoon
+  - Full day
+
+- **Preferred booking method**
+  - Computer
+  - Mobile device
+
+The survey results should be reviewed before finalizing requirements that depend on parking usage patterns.
+
+---
+
 ### Scope
 
 - Integrate an LED matrix system with the existing Parkit application.
