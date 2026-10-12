@@ -53,6 +53,7 @@ Server ➔ Cat6 Ethernet cable ➔ Raspberry Pi 5 (4 GB) ➔ Wi-Fi (MQTT) ➔ Pi
 - Needs Wi-Fi access point and cable laying
 
 ![[Pasted image 20261012100345.png|483]]
+abeme
 
 #### Solution 2: LoRa gateway + microcontroller with native LoRa
 
