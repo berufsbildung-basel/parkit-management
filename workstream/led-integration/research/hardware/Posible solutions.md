@@ -26,6 +26,7 @@
     - Type of Connection 2
         - Table of options
         - Pros and cons
+- Recommendation
 
 ### Overview
 
@@ -33,7 +34,10 @@ This document outlines the proposed architectural structure for the project and 
 
 The following structure serves as the baseline architecture from which all system variations are derived:
 
-`Server ➔ [Type of Connection 1] ➔ Orchestrator ➔ [Type of Connection 2] ➔ Microcontroller ➔ Display`
+`Server ➔ [Type of Connection 1] ➔ Orchestrator(not necessarily) ➔ [Type of Connection 2] ➔ Microcontroller ➔ Display`
+
+---
+---
 
 ### Possible structure
 
@@ -90,13 +94,13 @@ Server ➔ Cat6 Ethernet cable ➔ Raspberry Pi 5 (4 GB) ➔ Wi-Fi (MQTT) ➔ Ra
 
 #### Overview (for Possible structure)
 
-|#|Server|Connection 1|Orchestrator|Connection 2|Microcontroller / Controller|Display|
-|---|---|---|---|---|---|---|
-|1|Server|Cat6 Ethernet cable|Raspberry Pi 5 (4 GB)|Wi-Fi (MQTT)|Pimoroni Interstate 75 W with Raspberry Pi Pico W|Waveshare RGB-Matrix-P3-64x64 (2× per place)|
-|2|Server|RAK7268V2 WisGate Edge Lite 2 (EU868)|–|LoRa 868 MHz|Heltec WiFi LoRa 32 V3|Waveshare 7.3inch e-Paper HAT (E)|
-|3|Server|Swisscom LPN LoRaWAN|–|LoRa 868 MHz|Heltec WiFi LoRa 32 V3|Waveshare 7.3inch e-Paper HAT (E)|
-|4|Server|Cat6 Ethernet cable|Raspberry Pi 5 (4 GB)|Wi-Fi (MQTT)|Raspberry Pi Zero 2 W|15.6" HDMI monitor|
-|5|Server|Cat6 Ethernet cable|Raspberry Pi 5 (4 GB)|Wi-Fi (MQTT)|Raspberry Pi Zero 2 W|Waveshare 10.3inch e-Paper HAT (IT8951)|
+| #   | Server | Connection 1                          | Orchestrator          | Connection 2 | Microcontroller / Controller                      | Display                                      |
+| --- | ------ | ------------------------------------- | --------------------- | ------------ | ------------------------------------------------- | -------------------------------------------- |
+| 1   | Server | Cat6 Ethernet cable                   | Raspberry Pi 5 (4 GB) | Wi-Fi (MQTT) | Pimoroni Interstate 75 W with Raspberry Pi Pico W | Waveshare RGB-Matrix-P3-64x64 (2× per place) |
+| 2   | Server | RAK7268V2 WisGate Edge Lite 2 (EU868) | –                     | LoRa 868 MHz | Heltec WiFi LoRa 32 V3                            | Waveshare 7.3inch e-Paper HAT (E)            |
+| 3   | Server | Swisscom LPN LoRaWAN                  | –                     | LoRa 868 MHz | Heltec WiFi LoRa 32 V3                            | Waveshare 7.3inch e-Paper HAT (E)            |
+| 4   | Server | Cat6 Ethernet cable                   | Raspberry Pi 5 (4 GB) | Wi-Fi (MQTT) | Raspberry Pi Zero 2 W                             | 15.6" HDMI monitor                           |
+| 5   | Server | Cat6 Ethernet cable                   | Raspberry Pi 5 (4 GB) | Wi-Fi (MQTT) | Raspberry Pi Zero 2 W                             | Waveshare 10.3inch e-Paper HAT (IT8951)      |
 
 #### Cost and risk comparison (8 parking spaces)
 
@@ -116,11 +120,11 @@ Estimates based on the component tables. Not included: Interstate 75 W board, po
 
 ##### Table of options:
 
-|Type|Component Name|Hardware Price (Est.)|Average Power Draw|Connectivity|Compatibility|Replaceability / Scalability|Exact 1-Year Electricity Cost|
-|---|---|---|---|---|---|---|---|
-|Mini PC|**Intel NUC**  <br>(Intel/ASUS NUC)|350.00 – 650.00 CHF|~10 W (idle 5–15 W)|Ethernet, Wi-Fi, USB|**Native:** Runs standard x86 Parkit backend binaries out-of-the-box.|**High / Limited:** Easily hot-swapped, but physical port counts limit scaling.|**29.13CHF**|
-||**Raspberry Pi 4 / 5**|60.00 – 135.00 CHF|**5 W**|Ethernet, Wi-Fi, GPIO, USB|**High:** Linux-based. Can run local script parsing and queue routing.|**High / Max:** Multi-display routing via single script orchestration.|**14.56 CHF**|
-|MCU||||||||
+| Type    | Component Name                      | Hardware Price (Est.) | Average Power Draw  | Connectivity               | Compatibility                                                          | Replaceability / Scalability                                                    | Exact 1-Year Electricity Cost |
+| ------- | ----------------------------------- | --------------------- | ------------------- | -------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------- |
+| Mini PC | **Intel NUC**  <br>(Intel/ASUS NUC) | 350.00 – 650.00 CHF   | ~10 W (idle 5–15 W) | Ethernet, Wi-Fi, USB       | **Native:** Runs standard x86 Parkit backend binaries out-of-the-box.  | **High / Limited:** Easily hot-swapped, but physical port counts limit scaling. | **29.13 - 72.82 CHF**         |
+|         | **Raspberry Pi 4 / 5**              | 60.00 – 135.00 CHF    | **5 W**             | Ethernet, Wi-Fi, GPIO, USB | **High:** Linux-based. Can run local script parsing and queue routing. | **High / Max:** Multi-display routing via single script orchestration.          | **14.56 CHF**                 |
+
 
 ##### Pros and cons:
 
@@ -146,17 +150,19 @@ Estimates based on the component tables. Not included: Interstate 75 W board, po
     - **MicroSD Storage Fragility:** Standard memory cards wear down fast and corrupt easily during abrupt power outages.
     - **Hidden Accessory Cost:** Requires separate purchases of industrial cases, heatsinks, and specialized power regulators for production.
 
+
+
 ---
 
 #### Microcontroller
 
 ##### Table of options:
 
-|Component Name|Hardware Price (Est.)|Average Power Draw|Connectivity|Compatibility|Replaceability / Scalability|Exact 1-Year Electricity Cost|
-|---|---|---|---|---|---|---|
-|**Raspberry Pi Pico W**  <br>(Microcontroller chip)|6.00 – 8.00 CHF|**0.2 W**|Wi-Fi, BLE, GPIO|**Maximum:** 100% native fit with Pimoroni Interstate 75 W footprint.|**Maximum:** Mass-market board, hot-swappable in seconds.|**0.58 CHF**|
-|**MCU with Native LoRa**  <br>(e.g., ESP32-S3 LoRa)|10.00 – 20.00 CHF|**0.5 W**|LoRa, Wi-Fi, BLE, GPIO|**Medium:** Requires custom wiring; breaks Interstate 75 footprint.|**Medium:** Readily available on the market, but relies on custom code templates.|**1.46 CHF**|
-|**Built-in MCU**  <br>(All-in-one Smart Display)|Included in panel|**1.5 W** (Logic only)|RS-485, Ethernet|**Low:** Bound to proprietary closed-source manufacturer SDKs.|**Low:** Monolithic setup; cannot change the processor core.|**4.37 CHF**|
+| Type | Component Name                                      | Hardware Price (Est.) | Average Power Draw     | Connectivity           | Compatibility                                                         | Replaceability / Scalability                                                      | Exact 1-Year Electricity Cost |
+| ---- | --------------------------------------------------- | --------------------- | ---------------------- | ---------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------- |
+| MCU  | **Raspberry Pi Pico W**  <br>(Microcontroller chip) | 6.00 – 8.00 CHF       | **0.2 W**              | Wi-Fi, BLE, GPIO       | **Maximum:** 100% native fit with Pimoroni Interstate 75 W footprint. | **Maximum:** Mass-market board, hot-swappable in seconds.                         | **0.58 CHF**                  |
+|      | **MCU with Native LoRa**  <br>(e.g., ESP32-S3 LoRa) | 10.00 – 20.00 CHF     | **0.5 W**              | LoRa, Wi-Fi, BLE, GPIO | **Medium:** Requires custom wiring; breaks Interstate 75 footprint.   | **Medium:** Readily available on the market, but relies on custom code templates. | **1.46 CHF**                  |
+|      | **Built-in MCU**  <br>(All-in-one Smart Display)    | Included in panel     | **1.5 W** (Logic only) | RS-485, Ethernet       | **Low:** Bound to proprietary closed-source manufacturer SDKs.        | **Low:** Monolithic setup; cannot change the processor core.                      | **4.37 CHF**                  |
 
 ##### Pros and cons:
 
@@ -266,12 +272,12 @@ Estimates based on the component tables. Not included: Interstate 75 W board, po
 
 ##### Table of options:
 
-|Type|Component Name|Hardware Price (Est.)|Average Power Draw|Connectivity|Compatibility|Replaceability / Scalability|Exact 1-Year Electricity Cost|
-|---|---|---|---|---|---|---|---|
-|LoRaWAN|**Indoor LoRaWAN Gateway** (one Indoor LoRaWAN Gateway must be placed next to the server)|70.00 – 250.00 CHF|4 W|RS-485 Serial Bus, Ethernet|**Native Server Ecosystem:** Runs internal LoRaWAN stacks (e.g., ChirpStack).|**High:** Fully integrated industrial-grade chassis with standardized protocols.|11.65 CHF|
-||**LoRa HAT** (for a single-board computer / orchestrator) (one Indoor LoRaWAN Gateway must be placed next to the server)|90–130 CHF|0.1 W – 0.5 W|SPI / UART|**Hardware Module:** Requires a compatible 40-pin header on the single-board computer.|**Maximum:** Detachable board. Can be easily replaced or swapped onto a different host computer.|0.29 – 1.46 CHF|
-||**Swisscom LPN LoRaWAN**|Requires an LPN subscription: ~5.40 – 42.00 CHF/year|–|LoRaWAN via public Swisscom base stations|**Cloud Webhook Integration:** Swisscom Network Server relays data directly to your Parkit API via HTTPS POST.|**Maximum:** No physical gateway hardware to manage; instant scaling over the air.|–|
-|Physical Cable|Physical Cable Laying|1'200.00 – 2'800.00 CHF|–|RJ45|**Universal Standard:** Instantly compatible with all standard routers, switches, and NUC/Pi setups.|**Low / Fixed:** Physical wires are fixed in conduits and hard to re-route, but they can handle future bandwidth upgrades without replacement.|–|
+| Type           | Component Name                                                                                                                   | Hardware Price (Est.)                                | Average Power Draw | Connectivity                              | Compatibility                                                                                                  | Replaceability / Scalability                                                                                                                   | Exact 1-Year Electricity Cost |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------ | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| LoRaWAN        | **Indoor LoRaWAN Gateway** (one Indoor LoRaWAN Gateway must be placed next to the server)                                        | 70.00 – 250.00 CHF                                   | 4 W                | RS-485 Serial Bus, Ethernet               | **Native Server Ecosystem:** Runs internal LoRaWAN stacks (e.g., ChirpStack).                                  | **High:** Fully integrated industrial-grade chassis with standardized protocols.                                                               | 11.65 CHF                     |
+|                | **LoRa HAT** (for a single-board computer / MCU  as orchestrator) (one Indoor LoRaWAN Gateway must be placed next to the server) | 90–130 CHF                                           | 0.1 W – 0.5 W      | SPI / UART                                | **Hardware Module:** Requires a compatible 40-pin header on the single-board computer.                         | **Maximum:** Detachable board. Can be easily replaced or swapped onto a different host computer.                                               | 0.29 – 1.46 CHF               |
+|                | **Swisscom LPN LoRaWAN**                                                                                                         | Requires an LPN subscription: ~5.40 – 42.00 CHF/year | –                  | LoRaWAN via public Swisscom base stations | **Cloud Webhook Integration:** Swisscom Network Server relays data directly to your Parkit API via HTTPS POST. | **Maximum:** No physical gateway hardware to manage; instant scaling over the air.                                                             | –                             |
+| Physical Cable | Physical Cable Laying                                                                                                            | 1'200.00 – 2'800.00 CHF                              | –                  | RJ45                                      | **Universal Standard:** Instantly compatible with all standard routers, switches, and NUC/Pi setups.           | **Low / Fixed:** Physical wires are fixed in conduits and hard to re-route, but they can handle future bandwidth upgrades without replacement. | –                             |
 
 ##### Pros and cons:
 
@@ -317,14 +323,47 @@ Estimates based on the component tables. Not included: Interstate 75 W board, po
 
 ##### Table of options:
 
-_(noch offen)_
+| Type        | Component Name                   | Hardware Price (Est.)                                                                 | Average Power Draw                    | Connectivity                                              | Compatibility                                                                                                           | Replaceability / Scalability                                                                                     | Exact 1-Year Electricity Cost         |
+| ----------- | -------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| MQTT (WiFi) | Built-in WiFi(no extra hardware) | -                                                                                     | Included in MCU                       | 2.4 GHz WiFi (802.11 b/g/n), MQTT over TCP/IP             | **Native:** Already part of the  MCU; just needs `hostapd`/AP software on the Orchestrator side.                        | **High:** No extra hardware to replace; scaling limited only by AP client capacity                               | Included in MCU                       |
+| LoRaWAN     | Built-in LoRa module             | -                                                                                     | Included in MCU(with LoRa module)     | Sub-GHz (868 MHz EU), long range (2–15 km), low bandwidth | **Native:** Already part of the  MCU; just needs a LoRaWAN network server running on the gateway/server side            | **High:** No extra per-node hardware to replace; one gateway can serve all 8+ nodes without added cost per node. | Included in MCU(with LoRa module)<br> |
+| Cable       | Сat6 Ethernet + PoE Switch       | ~81.00 CHF (cables) + 55.00 – 110.00 CHF (PoE switch) = **136.00 – 191.00 CHF total** | **10 – 18 W** (switch + PoE overhead) | RJ45, Cat6, PoE (802.3af/at)                              | **Universal + PoE:** One cable carries both power and data; Needs an RJ45 Ethernet module per node to connect via cable | **Medium/High:** Short distances (3–18m) keep installation cheap and simple; swapping a cable is trivial         | 34.80 – 52.20 CHF                     |
+
 
 ##### Pros and cons:
 
-_(noch offen)_
+**MQTT (WiFi)**
+
+- **Pros:**
+    - Zero Extra Hardware: WiFi radio is already built into the MCU — nothing to buy or install per node.
+    - Fastest Deployment: No cables, no gateway setup — just join the network and start publishing.
+- **Cons:**
+    - Shared Airwaves: Signal quality drops with distance, concrete walls, or interference from other 2.4 GHz devices.
+    - Single Point of Congestion: All nodes compete for the same access point; too many devices can saturate it.
+
+**LoRaWAN**
+
+- **Pros:**
+    - Massive Range: A single gateway can reach nodes kilometers away, even through walls and obstacles.
+    - Lowest Power Draw: Ideal for nodes that need to run for long periods on minimal energy.
+- **Cons:**
+    - Thin Data Pipe: Bandwidth is too low for frequent updates or anything beyond small data packets.
+    - Extra Server-Side Setup: Requires a LoRaWAN network server (e.g. ChirpStack) running and maintained on the gateway.
+
+**Cable**
+
+- **Pros:**
+    - Infinite Data Flow: No network packet limits or wireless lag; moves heavy logging or debug files seamlessly.
+    - Zero Interference Shadows: Completely unaffected by walls, distance, or wireless congestion — plus PoE delivers power and data over the same line.
+- **Cons:**
+    - Fixed Physical Routing: Each node needs its own cable run; relocating a node later means re-running cable.
+    - Added Per-Node Hardware: Needs an RJ45 Ethernet module per node, on top of the cable and switch cost.
 
 
+---
+---
 
-### My recommendation
+
+### Recommendation
 
 Option?
