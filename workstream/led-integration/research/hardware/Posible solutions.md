@@ -37,7 +37,6 @@ The following structure serves as the baseline architecture from which all syste
 `Server ➔ [Type of Connection 1] ➔ Orchestrator(not necessarily) ➔ [Type of Connection 2] ➔ Microcontroller ➔ Display`
 
 ---
----
 
 ### Possible structure
 
@@ -366,7 +365,6 @@ Estimates based on the component tables. Not included: Interstate 75 W board, po
     - Added Per-Node Hardware: Needs an RJ45 Ethernet module per node, on top of the cable and switch cost.
 
 
----
 ---
 
 
