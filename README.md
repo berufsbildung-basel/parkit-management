@@ -1,26 +1,21 @@
 # P.A.R.K.I.T — Project Management
 
-This repository contains project-management documentation and working materials for **P.A.R.K.I.T**, an application for reserving parking spaces in the office parking area.
+This repository contains project-management documentation and working materials for **P.A.R.K.I.T** , an application for reserving parking spaces in the office parking area.
 
 It is used to track the project context, current work, research, open questions, risks, and decisions while the project is being developed.
-
-Finalized technical documentation and implementation belong in the main `parkit-service` repository.
 
 ---
 
 ## Current Focus
 
-The project is currently focused on:
+1. **LED Matrix Integration** — research and evaluation
+2. **Administration Approval** — in progress
+3. **Expiring Reservation Reminder** — planned
 
-1. **LED Matrix Integration** — research and evaluation in progress.
-2. **Administration Approval** — preparation for Facility Management approval.
-3. **Expiring Reservation Reminder** — planned.
-
-See [`CURRENT_TASKS.md`](CURRENT_TASKS.md) for the current high-level status.
-
-See [`PROJECT_ROADMAP.md`](PROJECT_ROADMAP.md) for the overall project direction and major phases.
-
-Detailed tasks, subtasks, owners, and progress are managed in the project task tracker.
+See:
+- [`PROJECT_ROADMAP.md`](PROJECT_ROADMAP.md) — project direction and phases
+- [`CURRENT_TASKS.md`](CURRENT_TASKS.md) — current high-level work
+- `Project board` — tasks, owners, and progress
 
 ---
 
@@ -43,9 +38,9 @@ management/
 │   ├── open-questions.md
 │   └── decisions.md
 │
-└── workstreams/
+└── workstream/
     ├── led-integration/
-    ├── administration-approval/
+    ├── project-presentation/
     └── reservation-reminder/
 ```
 
@@ -55,46 +50,25 @@ management/
 
 | Information | Location |
 |---|---|
-| Overall project direction and phases | `PROJECT_ROADMAP.md` |
-| Current high-level work | `CURRENT_TASKS.md` |
-| Detailed tasks, subtasks, owners and progress | Project task tracker |
-| Project problems | `project-notes/problems.md` |
-| Open questions | `project-notes/open-questions.md` |
-| Project risks | `project-notes/risks.md` |
-| Decisions and their rationale | `project-notes/decisions.md` |
-| Short meeting outcomes | `project-notes/meeting-notes.md` |
-| Project terminology | `project-context/glossary/` |
-| Project overview and relationships | `project-context/mind-map/` |
-| Research and intermediate work | Relevant `workstreams/` directory |
-| Final technical documentation | Main `parkit-service` repository |
+| Project direction and phases | [`PROJECT_ROADMAP.md`](PROJECT_ROADMAP.md) |
+| Current high-level work | [`CURRENT_TASKS.md`](CURRENT_TASKS.md) |
+| Tasks, owners, and progress | `Project Board` |
+| Problems | [`project-notes/problems.md`](project-notes/problems.md) |
+| Open questions | [`project-notes/open-questions.md`](project-notes/open-questions.md) |
+| Risks | [`project-notes/risks.md`](project-notes/risks.md) |
+| Decisions | [`project-notes/decisions.md`](project-notes/decisions.md) |
+| Meeting outcomes | [`project-notes/meeting-notes.md`](project-notes/meeting-notes.md) |
+| Project context and terminology | [`project-context/`](project-context/) |
+| Research and working materials | [`workstream/`](workstream/) |
+| Final technical documentation | [`parkit-service` repository](https://github.com/berufsbildung-basel/parkit-service) |
 
 ---
 
-## Workstreams
+## Documentation Rules
 
-Each major area of work has its own directory under `workstreams/`.
-
-A workstream should contain:
-
-- its goal and problem;
-- scope;
-- requirements where relevant;
-- expected outcome;
-- research and working materials;
-- links to related tasks and decisions.
-
-Research and intermediate materials may change while the work is in progress.
-
-Once a technical solution is validated and finalized, the relevant documentation should be transferred to the main `parkit-service` repository.
-
----
-
-## Working Principles
-
-- Do not duplicate detailed task tracking in this repository.
-- Record unresolved questions as open questions, not decisions.
-- Record potential future problems as risks.
-- Record confirmed decisions separately from research and assumptions.
-- Keep meeting notes short and move resulting actions to the task tracker.
-- Keep research inside the relevant workstream.
-- Mark unknown or unconfirmed information as `TBD`.
+- Avoid duplicating information between files.
+- Keep meeting notes short; actions belong in the `project board`.
+- Keep research inside the relevant [`workstream/`](workstream/).
+- Record confirmed decisions in [`decisions.md`](project-notes/decisions.md).
+- Mark unconfirmed information as `TBD`.
+- Move finalized technical documentation to the main [`parkit-service`](https://github.com/berufsbildung-basel/parkit-service) repository.
