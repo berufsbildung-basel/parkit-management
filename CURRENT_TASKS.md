@@ -1,37 +1,34 @@
-## Current Tasks
+# Current Tasks
 
-This page provides a high-level overview of the project's current work.
+This page provides a high-level overview of current and planned project work.
 
-
----
-
-### 1. Project Presentation & Administration Approval
-
-Prepare a German-language presentation for Building Administration / Facility Management to obtain approval for the planned parking solution.
-
-**Status:** In progress
-
-**Working materials:**
-`workstreams/administration-approval/`
+Detailed tasks, owners, and progress are managed on the `Project Board`.
 
 ---
 
-### 2. LED Matrix Integration
+## 1. LED Matrix Integration
 
-Research and prepare the technical basis for integrating LED displays with Parkit.
+Research and evaluate the technical options for integrating LED displays with Parkit.
 
-**Status:** In progress
-
-**Working materials:**
-`workstreams/led-integration/`
+**Status:** In progress  
+**Current phase:** Research & Evaluation  
+**Working materials:** [`workstream/led-integration/`](workstream/led-integration/)
 
 ---
 
-### 3. Expiring Reservation Reminder
+## 2. Project Presentation & Administration Approval
 
-Prepare an automated reminder that notifies users approximately 10–15 minutes before their parking reservation expires.
+Prepare the required materials to obtain Facility Management approval for the planned installation.
 
-**Status:** Planned
+**Status:** In progress  
+**Dependency:** Final approval requires the proposed architecture and installation requirements.  
+**Working materials:** [`workstream/project-presentation/`](workstream/project-presentation/)
 
-**Working materials:**
-`workstreams/reservation-reminder/`
+---
+
+## 3. Expiring Reservation Reminder
+
+Prepare an automated reminder before a parking reservation expires.
+
+**Status:** Planned  
+**Working materials:** [`workstream/reservation-reminder/`](workstream/reservation-reminder/)

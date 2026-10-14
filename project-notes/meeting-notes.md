@@ -53,3 +53,33 @@ softare decisions needed:
 - Run a small test using the components we already have, including displaying a message on the LED panel.
 
  **No final technical decisions have been made yet.**
+
+---
+
+ ## 12-10-2026
+
+### Discussed
+
+- Reviewed last week's work on the three LED architecture options and the existing hardware test.
+- Identified communication between the three parking levels as an important technical constraint that should be included in the requirements.
+- Raspberry Pi is currently the main option to investigate as both orchestrator and controller.
+- Identified two main LED use cases:
+  - Let users check which parking space is assigned to their reservation.
+  - Show which parking spaces are currently free.
+- Identified the need to define how often the LED displays should be updated.
+- Requirements should have IDs so future features, research, and tests can be linked to them.
+- The existing LED hardware test could not be completed because the required cable was missing. Daniel will check if he has the correct cable.
+
+### To Investigate
+
+- Communication options between the three parking levels.
+- LoRa and mobile/cellular connection as possible options.
+- Required LED display update frequency.
+
+### Next Steps
+
+- Complete and compare the three architecture options, with Raspberry Pi as the main focus.
+- Add costs and explain why each option is or is not suitable.
+- Test the existing LED hardware when the required cable is available.
+- Update the LED requirements with IDs and use cases.
+- Arrange a meeting with the hardware specialist for Monday, if available.
