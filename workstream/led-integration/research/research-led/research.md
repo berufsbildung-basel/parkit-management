@@ -203,5 +203,3 @@ An example could look like this:
 The controller normally updates the matrix many times per second. This makes it possible to display not only images and text but also animations and videos.
 
 > **Translated with AI**
-
-> **Formatted by ChatGPT**

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workstream/led-integration/research/hardware/Posible solutions.md",
+                "file": "workstream/led-integration/research/research-led/research.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Posible solutions"
+              "title": "research"
             }
           }
         ]
@@ -190,10 +190,10 @@
   },
   "active": "bd134b2b11785e8e",
   "lastOpenFiles": [
+    "workstream/led-integration/research/hardware/Posible solutions.md",
     "workstream/led-integration/research/hardware/imgg/Pasted image 20261012102657.png",
     "workstream/led-integration/research/hardware/imgg/Pasted image 20261012100449.png",
     "workstream/led-integration/research/hardware/imgg/Pasted image 20261012100345.png",
-    "workstream/led-integration/research/hardware/Posible solutions.md",
     "workstream/led-integration/research/hardware/Explore our existing hardware.md",
     "workstream/led-integration/research/hardware/imgg/architecture-3-lorawan-epaper.png",
     "workstream/led-integration/research/hardware/Posible solutions 1.md",

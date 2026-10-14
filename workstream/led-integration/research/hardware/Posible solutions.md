@@ -175,12 +175,12 @@ This section evaluates three possible architectures for integrating the Parkit a
 
 ##### 2. Components
 
-|Component|Qty.|Role|
-|---|---|---|
-|Server|1|Python-based Parkit API integration (HTTPS)|
-|RAK7268V2 (WisGate Edge Lite 2)|1|LoRaWAN gateway: connects the server side to the LoRa devices|
-|Seeed XIAO ESP32S3 + Wio-SX1262|8|MCU: receives parking data via LoRaWAN (868 MHz) and controls the display|
-|ePaper Display 7.3" Spectra 6|8|Displays parking information|
+| Component                       | Qty. | Role                                                                      |
+| ------------------------------- | ---- | ------------------------------------------------------------------------- |
+| Server                          | 1    | Python-based Parkit API integration (HTTPS)                               |
+| RAK7268V2 (WisGate Edge Lite 2) | 1    | LoRaWAN gateway: connects the server side to the LoRa devices             |
+| Seeed XIAO ESP32S3 + Wio-SX1262 | 8    | MCU: receives parking data via LoRaWAN (868 MHz) and controls the display |
+| ePaper Display 7.3" Spectra 6   | 8    | Displays parking information                                              |
 
 ##### 3. Software & Libraries
 
