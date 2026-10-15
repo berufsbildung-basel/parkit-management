@@ -1,183 +1,165 @@
-## LED Matrix Integration
+# LED Matrix Integration
 
-### Goal
+## Goal
 
-Investigate, design, and implement a suitable LED matrix integration for the existing Parkit application.
+Integrate LED displays with the existing Parkit application to help drivers identify the correct parking space and see current parking availability.
 
-The main purpose of the integration is to help drivers park in the correct reserved parking space by clearly showing their assigned space when they enter the parking area.
-
-The solution should also be flexible enough to allow LED displays, controllers, or communication technologies to be replaced in the future without major changes to the Parkit application.
+The solution should allow displays, controllers, and communication technologies to be replaced without major changes to Parkit.
 
 ---
 
-### Problem
+## Problem
 
-Drivers do not always park in the parking space assigned to their reservation. As a result, they may occupy spaces reserved for other users and cause conflicts between reservations.
+Drivers may park in a different space than the one assigned to their reservation, which can create conflicts with other reservations.
 
-To reduce this problem, drivers need a clear and visible indication of their assigned parking space when entering the parking area.
-
-An LED display can be used to show this information at the entrance or another suitable location.
-
-Before implementation, the available LED hardware, communication options, software interfaces, installation requirements, reliability, security, and integration with Parkit need to be evaluated.
+Drivers also need a clear way to see whether a parking space is currently available.
 
 ---
 
-### Target Users
+## Use Cases
 
-**Primary user**
+### UC-01 — Check Reserved Space
+
+A driver already has a reservation and uses the LED display to confirm which parking space is assigned before parking.
+
+### UC-02 — Find Free Space
+
+A driver enters the parking area, sees that a parking space is currently free, and then reserves it in Parkit.
+
+---
+
+## Target Users
+
+**Primary**
 - Drivers entering the parking area
 
-**Secondary users**
+**Secondary**
 - Parking operators
 - Parkit administrators
 - Technical and maintenance staff
 
 ---
 
-### User Survey
+## Scope
 
-A short user survey will be used to better understand parking demand and user behaviour. The results may be used to validate assumptions and refine the parking and LED display requirements.
-
-The survey should cover:
-
-- **Main mode of commuting**
-  - Car
-  - Bicycle
-  - Public transportation
-  - Motorcycle
-  - On foot
-  - Other
-
-- **Vehicle type**
-  - Electric
-  - Non-electric
-
-- **Parking frequency**
-  - Number of days per week
-  - Typical days of the week
-
-- **Required parking duration**
-  - Morning
-  - Afternoon
-  - Full day
-
-- **Preferred booking method**
-  - Computer
-  - Mobile device
-
-The survey results should be reviewed before finalizing requirements that depend on parking usage patterns.
-
----
-
-### Scope
-
-- Integrate an LED matrix system with the existing Parkit application.
-- Determine how reservation and parking space information is transferred from Parkit to the LED system.
-- Evaluate and select suitable LED displays, controllers, and communication interfaces.
-- Define an integration architecture that requires minimal changes to the existing Parkit application.
-- Implement and configure the required software and hardware components.
+- Integrate the LED system with the existing Parkit application.
+- Transfer reservation and parking-space information from Parkit to the LED system.
+- Evaluate and select suitable hardware and communication methods.
+- Define an architecture that requires minimal changes to Parkit.
+- Implement and configure the required software and hardware.
 - Install, test, and validate the solution.
-- Document the final architecture, configuration, and implementation.
+- Document the final architecture and implementation.
 
 ---
 
-### Requirements
+## Requirements
 
-1. **Parking information**
-   - The system must display the parking space assigned to the driver's reservation.
-   - The displayed information must match the current reservation data in Parkit.
-   - The displayed information must be updated when the reservation or assigned parking space changes.
-   - The parking space must be clearly identifiable by the driver.
+Requirement IDs are used to link requirements to features, technical decisions, and tests.
 
-2. **Reservation periods**
-   - The system must support the reservation periods used by Parkit, including morning, afternoon, and full-day reservations.
-   - The system must correctly show when a parking space becomes available again.
-   - Availability information such as `FREE UNTIL 12:00` should be supported where needed.
+### Functional Requirements
 
-3. **Licence plates**
-   - The system must support the licence plate formats required by the project.
-   - Different licence plate lengths and supported characters must be handled.
-   - A consistent format for displaying licence plates must be defined.
-   - Privacy must be considered when licence plate information is displayed.
-
-4. **Display**
-   - Information must be clearly readable by drivers when entering the parking area.
-   - The display must support the required number of characters and lines.
-   - Information must remain readable under expected daylight and nighttime conditions.
-   - The system must define how information is handled when it does not fit on the display.
-   - The installation location and required viewing distance must be considered when selecting the display.
-
-5. **Parkit integration**
-   - The LED system must receive the required reservation and parking space information from Parkit.
-   - A clearly defined interface must be used between Parkit and the LED system.
-   - LED-specific logic should be separated from Parkit's core business logic.
-   - Replacing the LED display or controller should not require major changes to Parkit.
-   - A failure of the LED system must not prevent Parkit from operating normally.
-
-6. **Reliability and failure handling**
-   - Communication failures between Parkit and the LED system must be detected.
-   - Communication should be retried or restored automatically where appropriate.
-   - Communication and integration errors must be logged.
-   - The system must avoid displaying outdated or incorrect parking information when current data is unavailable.
-
-7. **Security**
-   - Only authorized systems or users may control the LED display.
-   - Unauthorized changes to the displayed information must be prevented.
-   - Communication between Parkit and the LED system must be appropriately secured.
-   - Physical access to the display, controller, and related hardware must be considered.
-
-8. **Hardware**
-   - The selected hardware must be compatible with the existing infrastructure.
-   - The hardware must be suitable for the intended installation environment.
-   - Individual components should be replaceable without major changes to the overall solution or Parkit.
-   - The solution should allow additional displays or controllers to be added later if needed.
-
----
-
-### Evaluation Criteria
-
-Possible solutions should be evaluated using the following criteria:
-
-- **Visibility** — readability from the required distance and under expected lighting conditions.
-- **Display capacity** — supported text length, number of lines, characters, and brightness.
-- **Connectivity** — available communication interfaces, protocols, and reliability.
-- **Software support** — available APIs or libraries, documentation, compatibility, and maintainability.
-- **Integration effort** — amount of modification required in the existing Parkit application.
-- **Replaceability** — ability to replace displays, controllers, or other components without major changes to Parkit.
-- **Compatibility** — compatibility with the existing Parkit system and infrastructure.
-- **Reliability** — communication stability, failure handling, and recovery.
-- **Scalability** — ability to add or replace displays and other components in the future.
-- **Security and privacy** — protection against unauthorized access and inappropriate exposure of information.
-- **Lifecycle** — hardware availability, vendor support, and long-term replacement options.
-- **Cost** — initial cost, installation, maintenance, replacement, and estimated cost over 10 years.
-
----
-
-### Expected Outcome
-
-- **Defined architecture** — a clear design for how Parkit communicates with the LED system while keeping hardware-specific logic separate from the core application.
-- **Selected components** — suitable LED displays, controllers, communication methods, and required software components are identified.
-- **Implemented integration** — the selected components are connected and integrated with Parkit.
-- **Validated solution** — the solution is tested to confirm that drivers receive clear and correct parking space information without affecting Parkit's normal operation.
-- **Documentation** — the architecture, configuration, installation, and relevant technical decisions are documented.
-
----
-
-### Current Work
-
-The current work is focused on research and evaluation.
-
-| Area | Purpose |
+| ID | Requirement |
 |---|---|
-| `led-basics/` | Understand LED matrix technology and identify suitable solutions |
-| `existing-hardware/` | Identify available hardware and determine whether and how it can be reused |
+| `FR-01` | The system must display the parking space assigned to the driver's reservation. |
+| `FR-02` | The system must show whether a parking space is currently available for reservation. |
+| `FR-03` | Displayed information must match the current reservation data in Parkit. |
+| `FR-04` | Displayed information must be updated when a reservation or assigned parking space changes. |
+| `FR-05` | The system must support morning, afternoon, and full-day reservations. |
+| `FR-06` | The system must correctly represent when a parking space is available or reserved. |
+| `FR-07` | Displayed parking availability must remain current. |
 
-These areas correspond to the research activities currently tracked in the project task tracker.
+### Licence Plate Requirements
+
+| ID | Requirement |
+|---|---|
+| `LP-01` | The system must support the licence plate formats required by the project. |
+| `LP-02` | Different supported licence plate lengths and characters must be handled. |
+| `LP-03` | A consistent format for displaying licence plates must be defined. |
+| `LP-04` | Privacy must be considered when licence plate information is displayed. |
+
+### Display Requirements
+
+| ID | Requirement |
+|---|---|
+| `DISP-01` | Displayed information must be clearly readable by drivers. |
+| `DISP-02` | The display must support the required content, characters, and lines. |
+| `DISP-03` | Information must remain readable under expected lighting conditions. |
+| `DISP-04` | The system must define how content is handled when it does not fit on the display. |
+| `DISP-05` | Displays must be installed where drivers can clearly see the relevant parking information when entering or approaching the parking spaces. |
+
+### Integration Requirements
+
+| ID | Requirement |
+|---|---|
+| `INT-01` | The LED system must receive the required reservation and parking-space information from Parkit. |
+| `INT-02` | A clearly defined interface must be used between Parkit and the LED system. |
+| `INT-03` | LED-specific logic should be separated from Parkit's core business logic. |
+| `INT-04` | Replacing a display or controller should not require major changes to Parkit. |
+| `INT-05` | Failure of the LED system must not prevent Parkit from operating normally. |
+
+### Reliability Requirements
+
+| ID | Requirement |
+|---|---|
+| `REL-01` | Communication failures must be detected. |
+| `REL-02` | Communication should be retried or restored automatically where appropriate. |
+| `REL-03` | Communication and integration errors must be logged. |
+| `REL-04` | The system must avoid displaying outdated or incorrect parking information when current data is unavailable. |
+
+### Security Requirements
+
+| ID | Requirement |
+|---|---|
+| `SEC-01` | Only authorized systems or users may control the LED displays. |
+| `SEC-02` | Unauthorized changes to displayed information must be prevented. |
+| `SEC-03` | Communication between Parkit and the LED system must be appropriately secured. |
+| `SEC-04` | Physical access to displays, controllers, and related hardware must be considered. |
+
+### Hardware & Infrastructure Requirements
+
+| ID | Requirement |
+|---|---|
+| `HW-01` | Selected hardware must be compatible with the existing project infrastructure. |
+| `HW-02` | Hardware must be suitable for the intended installation environment. |
+| `HW-03` | Individual components should be replaceable without major changes to Parkit or the overall architecture. |
+| `HW-04` | Additional displays or controllers should be addable without major redesign. |
+| `HW-05` | The communication solution must support the required equipment across the three parking levels. |
 
 ---
 
-### Working Materials
+## Evaluation Criteria
 
-The folders above contain research notes, diagrams, comparisons, test results, and other working materials produced during the project.
+Possible architecture and hardware options should be evaluated using the same criteria.
 
-These materials will evolve as the research progresses and may later be included in the final technical documentation.
+| Criterion | What is evaluated |
+|---|---|
+| **Visibility** | Readability at the required distance and lighting conditions |
+| **Display capacity** | Supported content, characters, lines, and brightness |
+| **Connectivity** | Communication interfaces, coverage, protocols, and reliability |
+| **Software support** | APIs, libraries, documentation, and maintainability |
+| **Integration effort** | Changes required in the existing Parkit application |
+| **Replaceability** | Ability to replace components without major Parkit changes |
+| **Compatibility** | Compatibility with Parkit and existing infrastructure |
+| **Reliability** | Communication stability, failure handling, and recovery |
+| **Scalability** | Ability to add or replace components |
+| **Security & privacy** | Protection of systems, communication, and displayed information |
+| **Lifecycle** | Hardware availability, vendor support, and replacement options |
+| **Cost** | Hardware, installation, maintenance, replacement, electricity, and estimated 10-year cost |
+
+---
+
+## Expected Outcome
+
+- A selected and documented LED integration architecture.
+- Required hardware, communication methods, software, and libraries identified.
+- Integration implemented without unnecessary coupling to specific LED hardware.
+- Solution validated against the defined requirements.
+- Final technical documentation transferred to the main `parkit-service` repository.
+
+---
+
+## Research
+
+Research, architecture comparisons, hardware tests, and other working materials are maintained in [`research/`](research/).
+
+Open project questions are tracked in [`project-notes/open-questions.md`](../../project-notes/open-questions.md).

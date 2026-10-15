@@ -74,7 +74,7 @@ LED Matrix Integration
 | Architecture Selection | Research & Evaluation |
 | Proof of Concept | Selected architecture and available hardware |
 | Administration Approval | Defined architecture and installation requirements |
-| Production Implementation | Selected and validated architecture |
+| Implementation | Selected and validated architecture |
 | Procurement & Installation | Facility Management approval |
 | System Testing | Implementation and installation |
 | Deployment | Successful system testing |
