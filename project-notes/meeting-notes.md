@@ -68,7 +68,7 @@ softare decisions needed:
   - Show which parking spaces are currently free.
 - Identified the need to define how often the LED displays should be updated.
 - Requirements should have IDs so future features, research, and tests can be linked to them.
-- The existing LED hardware test could not be completed because the required cable was missing. Daniel will check if he has the correct cable.
+- The existing LED hardware test could not be completed because the required connection/cable was missing. Daniel confirmed that he does not have it.
 
 ### To Investigate
 
@@ -80,6 +80,7 @@ softare decisions needed:
 
 - Complete and compare the three architecture options, with Raspberry Pi as the main focus.
 - Add costs and explain why each option is or is not suitable.
-- Test the existing LED hardware when the required cable is available.
+- Confirm the required LED test setup with the hardware specialist and obtain the missing component if needed.
+- Test the existing LED hardware once the required setup is available.
 - Update the LED requirements with IDs and use cases.
 - Arrange a meeting with the hardware specialist for Monday, if available.
