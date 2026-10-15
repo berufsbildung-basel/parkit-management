@@ -1,96 +1,169 @@
+# Explore Our Existing Hardware
 
-# Explore our existing hardware
-
-| Datum | 29.09.2026                    |
-| ----- | ----------------------------- |
-| Thema | P.A.R.K.I.T                   |
-|       | Explore our existing hardware |
-
----
-
-## Contents
-
--  Hardware
-	- Summary Table & Hardware Overview
-	- Component Descriptions & Use Cases
-		- RGB Matrix Panel (P3 2020 64x64-32s-m6) 
-		- Interstate 75 W Driver Board
-		- Raspberry Pi Pico W Microcontroller 
-		- Intel NUC 13 Pro (Arena Canyon) Orchestrator
-	- System Power Consumption & Annual Costs
+| Date | 29.09.2026 |
+|---|---|
+| Project | P.A.R.K.I.T |
+| Topic | Explore our existing hardware |
 
 ---
 
-## Summary Table & Hardware Overview
+## Purpose
 
-| Component       | Hardware                 | Model                                                   | Use Case                                                                                                   | doc                                                                                                                                                                                                  |
-| --------------- | ------------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Display Panel   | RGB Matrix Panel         | RGB P3 Matrix Panel 64x64 HUB75<br>p3 2020 64x64-32s-m6 | Two horizontally mounted panels displaying real-time parking space status and availability.                | [Device manual, additional documentation](https://seengreat.com/wiki/74/rgb-matrix-p3-0-64x64?srsltid=AU7gw4WkmcVyNBNv6_9192mjPoMKCqP4GaO1SOdmdPXZZzYL28sVrHxf)                                      |
-| Controller      | Pimoroni Interstate 75 W | Interstate 75 W (Pico W Aboard(RP2040))                 | Connecting the microcontroller to the LED panel and the power supply.                                      | [Device guide, usage examples, and further documentation](https://github.com/pimoroni/interstate75)<br>[Connection Guide](https://learn.pimoroni.com/article/getting-started-with-interstate-75)<br> |
-| Microcontroller | Raspberry Pi Pico W      | Raspberry Pi Pico W (RP2040)                            | Data acquisition and image visualization on two LED panels.                                                | [Raspberry Pi PIco W guide, further documentation](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html)                                                                      |
-| Orchestrator    | Intel NUC                | Intel NUC 13 Pro (NUC13ANHi7000)                        | Retrieving data from the server, distributing the information, and transmitting it to the microcontrollers | [Device manual, additional documentation](https://download.intel.com/newsroom/2023/client-computing/Intel-NUC-13-Pro-Tech-Product-Spec.pdf)                                                          |
+Identify the hardware currently available for the LED project, understand the basic role of each component, and determine how the components could potentially be connected.
 
 ---
 
+## Hardware Overview
 
+| Component | Hardware | Model | Role | Key Interface | Documentation |
+|---|---|---|---|---|---|
+| Display | RGB Matrix Panel | P3 2020 64×64-32s-m6 | Displays parking information | HUB75, 5V | [Device documentation](https://seengreat.com/wiki/74/rgb-matrix-p3-0-64x64) |
+| Driver Board | Pimoroni Interstate 75 W | Interstate 75 W with Pico W | Connects the Pico W to the HUB75 LED panels and power | HUB75, GPIO | [Device guide](https://github.com/pimoroni/interstate75) · [Connection guide](https://learn.pimoroni.com/article/getting-started-with-interstate-75) |
+| Microcontroller | Raspberry Pi Pico W | RP2040 | Controls the content displayed on the LED panels | GPIO, Wi-Fi, BLE | [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html) |
+| Orchestrator | Intel NUC 13 Pro | Exact model to confirm | Originally planned to retrieve data from Parkit and distribute it to the display controllers | Ethernet, Wi-Fi, USB | [Intel NUC 13 Pro specification](https://download.intel.com/newsroom/2023/client-computing/Intel-NUC-13-Pro-Tech-Product-Spec.pdf) |
 
-## Component Descriptions & Use Cases
+---
+
+## Components
 
 ### RGB Matrix Panel
 
 #### Description
 
-The **P3 2020 64x64-32s-m6** is a high-density, full-color indoor **RGB LED matrix panel** measuring 192×192mm. It features a fine **3mm pixel pitch** and a native resolution of **64×64 pixels**, packing 4,096 vibrant SMD 2121 LEDs into a compact footprint. Driven via a standard **HUB75 interface** with a **1/32 multiplexing scan rate**, this display requires a dedicated **5V power supply (minimum 4A)** and an addressable "E line" connection to handle its intensive row multiplexing.
+The **P3 2020 64×64-32s-m6** is an indoor RGB LED matrix panel measuring approximately 192×192 mm.
 
+Relevant specifications:
 
-#### Use Cases
+- 64×64 pixel resolution
+- 3 mm pixel pitch
+- HUB75 interface
+- 1/32 scan rate
+- 5V power supply
+- 4,096 RGB LEDs
 
-This is the display that will show information about the parking space. Two such panels will be mounted horizontally.
+Two panels are currently planned to be used together as one display for a parking space.
+
+#### Role
+
+Displays parking information to drivers.
+
+#### Connection
+
+The panel uses the **HUB75 interface** and can be connected to the **Interstate 75 W** driver board.
 
 ---
 
-### Interstate 75 W 
+### Interstate 75 W
 
 #### Description
 
-The Interstate 75 W (Pico W Aboard) is an all-in-one controller and driver board designed specifically for **HUB75-style RGB LED matrix panels**. Developed by Pimoroni, it features a pre-assembled **Raspberry Pi Pico W**
+The **Pimoroni Interstate 75 W** is a controller/driver board designed for HUB75 RGB LED matrix panels.
 
-#### Use Cases
+The existing board includes a **Raspberry Pi Pico W**.
 
-Connecting the microcontroller to the LED panel and power supply
+#### Role
+
+Provides the interface between the Pico W, LED matrix panels, and power supply.
+
+#### Connection
+
+- Raspberry Pi Pico W → integrated with Interstate 75 W
+- Interstate 75 W → HUB75 → RGB Matrix Panel
 
 ---
 
-
-### Raspberry Pi PIco W
+### Raspberry Pi Pico W
 
 #### Description
 
-The **Raspberry Pi Pico W** is a compact, low-cost **microcontroller board** that adds native **2.4GHz Wi-Fi and Bluetooth** connectivity to the powerful, custom-designed **RP2040 silicon chip**. It is designed for physical computing projects, IoT applications, and embedded control, offering wireless networking in the same small form factor as the original Pico.
+The **Raspberry Pi Pico W** is a microcontroller based on the RP2040 chip with 2.4 GHz Wi-Fi, Bluetooth, and GPIO connectivity.
 
-#### Use Cases
+#### Role
 
-The Raspberry Pi Pico W is a microcontroller used to control the process of displaying images on two displays. It is integrated into the Interstate 75 W kit
+Controls the content displayed on the LED panels.
+
+In the existing setup, the Pico W is integrated into the Interstate 75 W.
 
 ---
 
-### Intel NUC 
+### Intel NUC 13 Pro
 
 #### Description
 
-The Intel NUC 13 Pro (NUC13ANHi7), codenamed **Arena Canyon**, is a high-performance, ultra-compact mini PC designed for professional workflows, office productivity, and home entertainment. Packaged in a space-saving 4x4 chassis, it delivers desktop-grade computing power while supporting 24/7 commercial operation
+The **Intel NUC 13 Pro (Arena Canyon)** is a compact x86 computer.
 
-#### Use Cases
+The exact model of the available device should be confirmed.
 
-This is a orchestrator; it will distribute data to the appropriate microcontrollers, and the parking reservation service will run on it.
+#### Originally Planned Role
+
+The Intel NUC was originally planned to act as the orchestrator:
+
+- receive required data from Parkit;
+- process/distribute the information;
+- send the required information to the display controllers.
+
+The final orchestrator architecture has not yet been selected.
 
 ---
 
+## Possible Connection
 
-## System Power Consumption & Annual Costs
+A simplified view of how the existing hardware was originally expected to work:
 
-| System Component                                                          | Unit Power | Qty | Total Active Power | Annual Consumption | Estimated Annual Cost (0.334 CHF/kWh) |
-| :------------------------------------------------------------------------ | :--------: | :-: | :----------------: | :----------------: | :-----------------------------------: |
-| **Bay Logic & Displays**<br>*(2x P3 RGB Matrix Panels + Interstate 75 W)* |    25 W    |  8  |       200 W        |     ~1,752 kWh     |              585.17 CHF               |
-| **Central Orchestrator**<br>*(Intel NUC 13 Pro )*                         |    25 W    |  1  |        25 W        |      ~219 kWh      |             <br>73.15 CHF             |
-| **System Total** <br>*(Including PSU efficiency overhead ~247 W)*         |     —      |  —  |     **247 W**      |  **~2,167.6 kWh**  |              723.98 CHF               |
+```text
+┌──────────────────────┐
+│    Parkit / Server   │
+└──────────┬───────────┘
+           │
+           │ Connection TBD
+           ▼
+┌──────────────────────┐
+│    Intel NUC 13 Pro  │
+│      Orchestrator    │
+└──────────┬───────────┘
+           │
+           │ Connection TBD
+           ▼
+┌──────────────────────┐
+│ Raspberry Pi Pico W  │
+│ + Interstate 75 W    │
+└──────────┬───────────┘
+           │
+           │ HUB75
+           ▼
+┌──────────────────────┐
+│  2 × RGB LED Matrix  │
+│        Panels        │
+└──────────────────────┘
+```
+
+The communication method between the orchestrator and display controller is still under investigation.
+
+---
+
+## Open Questions
+
+The main remaining questions related to the existing hardware are:
+
+- How should the orchestrator communicate with the display controller?
+- What cables, adapters, and power components are required?
+- What software and libraries are required?
+- Which existing components can be reused in the final architecture?
+
+Detailed project questions are tracked in [`project-notes/open-questions.md`](../../../../project-notes/open-questions.md).
+
+---
+
+## Additional Estimate
+
+### System Power Consumption & Annual Costs
+
+The following estimate was prepared during the initial hardware research and is retained as working information. It represents a possible setup rather than the selected final architecture.
+
+| System Component | Unit Power | Qty | Total Active Power | Annual Consumption | Estimated Annual Cost (0.334 CHF/kWh) |
+|---|---:|---:|---:|---:|---:|
+| Bay Logic & Displays (2× P3 RGB Matrix Panels + Interstate 75 W) | 25 W | 8 | 200 W | ~1,752 kWh | 585.17 CHF |
+| Central Orchestrator (Intel NUC 13 Pro) | 25 W | 1 | 25 W | ~219 kWh | 73.15 CHF |
+| System Total (including PSU efficiency overhead ~247 W) | — | — | ~247 W | ~2,167.6 kWh | 723.98 CHF |
+
+> These values are preliminary estimates and should be reviewed as part of the architecture comparison.
