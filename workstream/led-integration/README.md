@@ -58,12 +58,26 @@ Requirement IDs are used to link requirements to features, technical decisions, 
 
 ### Functional Requirements
 
+Requirement ID prefixes:
+
+| Prefix | Meaning |
+|---|---|
+| FR | Functional Requirement |
+| LP | Licence Plate Requirement |
+| DISP | Display Requirement |
+| INT | Integration Requirement |
+| REL | Reliability Requirement |
+| SEC | Security Requirement |
+| HW | Hardware & Infrastructure Requirement |
+
+---
+
 | ID | Requirement |
 |---|---|
 | `FR-01` | The system must display the parking space assigned to the driver's reservation. |
 | `FR-02` | The system must show whether a parking space is currently available for reservation. |
 | `FR-03` | Displayed information must match the current reservation data in Parkit. |
-| `FR-04` | Displayed information must be updated when a reservation or assigned parking space changes. |
+| `FR-04` | LED displays must reflect reservation changes in Parkit within a maximum of 1 minute. |
 | `FR-05` | The system must support morning, afternoon, and full-day reservations. |
 | `FR-06` | The system must correctly represent when a parking space is available or reserved. |
 | `FR-07` | Displayed parking availability must remain current. |

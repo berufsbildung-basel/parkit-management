@@ -84,3 +84,37 @@ softare decisions needed:
 - Test the existing LED hardware once the required setup is available.
 - Update the LED requirements with IDs and use cases.
 - Arrange a meeting with the hardware specialist for Monday, if available.
+
+---
+
+## 19-10-2026 — Hardware Expert Meeting
+
+### Discussed
+
+- Parkit is hosted in the cloud. A direct Ethernet connection from the office to the parking area is not required.
+- Mobile internet via SIM card is the selected communication direction. LoRaWAN is no longer being considered.
+- Intel NUC and Raspberry Pi remain the two orchestrator options.
+- Reusing the existing Intel NUC could avoid purchasing another computer.
+- The existing Pico W / Interstate 75 W and RGB LED panels should be reused where possible.
+- The architecture needs to be investigated in more detail, including data flow, cables, interfaces, and power connections.
+- The system should use mains power, not batteries.
+
+### Open Questions
+
+- Should we use the existing Intel NUC or a Raspberry Pi?
+- Which cellular router/modem and SIM plan should we use? Wingo was discussed as a possible provider.
+- How will the orchestrator communicate with the LED controllers?
+- What additional cables, adapters, and power supplies are required?
+- What are the costs and technical risks of the proposed architecture?
+
+### Next Steps
+
+- Prepare a detailed end-to-end diagram on the whiteboard: Parkit Cloud → Mobile Internet → Orchestrator → Pico W / Interstate 75 W → LED panels.
+- Identify the required connections and components at each step.
+- Compare Intel NUC and Raspberry Pi using the project evaluation criteria.
+- Document the technical risks.
+- Complete the existing LED hardware test once the missing cable and power components are available.
+- Test sending two different images to two LED panels and verify how the controller routes the display data.
+- Test the complete data flow from Parkit Cloud to the LED panels using mobile internet (Architecture PoC).
+
+**No final orchestrator or hardware configuration has been selected yet.**
