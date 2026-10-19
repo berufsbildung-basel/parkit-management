@@ -40,12 +40,13 @@
 
 Each character can be enlarged using different scaling factors.
 
-|Scale|Minimum size|Maximum size|
-|---|---|---|
-|1 × 1|1 × 5 px|5 × 5 px|
-|2 × 2|2 × 10 px|10 × 10 px|
-|3 × 3|3 × 15 px|15 × 15 px|
-|4 × 4|4 × 20 px|20 × 20 px|
+| Scale | Minimum size | Maximum size |
+| ----- | ------------ | ------------ |
+| 1 × 1 | 1 × 5 px     | 5 × 5 px     |
+| 2 × 2 | 2 × 10 px    | 10 × 10 px   |
+| 3 × 3 | 3 × 15 px    | 15 × 15 px   |
+| 4 × 4 | 4 × 20 px    | 20 × 20 px   |
+
 
 **Note:** Larger scaling improves readability but reduces the number of characters that can be displayed.
 
@@ -60,7 +61,7 @@ At a scale of **2 × 2**:
 - Maximum of **12 characters per row**
     
 - Maximum of **72 characters across 6 rows**
-    
+
 
 These values assume a fixed character cell size of 10 × 10 pixels without additional spacing between characters and a 1-pixel edge margin.
 
@@ -103,23 +104,6 @@ The actual capacity depends on character width, spacing and layout. The Adobe lo
 - The same logo position should be used on every display.
     
 - A minimum margin of 1 pixel should be maintained.
-    
-
----
-
-## 3. Additional Considerations
-
-- **Readability:** Text must be readable from inside a vehicle.
-    
-- **International plates:** Longer licence plates may require smaller characters.
-    
-- **Automatic updates:** Display content must stay synchronized with Parkit.
-    
-- **Space limitations:** Important information such as the licence plate should have priority over decorative elements.
-    
-- **Connection failure:** The display should show a defined fallback message if current reservation data is unavailable.
-    
-- **Privacy:** Personal information should only be displayed when necessary.
     
 
 ---
@@ -212,202 +196,116 @@ The actual capacity depends on character width, spacing and layout. The Adobe lo
 └────────────────────────────────────────┘
 ```
 
-### 6.4 Prototype Testing
+## 7. Parkit Integration
 
-The prototype should be tested for:
+### 7.1 Display Updates
 
-- Different character scaling factors (1 × 1 to 4 × 4).
-    
-- Swiss and international licence plate lengths.
-    
-- Readability at different viewing distances.
-    
-- Correct placement of the Adobe logo.
-    
-- Automatic switching between reservation states.
-    
-- Correct display of reservation times.
-    
+The display must automatically update when:
 
-**Note:** These examples are conceptual layouts and do not represent the exact pixel positions of the final 128 × 64 LED matrix.
-
-
-## 1. LED Matrix Specifications
-
-### 1.1 Matrix Dimensions
-
-- **Matrix resolution:** 64 × 64 pixels
+- A new reservation is created.
     
-- **Edge margin:** 1 × 1 pixel
+- An existing reservation is modified.
     
-- **Background:** Black
+- A reservation is cancelled.
+    
+- A different parking space is assigned.
+    
+- A reservation starts or ends.
     
 
-### 1.2 Character Dimensions
+## 8. Reservation Handling
 
-|Character size|Width|Height|
-|---|---|---|
-|Minimum|1 px|5 px|
-|Maximum|5 px|5 px|
+### 8.1 Reservation Periods
 
-### 1.3 Character Scaling
+The system must support the reservation periods defined in Parkit.
 
-Each character can be enlarged using different scaling factors.
+| Reservation type | Example time | Display     |
+| ---------------- | ------------ | ----------- |
+| Morning          | 08:00–12:00  | `BS 123456` |
+| Afternoon        | 12:00–18:00  | `BS 123456` |
+| Full Day         | 08:00–18:00  | `BS 123456` |
 
-|Scale|Minimum size|Maximum size|
-|---|---|---|
-|1 × 1|1 × 5 px|5 × 5 px|
-|2 × 2|2 × 10 px|10 × 10 px|
-|3 × 3|3 × 15 px|15 × 15 px|
-|4 × 4|4 × 20 px|20 × 20 px|
+Note: These times are examples. The actual reservation periods must be retrieved from Parkit.
 
-**Note:** Larger scaling improves readability but reduces the number of characters that can be displayed. 
+### 8.2 Parking Availability
 
-### 1.4 Maximum Character Capacity
+The LED display should automatically change its content depending on the current reservation status.
 
-**Matrix resolution:** 64 × 64 pixels
-
-At a scale of **2 × 2**:
-
-- Maximum character size: 10 × 10 pixels
-    
-- Maximum of **6 characters per row**
-    
-- Maximum of **24 characters across 4 rows**
-    
-
-These values assume a fixed character cell size of 10 × 10 pixels without additional spacing between characters.
-
-The actual capacity depends on character width, spacing and layout. The Adobe logo also reduces the available display area.
-
----
-
-## 2. Adobe Logo
-
-### 2.1 Appearance
-
-- **Text:** `adobe`
-    
-- **Colours:** Red 
-    
-- **Font scale:** 2 × 2
-    
-- **Position:** Bottom-right corner of the LED matrix
-    
-- **Background:** Black
-    
-
-### 2.2 Logo Placement
-
-- The Adobe text should remain visible without interfering with the parking information.
-    
-- The logo should use as little space as possible.
-    
-- The same logo position should be used on every display.
-    
-
----
-
-## 3. Additional Considerations
-
-- **Readability:** Text must be readable from inside a vehicle.
-    
-- **International plates:** Longer licence plates may require smaller characters.
-    
-- **Automatic updates:** Display content must stay synchronized with Parkit.
-    
-- **Space limitations:** Important information such as the licence plate should have priority over decorative elements.
-    
-- **Connection failure:** The display should show a defined fallback message if current reservation data is unavailable.
-    
-- **Privacy:** Personal information should only be displayed when necessary.
-    
-
----
-
-## 4. Font Preview
-
-![[Pasted image 20261019092254.png]]
-
----
-
-## 5. Open Questions
-
-
-- What is the minimum readable font size from the expected viewing distance?
-    
-- Should the licence plate and reservation time be displayed simultaneously?
-    
-- How much space should be reserved for the Adobe logo?
-    
-- Should the country code be displayed for international licence plates?
-
-
----
-
-## 6. Prototype
-
-### 6.1 Prototype Specifications
-
-- **Matrix resolution:** 64 × 64 pixels
-    
-- **Background:** Black
-    
-- **Font:** Pixel font
-    
-- **Adobe logo:** Red, bottom-right
-    
-- **Display content:** Parking space number, licence plate and reservation status
-    
-
-### 6.2 Display States
-
-|State|Display information|
+|Situation|Display|
 |---|---|
-|Reserved|Parking number and licence plate|
-|Free|`FREE`|
-|Free until next reservation|`FREE UNTIL 12:00`|
-|Full-day availability|`FREE ALL DAY`|
-|Connection error|`NO DATA`|
+|Parking space is reserved|`BS 123456`|
+|Available until 12:00|`FREE UNTIL 12:00`|
+|Available for the entire day|`FREE ALL DAY`|
+|Reservation starts|Display licence plate|
+|Reservation ends|Display next reservation or `FREE`|
 
-### 6.3 Prototype Examples
+### 8.3 Automatic Switching
 
-**Example 1 – Reserved Parking Space**
+- The system compares the current time with the reservation start and end times.
+    
+- When a reservation ends, the display automatically changes to the next status.
+    
+- If another reservation starts immediately, the new licence plate is displayed.
+    
+- No manual interaction should be required.
 
-```text
-┌──────────────────────┐
-│ P12                  │
-│                      │
-│      BS 123456       │
-│                      │
-│      RESERVED        │
-│                adobe │
-└──────────────────────┘
-```
 
-**Example 2 – Available Parking Space**
+## 9. Licence Plate Handling
 
-```text
-┌──────────────────────┐
-│ P12                  │
-│                      │
-│        FREE          │
-│      UNTIL 12:00     │
-│                      │
-│                adobe │
-└──────────────────────┘
-```
+### 9.1 Supported Formats
 
-**Example 3 – International Licence Plate**
+The system must support Swiss and international licence plates.
 
-```text
-┌──────────────────────┐
-│ P12                  │
-│                      │
-│      B AB 1234       │
-│                      │
-│      RESERVED        │
-│                adobe │
-└──────────────────────┘
-```
+|Country|Example|
+|---|---|
+|Switzerland|`BS 123456`|
+|Germany|`B AB 1234`|
+|France|`AB-123-CD`|
+|Italy|`AB 123 CD`|
+|Austria|`W 12345 A`|
+
+### 9.2 Dynamic Font Scaling
+
+- The system should automatically adjust the font size depending on the licence plate length.
+    
+- Short licence plates can be displayed using a larger scaling factor.
+    
+- Longer licence plates should use a smaller scaling factor.
+    
+- The licence plate must remain readable and fit within the 128 × 64 matrix.
+    
+
+### 9.3 Consistent Formatting
+
+- Use uppercase letters.
+    
+- Use the same pixel font for all licence plates.
+    
+- Keep consistent spacing between characters.
+    
+- Centre the licence plate horizontally.
+    
+- Preserve important characters such as hyphens.
+    
+
+## 10. Privacy and Data Protection
+
+### 10.1 Licence Plate Privacy
+
+- Licence plates should only be displayed when necessary.
+    
+- The display should not show the driver's name or other personal information.
+    
+- Licence plate information should be removed when the reservation ends.
+    
+- Displaying partially hidden licence plates should be considered if full visibility is not required.
+    
+
+### 10.2 Data Security
+
+- Communication between Parkit and the LED displays should be secured.
+    
+- Only authorized systems should be able to change display information.
+    
+- Reservation data should not be stored permanently on the LED matrix controller unless required.
 
