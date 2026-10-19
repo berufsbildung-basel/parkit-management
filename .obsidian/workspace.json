@@ -13,20 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workstream/led-integration/research/hardware/Posible solutions.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Posible solutions"
-            }
-          },
-          {
-            "id": "f13afdc6bf9f2453",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "workstream/led-integration/research/hardware/Parking Display Requirements Notes.md",
                 "mode": "source",
                 "source": false
@@ -35,8 +21,7 @@
               "title": "Parking Display Requirements Notes"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -203,24 +188,27 @@
       "bases:Neue Base erstellen": false
     }
   },
-  "active": "f13afdc6bf9f2453",
+  "active": "d3a2e44f7924e763",
   "lastOpenFiles": [
-    "Pasted image 20261019092254.png",
+    "workstream/led-integration/research/research-led/research.md",
     "workstream/led-integration/research/hardware/Posible solutions.md",
     "workstream/led-integration/research/hardware/Parking Display Requirements Notes.md",
-    "workstream/led-integration/research/research-led/research.md",
-    "Unbenannt",
-    "project-notes/meeting-notes.md",
-    "project-notes/decisions.md",
-    "PROJECT_ROADMAP.md",
+    "workstream/led-integration/research/hardware/Explore our existing hardware.md",
+    "Pasted image 20261019092254.png",
+    "workstream/led-integration/research/hardware/posible-solutions.md",
     "workstream/led-integration/research/hardware/imgg/architecture-3-lorawan-epaper.png",
     "workstream/led-integration/research/hardware/imgg/Pasted image 20261012102657.png",
     "workstream/led-integration/research/hardware/imgg/Pasted image 20261012100449.png",
     "workstream/led-integration/research/hardware/imgg/Pasted image 20261012100345.png",
-    "workstream/led-integration/research/hardware/imgg/Pasted 12-10-2026 at 11.23.59.textClipping",
     "workstream/led-integration/research/hardware/imgg",
+    "workstream/led-integration/research/hardware/explore-our-existing-hardware.md",
+    "workstream/led-integration/research/hardware/architecture-options.md",
+    "Unbenannt",
+    "project-notes/meeting-notes.md",
+    "project-notes/decisions.md",
+    "PROJECT_ROADMAP.md",
+    "workstream/led-integration/research/hardware/imgg/Pasted 12-10-2026 at 11.23.59.textClipping",
     "project-notes/meetings-notes.md",
-    "workstream/led-integration/research/hardware/Explore our existing hardware.md",
     "workstream/led-integration/research/hardware/Posible solutions 1.md"
   ]
 }
