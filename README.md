@@ -58,7 +58,8 @@ management/
 | Risks | [`project-notes/risks.md`](project-notes/risks.md) |
 | Decisions | [`project-notes/decisions.md`](project-notes/decisions.md) |
 | Meeting outcomes | [`project-notes/meeting-notes.md`](project-notes/meeting-notes.md) |
-| Project context and terminology | [`project-context/`](project-context/) |
+| Project context | [`project-context/`](project-context/) |
+| Glossary and terminology | [`project-context/glossary.md`](project-context/glossary.md) |
 | Research and working materials | [`workstream/`](workstream/) |
 | Final technical documentation | [`parkit-service` repository](https://github.com/berufsbildung-basel/parkit-service) |
 
