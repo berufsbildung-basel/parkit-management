@@ -2,8 +2,9 @@
 - Overview
 - Research
 	- Hardware
-	- Software options
-	- 
+	- Software 
+		- Intel NUC
+		- Raspberry Pi Pico W
 
 
 ## Overview
@@ -35,7 +36,9 @@ Cables used for Hardware:
 
 ### Software
 
-### Intel NUC 
+The prototype needs to display a specific image, which requires installing, configuring, and writing specialized software
+
+#### Intel NUC 
 
 Debian
 
@@ -45,7 +48,7 @@ Docker Compose
 
 Uptime Kuma
 
-### Raspberry Pi pico W
+#### Raspberry Pi Pico W
 
 Watchdog
 
