@@ -15,12 +15,12 @@ Identify the hardware currently available for the LED project, understand the ba
 
 ## Hardware Overview
 
-| Component | Hardware | Model | Role | Key Interface | Documentation |
-|---|---|---|---|---|---|
-| Display | RGB Matrix Panel | P3 2020 64×64-32s-m6 | Displays parking information | HUB75, 5V | [Device documentation](https://seengreat.com/wiki/74/rgb-matrix-p3-0-64x64) |
-| Driver Board | Pimoroni Interstate 75 W | Interstate 75 W with Pico W | Connects the Pico W to the HUB75 LED panels and power | HUB75, GPIO | [Device guide](https://github.com/pimoroni/interstate75) · [Connection guide](https://learn.pimoroni.com/article/getting-started-with-interstate-75) |
-| Microcontroller | Raspberry Pi Pico W | RP2040 | Controls the content displayed on the LED panels | GPIO, Wi-Fi, BLE | [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html) |
-| Orchestrator | Intel NUC 13 Pro | Exact model to confirm | Originally planned to retrieve data from Parkit and distribute it to the display controllers | Ethernet, Wi-Fi, USB | [Intel NUC 13 Pro specification](https://download.intel.com/newsroom/2023/client-computing/Intel-NUC-13-Pro-Tech-Product-Spec.pdf) |
+| Component       | Hardware                 | Model                       | Role                                                                                         | Key Interface        | Documentation                                                                                                                                        |
+| --------------- | ------------------------ | --------------------------- | -------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Display         | RGB Matrix Panel         | P3 2020 64×64-32s-m6        | Displays parking information                                                                 | HUB75, 5V            | [Device documentation](https://seengreat.com/wiki/74/rgb-matrix-p3-0-64x64)                                                                          |
+| Driver Board    | Pimoroni Interstate 75 W | Interstate 75 W with Pico W | Connects the Pico W to the HUB75 LED panels and power                                        | HUB75, GPIO          | [Device guide](https://github.com/pimoroni/interstate75) · [Connection guide](https://learn.pimoroni.com/article/getting-started-with-interstate-75) |
+| Microcontroller | Raspberry Pi Pico W      | RP2040                      | Controls the content displayed on the LED panels                                             | GPIO, Wi-Fi, BLE     | [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html)                                            |
+| Orchestrator    | Intel NUC 13 Pro         | Exact model to confirm      | Originally planned to retrieve data from Parkit and distribute it to the display controllers | Ethernet, Wi-Fi, USB | [Intel NUC 13 Pro specification](https://download.intel.com/newsroom/2023/client-computing/Intel-NUC-13-Pro-Tech-Product-Spec.pdf)                   |
 
 ---
 
