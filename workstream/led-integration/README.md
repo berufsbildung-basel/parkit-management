@@ -95,7 +95,7 @@ Requirement ID prefixes:
 
 | ID | Requirement |
 |---|---|
-| `DISP-01` | Displayed information must be clearly readable by drivers. |
+| `DISP-01` | LED information must be readable from the required distance and viewing angles under the parking area's lighting conditions. |
 | `DISP-02` | The display must support the required content, characters, and lines. |
 | `DISP-03` | Information must remain readable under expected lighting conditions. |
 | `DISP-04` | The system must define how content is handled when it does not fit on the display. |
@@ -137,8 +137,8 @@ Requirement ID prefixes:
 | `HW-02` | Hardware must be suitable for the intended installation environment. |
 | `HW-03` | Individual components should be replaceable without major changes to Parkit or the overall architecture. |
 | `HW-04` | Additional displays or controllers should be addable without major redesign. |
-| `HW-05` | Reliable communication must be possible between the office and the parking area, which are separated by three floors. |
-
+| `HW-05` | Reliable communication must be possible between cloud-hosted Parkit and the LED equipment in the parking area. |
+| `HW-06` | The orchestrator must use suitable storage(SSD,SunDisk) for the operating system and software, with sufficient reliability for continuous operation. |
 ---
 
 ## Evaluation Criteria

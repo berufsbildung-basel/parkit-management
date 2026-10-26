@@ -16,20 +16,26 @@ The "Related Requirement" column references requirement IDs defined in the [LED 
 
 | Question | Related Requirement | Status |
 |---|---|---|
-| Should we use the existing Intel NUC or a Raspberry Pi as the orchestrator? | `INT-02`, `INT-03`, `INT-04` | Open |
+| Should we use Raspberry Pi 4 or 5 for the final system? | `HW-01`, `HW-04` | Open |
 | Which existing hardware can be reused, and what additional components are required? | `HW-01`, `HW-03` | Open |
 | Can the existing Raspberry Pi Pico W / Interstate 75 W be reused in the proposed architectures? | `HW-01`, `HW-03` | Open |
 | How are the components connected in each architecture, including required cables and adapters? | `HW-01` | Open |
 | What power supplies are required for the controllers and LED panels? | `HW-01`, `HW-02` | Open |
+| Should we use a microSD card or SSD for the Raspberry Pi 4/5? | `HW-06` | Open |
+| Can one Raspberry Pi control all 8 parking spaces, and how many LED controllers are needed? | `HW-03`, `HW-04` | Open |
 
 ### Software & Parkit Integration
 
 | Question | Related Requirement | Status |
 |---|---|---|
 | What changes are required in the existing Parkit application? | `INT-03`, `INT-04` | Open |
-| What interface should be used between Parkit and the LED system? | `INT-01`, `INT-02` | Open |
 | Which OS, software, drivers, and libraries are required for each architecture? | — | Open |
 | How should the orchestrator communicate with the display controllers? | `INT-02`, `REL-01`, `REL-02` | Open |
+| Can the existing Parkit API provide the current status of all 8 parking spaces? | `INT-01`, `FR-03` | Open |
+| How will Raspberry Pi authenticate with the Parkit API? | `INT-02`, `SEC-01` | Open |
+| What commands should Raspberry Pi send to the LED controllers via USB? | `INT-02` | Open |
+| How will Raspberry Pi access the Parkit API securely? | `INT-02`, `SEC-01`, `SEC-03` | Open |
+| What polling interval is needed to update LED displays within 1 minute? | `FR-04` | Open |
 
 ### Display
 
@@ -46,11 +52,13 @@ The "Related Requirement" column references requirement IDs defined in the [LED 
 
 | Question | Related Requirement | Status |
 |---|---|---|
-| Which cellular router/modem and SIM plan should we use? | `HW-01`, `HW-05` | Open |
+| Which 4G router and SIM plan should we use (e.g. Wingo)? | `HW-07`, `HW-08` | Open |
+| How much mobile data will the system use per month? | `HW-09` | Open |
 | Is mobile network coverage reliable in the parking area? | `HW-05`, `REL-01` | Open |
 | How should the cellular router connect to the orchestrator and LED controllers? | `INT-02`, `HW-01` | Open |
 | Where will the orchestrator, controllers, network equipment, and power supplies be installed? | `HW-01`, `HW-02` | Open |
 | What power connections are available at the installation locations? | `HW-01`, `HW-02` | Open |
+| Which 4G router and SIM plan should we use (e.g. Wingo)? | `HW-01`, `HW-05` | Open |
 
 ### LED Hardware Test
 
@@ -85,6 +93,21 @@ The "Related Requirement" column references requirement IDs defined in the [LED 
 | What will the mobile internet subscription and network equipment cost over 10 years? | — | Open |
 
 ---
+
+### Local Communication
+
+| Question | Related Requirement | Status |
+|---|---|---|
+| How should Raspberry Pi communicate with the LED controllers across all 8 parking spaces (Wi-Fi or wired connection)? | `INT-02`, `HW-01`, `REL-01` | Open |
+
+### Power Distribution
+
+| Question | Related Requirement | Status |
+|---|---|---|
+| How can we safely power 16 LED panels and their controllers using the two available power outlets? | `HW-01`, `HW-02` | Open |
+
+---
+
 
 ## Expiring Reservation Reminder
 

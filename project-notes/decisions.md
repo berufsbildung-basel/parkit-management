@@ -32,8 +32,7 @@ The following decisions must be made before selecting the final LED integration 
 | Topic | Decision Needed | Status | Related Work |
 |---|---|---|---|
 | Orchestrator | Which device should coordinate the LED system (Intel NUC, Raspberry Pi, or another option)? | Pending | [`LED Integration`](../workstream/led-integration/) |
-| Communication | How should data be transmitted across the three parking levels (Ethernet, Wi-Fi, LoRa, or provider network)? | Pending | [`LED Integration`](../workstream/led-integration/) |
-| LED Controller | Should we reuse the existing Pico W / Interstate 75 W setup or use a different controller? | Pending | [`LED Integration`](../workstream/led-integration/) |
+| Local Communication | How should the Raspberry Pi 4 communicate with the LED controllers? | Pending | [`LED Integration`](../workstream/led-integration/) || LED Controller | Should we reuse the existing Pico W / Interstate 75 W setup or use a different controller? | Pending | [`LED Integration`](../workstream/led-integration/) |
 
 ---
 
