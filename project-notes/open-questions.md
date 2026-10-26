@@ -23,6 +23,8 @@ The "Related Requirement" column references requirement IDs defined in the [LED 
 | What power supplies are required for the controllers and LED panels? | `HW-01`, `HW-02` | Open |
 | Should we use a microSD card or SSD for the Raspberry Pi 4/5? | `HW-06` | Open |
 | Can one Raspberry Pi control all 8 parking spaces, and how many LED controllers are needed? | `HW-03`, `HW-04` | Open |
+| How should we distribute power from the two available outlets to all 16 LED panels and their controllers? | `HW-01`, `HW-02` | Open |
+| Can each Interstate 75 W share a 5 V power supply with its two LED panels, and what power capacity is required? | `HW-01`, `HW-02` | Open |
 
 ### Software & Parkit Integration
 
