@@ -36,8 +36,10 @@ The "Related Requirement" column references requirement IDs defined in the [LED 
 | Can the existing Parkit API provide the current status of all 8 parking spaces? | `INT-01`, `FR-03` | Open |
 | How will Raspberry Pi authenticate with the Parkit API? | `INT-02`, `SEC-01` | Open |
 | What commands should Raspberry Pi send to the LED controllers via USB? | `INT-02` | Open |
-| How will Raspberry Pi access the Parkit API securely? | `INT-02`, `SEC-01`, `SEC-03` | Open |
+How will Raspberry Pi access the Parkit API securely? | `INT-02`, `SEC-01`, `SEC-03` | Open |
 | What polling interval is needed to update LED displays within 1 minute? | `FR-04` | Open |
+| Is the existing Parkit API v1 still suitable for LED Integration, or does it need changes? | `INT-01`, `INT-02` | Open |
+| What exact JSON payload should the orchestrator receive from Parkit? | `INT-01`, `FR-03` | Open |
 
 ### Display
 
@@ -57,10 +59,9 @@ The "Related Requirement" column references requirement IDs defined in the [LED 
 | Which 4G router and SIM plan should we use (e.g. Wingo)? | `HW-07`, `HW-08` | Open |
 | How much mobile data will the system use per month? | `HW-09` | Open |
 | Is mobile network coverage reliable in the parking area? | `HW-05`, `REL-01` | Open |
-| How should the cellular router connect to the orchestrator and LED controllers? | `INT-02`, `HW-01` | Open |
-| Where will the orchestrator, controllers, network equipment, and power supplies be installed? | `HW-01`, `HW-02` | Open |
+| How should the orchestrator connect to the LED controllers (Wi-Fi or RS-485), and which protocol should we use? | `INT-02`, `HW-01`, `REL-01` | Open || Where will the orchestrator, controllers, network equipment, and power supplies be installed? | `HW-01`, `HW-02` | Open |
 | What power connections are available at the installation locations? | `HW-01`, `HW-02` | Open |
-| Which 4G router and SIM plan should we use (e.g. Wingo)? | `HW-01`, `HW-05` | Open |
+| Should we use a Raspberry Pi 4G HAT or a separate 4G router? | `HW-05`, `HW-07` | Open |
 
 ### LED Hardware Test
 
@@ -93,20 +94,6 @@ The "Related Requirement" column references requirement IDs defined in the [LED 
 | What is the total estimated cost of each architecture, including installation? | — | Open |
 | What are the expected electricity, maintenance, and replacement costs over 10 years? | — | Open |
 | What will the mobile internet subscription and network equipment cost over 10 years? | — | Open |
-
----
-
-### Local Communication
-
-| Question | Related Requirement | Status |
-|---|---|---|
-| How should Raspberry Pi communicate with the LED controllers across all 8 parking spaces (Wi-Fi or wired connection)? | `INT-02`, `HW-01`, `REL-01` | Open |
-
-### Power Distribution
-
-| Question | Related Requirement | Status |
-|---|---|---|
-| How can we safely power 16 LED panels and their controllers using the two available power outlets? | `HW-01`, `HW-02` | Open |
 
 ---
 
