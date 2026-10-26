@@ -46,13 +46,13 @@ _Note: The calculation does not include additional character spacing or space re
 
 ### 1.3 Adobe Logo
 
-|Property|Value|
-|---|---|
-|Text|`adobe`|
-|Colour|Red (`#FF0000`)|
-|Font scale|2 × 2|
-|Position|Bottom-right corner|
-|Edge margin|1 pixel|
+| Property    | Value               |
+| ----------- | ------------------- |
+| Text        | `adobe`             |
+| Colour      | Red (`#FF0000`)     |
+| Font scale  | 2 × 2               |
+| Position    | Bottom-right corner |
+| Edge margin | 1 pixel             |
 
 ---
 
@@ -219,60 +219,6 @@ _Note: Times are examples. Actual reservation periods are defined in Parkit._
 |Adobe logo|Red, bottom-right|
 
 ### 6.2 Display Examples
-
-**Example 1 – Reserved Parking Space**
-
-```
-┌────────────────────────────────────────┐
-│ P12                                    │
-│                                        │
-│              BS 123456                 │
-│                                        │
-│              RESERVED                  │
-│                                  adobe │
-└────────────────────────────────────────┘
-```
-
-**Example 2 – Available Parking Space**
-
-```
-┌────────────────────────────────────────┐
-│ P12                                    │
-│                                        │
-│                 FREE                   │
-│              UNTIL 12:00               │
-│                                        │
-│                                  adobe │
-└────────────────────────────────────────┘
-```
-
-**Example 3 – International Licence Plate**
-
-```
-┌────────────────────────────────────────┐
-│ P12                                    │
-│                                        │
-│              B AB 1234                 │
-│                                        │
-│              RESERVED                  │
-│                                  adobe │
-└────────────────────────────────────────┘
-```
-
-**Example 4 – Connection Error**
-
-```
-┌────────────────────────────────────────┐
-│ P12                                    │
-│                                        │
-│               NO DATA                  │
-│                                        │
-│           CONNECTION ERROR             │
-│                                  adobe │
-└────────────────────────────────────────┘
-```
-
-_Note: These are conceptual layouts, not pixel-accurate 128 × 64 simulations._
 
 ---
 
