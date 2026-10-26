@@ -18,3 +18,19 @@ Options still under research or discussion are not recorded as decisions.
 ---
 
 New confirmed decisions should be added to this log when they are made.
+
+---
+
+## Pending Architecture Decisions
+
+The following decisions must be made before selecting the final LED integration architecture.
+
+| Topic | Decision Needed | Status | Related Work |
+|---|---|---|---|
+| Orchestrator | Which device should coordinate the LED system (Intel NUC, Raspberry Pi, or another option)? | Pending | [`LED Integration`](../workstream/led-integration/) |
+| Communication | How should data be transmitted across the three parking levels (Ethernet, Wi-Fi, LoRa, or provider network)? | Pending | [`LED Integration`](../workstream/led-integration/) |
+| LED Controller | Should we reuse the existing Pico W / Interstate 75 W setup or use a different controller? | Pending | [`LED Integration`](../workstream/led-integration/) |
+
+---
+
+New confirmed decisions should be added to the Decision Log when they are made.

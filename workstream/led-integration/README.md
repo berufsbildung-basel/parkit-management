@@ -123,7 +123,7 @@ Requirement IDs are used to link requirements to features, technical decisions, 
 | `HW-02` | Hardware must be suitable for the intended installation environment. |
 | `HW-03` | Individual components should be replaceable without major changes to Parkit or the overall architecture. |
 | `HW-04` | Additional displays or controllers should be addable without major redesign. |
-| `HW-05` | The communication solution must support the required equipment across the three parking levels. |
+| `HW-05` | Reliable communication must be possible between the office and the parking area, which are separated by three floors. |
 
 ---
 
