@@ -119,6 +119,9 @@ Requirement ID prefixes:
 | `REL-02` | Communication should be retried or restored automatically where appropriate. |
 | `REL-03` | Communication and integration errors must be logged. |
 | `REL-04` | The system must avoid displaying outdated or incorrect parking information when current data is unavailable. |
+| `REL-05` | The system must automatically reconnect after a mobile network failure. |
+| `REL-06` | The LED software must automatically retry failed API requests and recover after connection is restored. |
+| `REL-07` | LED displays must show a safe status when current parking information is unavailable. |
 
 ### Security Requirements
 
@@ -138,7 +141,10 @@ Requirement ID prefixes:
 | `HW-03` | Individual components should be replaceable without major changes to Parkit or the overall architecture. |
 | `HW-04` | Additional displays or controllers should be addable without major redesign. |
 | `HW-05` | Reliable communication must be possible between cloud-hosted Parkit and the LED equipment in the parking area. |
-| `HW-06` | The orchestrator must use suitable storage(SSD,SunDisk) for the operating system and software, with sufficient reliability for continuous operation. |
+| `HW-06` | The orchestrator must use reliable storage (microSD or SSD) for the operating system and software. |
+| `HW-07` | The LED system must use mobile internet via SIM card to connect to Parkit. |
+| `HW-08` | The mobile connection must support regular polling and LED updates within 1 minute. |
+| `HW-09` | The SIM data plan must provide enough monthly data for continuous operation. |
 ---
 
 ## Evaluation Criteria
