@@ -18,6 +18,7 @@ Options still under research or discussion are not recorded as decisions.
 | `DEC-005` | Mobile internet via SIM card will be used to connect the parking equipment to Parkit. | Parkit is cloud-hosted, so a direct Ethernet connection from the office is not required. | [`LED Integration`](../workstream/led-integration/) |
 | `DEC-006` | LED displays must reflect reservation changes within a maximum of 1 minute. | Parking information must remain up to date. | [`LED Integration`](../workstream/led-integration/) |
 | `DEC-007` | The LED system will use mains power instead of batteries. | The team agreed to use a wired power supply. | [`LED Integration`](../workstream/led-integration/) |
+| `DEC-008` | Voltcraft ESP-3010 laboratory power supply (0–30 V DC, 0–10 A, 300 W) was purchased for LED hardware testing. | Provides adjustable power for testing the existing LED hardware. | [`LED Integration`](../workstream/led-integration/) |
 
 ---
 

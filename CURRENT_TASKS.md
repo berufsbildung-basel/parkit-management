@@ -11,7 +11,7 @@ Detailed tasks, owners, and progress are managed on the `Project Board`.
 Research and evaluate the technical options for integrating LED displays with Parkit.
 
 **Status:** In progress  
-**Current phase:** Research & Evaluation  
+**Current phase:** Detailed Architecture & Hardware Validation 
 **Working materials:** [`workstream/led-integration/`](workstream/led-integration/)
 
 ---
