@@ -1,16 +1,14 @@
 ### General Terms
 
-| Term | Explanation |
-|---|---|
-| MCU (Microcontroller Unit) | Small computer that controls the two LED matrices of one parking space. |
-| Raspberry Pi | Small computer that receives parking data from PARKIT and sends it to the MCUs. |
-| Heroku | Cloud platform where the PARKIT application runs. |
-| Ruby on Rails | Web framework used to build the PARKIT application. |
-| API (Application Programming Interface) | Interface that allows applications to exchange data. |
-| JSON | Text format used to exchange structured data, such as parking status and license plates. |
-| Polling | Repeatedly requesting new data, in our case every 60 seconds. |
-| LTE / 4G | Mobile network used by the Raspberry Pi to access the internet. |
-| LED Matrix | Display made of LEDs, controlled by an MCU. |
+| Term                                    | Explanation                                                                              |
+| --------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Heroku                                  | Cloud platform where the PARKIT application runs.                                        |
+| Ruby on Rails                           | Web framework used to build the PARKIT application.                                      |
+| API (Application Programming Interface) | Interface that allows applications to exchange data.                                     |
+| JSON                                    | Text format used to exchange structured data, such as parking status and license plates. |
+| Polling                                 | Repeatedly requesting new data, in our case every 60 seconds.                            |
+| LTE / 4G                                | Mobile network used by the Raspberry Pi to access the internet.                          |
+| LED Matrix                              | Display made of LEDs, controlled by an MCU.                                              |
 
 
 ### Communication Protocols
