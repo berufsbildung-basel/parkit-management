@@ -7,8 +7,8 @@ This document covers:
 
 - Connection options between PARKIT, Raspberry Pi, and 8 MCUs.
 - Reusable hardware and software.
-- Required protocols, cables, and adapters.
-- Individual data transfer to each MCU.
+- Required protocols, cables, adapters, and software.
+- Data formats and individual communication with each MCU.
 - Comparison of communication methods.
 - Main risks and limitations.
 
@@ -38,8 +38,8 @@ PARKIT responds with JSON data.
 | Method | How it works | Advantages | Disadvantages |
 |---|---|---|---|
 | HTTP REST API | Raspberry Pi sends an HTTPS GET request every 60 seconds. | Simple, supported by Rails, no permanent connection. | Repeated requests, updates every 60 seconds. |
-| MQTT | PARKIT publishes data through an MQTT broker. | Low bandwidth, real-time updates. | Requires a broker and additional setup. |
-| WebSockets | Raspberry Pi maintains a connection to PARKIT. | Real-time, bidirectional communication. | Connection management, more complex. |
+| MQTT | PARKIT sends data through an MQTT broker. | Low bandwidth, real-time updates. | Requires a broker and additional setup. |
+| WebSockets | Raspberry Pi maintains a connection to PARKIT. | Real-time, bidirectional communication. | More complex connection handling. |
 
 ### Recommended Method: HTTP REST API
 
@@ -72,9 +72,9 @@ The Raspberry Pi communicates with 8 MCUs.
 
 Each MCU controls one parking space with two LED matrices.
 
-Each MCU should only process data for its own parking space.
+Each MCU receives only the status of its assigned parking space.
 
-We need a reliable connection with individual addressing.
+Each MCU has a unique ID for individual communication.
 
 ### Connection Options
 
@@ -82,25 +82,33 @@ We need a reliable connection with individual addressing.
 |---|---|---|---|
 | RS-485 | All MCUs share a serial bus with unique addresses. | Long distances, robust, few cables. | Requires transceivers and bus setup. |
 | Ethernet | Each MCU connects through a network switch. | Stable, individual IP addresses. | More cables, Ethernet hardware required. |
-| USB Serial | Each MCU connects to the Raspberry Pi via USB. | Simple, reliable, easy to debug. | Short cables, USB hub needed. |
+| USB Serial | Each MCU connects via USB Serial. | Simple, reliable, easy to debug. | Short cables, USB hub needed. |
 | Wi-Fi | Each MCU connects to a Wi-Fi network. | Wireless, flexible, easy to expand. | Interference, connection loss. |
-| CAN Bus | MCUs share a bus with message identifiers. | Robust, good error detection. | Additional hardware and configuration. |
+| CAN Bus | MCUs share a bus using message identifiers. | Robust, good error detection. | Additional hardware and configuration. |
 
 ### Comparison Based on Project Requirements
 
-| Method | 8 MCUs | Long Distance | Extra Hardware | Suitability |
+| Method | 8 MCUs | Distance | Data Format | Suitability |
 |---|---|---|---|---|
-| RS-485 | Yes | Yes | RS-485 transceivers | Very good |
-| Ethernet | Yes | Yes | Switch / Ethernet interfaces | Very good |
-| USB Serial | Yes | No | USB hub / adapters | Good for short distances |
-| Wi-Fi | Yes | Depends on signal | Wi-Fi MCUs / access point | Good |
-| CAN Bus | Yes | Yes, depending on speed | CAN controllers / transceivers | Very good |
+| RS-485 | Yes | Long | Serial frames | Very good |
+| Ethernet | Yes | Up to 100 m per copper link | JSON over TCP/HTTP | Very good |
+| USB Serial | Yes | Short | Text / JSON | Good |
+| Wi-Fi | Yes | Signal-dependent | JSON over TCP/HTTP | Good |
+| CAN Bus | Yes | Speed-dependent | Binary CAN frames | Very good |
 
 ### How to Send Different Data to Each MCU
 
-Each MCU has a unique ID.
+The Raspberry Pi receives JSON data from PARKIT.
 
-Each MCU controls one parking space with two LED matrices.
+It filters the data and creates a separate message for each MCU.
+
+The message format depends on the connection method.
+
+**Possible data formats:**
+
+- JSON: Easy to read and process, suitable for USB, Wi-Fi, and Ethernet.
+- Text: Simple messages for serial communication.
+- Binary: Small messages, suitable for RS-485 and CAN Bus.
 
 **Example mapping:**
 
@@ -115,28 +123,47 @@ Each MCU controls one parking space with two LED matrices.
 | MCU 7 | P7 | 2 |
 | MCU 8 | P8 | 2 |
 
-**Process:**
-
-1. Raspberry Pi receives all parking data.
-2. Raspberry Pi filters the data for each MCU.
-3. Raspberry Pi sends the status to the correct MCU.
-4. MCU updates both LED matrices.
-
-**Example message:**
+**Example JSON message for MCU 1:**
 
 ```json
 {
   "mcu_id": 1,
-  "parking_space": "P1",
   "status": "RESERVED"
 }
 ```
 
-With Ethernet, USB, or Wi-Fi, data can be sent directly to each MCU.
+**Example simple serial message:**
 
-With RS-485 or CAN Bus, the MCUs share a bus and filter messages by address or identifier.
+`1:RESERVED\n`
 
-Only the correct MCU processes the message.
+- `1` = MCU address
+- `RESERVED` = Parking status
+- `\n` = End of message
+
+**Example compact binary message:**
+
+`[0x01, 0x02]`
+
+- `0x01` = MCU address 1
+- `0x02` = RESERVED status (example encoding)
+
+For RS-485, a message also needs framing and error checking.
+
+CAN Bus uses CAN identifiers and frames instead of this simple byte format.
+
+**Communication process:**
+
+1. Raspberry Pi receives all parking data from PARKIT.
+2. Raspberry Pi selects the status for each MCU.
+3. Raspberry Pi converts the status into the selected message format.
+4. Raspberry Pi sends the message to the correct MCU.
+5. MCU checks its address and reads the status.
+6. MCU updates both LED matrices.
+7. MCU can send an acknowledgement (ACK).
+
+With RS-485, all MCUs share the same bus, but only the addressed MCU processes the message.
+
+With Ethernet, USB, or Wi-Fi, messages can be sent through individual connections.
 
 
 ## 3. Reusable Hardware and Software
@@ -145,18 +172,14 @@ Only the correct MCU processes the message.
 
 - PARKIT Ruby on Rails application.
 - Existing Raspberry Pi.
-- Existing 8 MCUs.
-- Existing 16 LED matrices.
-- Existing power supplies and cables.
-- Existing MCU firmware.
+- Existing 8 MCUs and 16 LED matrices.
+- Existing cables, power supplies, and MCU firmware.
 
 **To check:**
 
-- Which MCU model is used?
-- Which interfaces do the MCUs support?
-- What is the distance between the devices?
-- Are communication cables already installed?
-- Can the existing firmware process addressed messages?
+- MCU models and supported interfaces.
+- Distance between devices.
+- Available cables and firmware compatibility.
 
 
 ## 4. Required Components
@@ -166,41 +189,34 @@ Only the correct MCU processes the message.
 **Hardware:**
 
 - Raspberry Pi
-- 4G/LTE modem
-- SIM card
-- Power supply
-- LTE antenna if required
+- 4G/LTE modem and SIM card
+- Power supply and LTE antenna if required
 
 **Software:**
 
 - Ruby on Rails REST API
-- Python application on Raspberry Pi
-- HTTP client library
+- Python application with HTTP client
 
 **Protocols:**
 
-- HTTPS
-- TCP/IP
-- JSON
+- HTTPS, TCP/IP, JSON
 
 
 ### Raspberry Pi → MCUs
 
 | Method | Hardware / Adapters | Cables | Protocol |
 |---|---|---|---|
-| RS-485 | RS-485 transceivers, USB-RS485 adapter | Twisted-pair bus cable | Modbus RTU or custom serial |
-| Ethernet | Ethernet interfaces, switch | Ethernet cables | TCP/IP |
+| RS-485 | Transceivers, USB-RS485 adapter | Twisted-pair bus cable | Modbus RTU / custom serial |
+| Ethernet | Ethernet interfaces, switch | Ethernet cables | TCP/IP, HTTP |
 | USB Serial | USB interfaces, powered hub if needed | USB cables | USB Serial |
-| Wi-Fi | Wi-Fi MCUs, access point | None for data | TCP/IP, HTTP or MQTT |
+| Wi-Fi | Wi-Fi MCUs, access point | None for data | TCP/IP, HTTP / MQTT |
 | CAN Bus | CAN controllers and transceivers | Twisted-pair bus cable | CAN |
 
 **Additional requirements:**
 
 - MCU firmware for the selected protocol.
-- Unique MCU addresses.
-- Message validation.
-- Error handling and timeouts.
-- Suitable power supplies.
+- Unique addresses and message validation.
+- Error handling and stable power supplies.
 
 
 ## 5. Recommended Options
@@ -209,55 +225,27 @@ Only the correct MCU processes the message.
 
 **Recommended: HTTP REST API**
 
-- Works directly with Ruby on Rails.
-- Simple implementation.
-- Suitable for 60-second requests.
-- No permanent connection needed.
-
+- Supported by Ruby on Rails.
+- Simple 60-second polling.
+- No permanent connection required.
 
 ### Raspberry Pi → MCUs
 
-**Option 1: RS-485**
-
-- Good for longer distances.
-- Supports all 8 MCUs on one bus.
-- Reliable wired communication.
-
-**Option 2: Ethernet**
-
-- Stable wired connection.
-- Individual IP addresses.
-- Good for larger installations.
-
-**Option 3: USB Serial**
-
-- Simple implementation.
-- Good for short distances.
-- Separate connection to each MCU.
-
-**Option 4: Wi-Fi**
-
-- No communication cables.
-- Flexible installation.
-- Depends on signal quality.
-
-**Option 5: CAN Bus**
-
-- Robust communication.
-- Good error detection.
-- Suitable for multiple MCUs.
+- **RS-485:** Recommended for long distances and shared wiring.
+- **Ethernet:** Stable communication with individual IP addresses.
+- **USB Serial:** Simple solution for short distances.
+- **Wi-Fi:** Flexible wireless installation.
+- **CAN Bus:** Robust communication with error detection.
 
 **Final selection:**
 
-RS-485 is a strong option for multiple MCUs over longer distances.
+RS-485 is a strong option for 8 distributed MCUs.
 
-Ethernet is a good alternative if the MCUs support it.
+For RS-485, a compact addressed serial protocol is suitable.
 
-USB is suitable when all MCUs are close to the Raspberry Pi.
+For USB, Ethernet, or Wi-Fi, JSON messages are easier to implement.
 
-Wi-Fi is useful when cables should be avoided.
-
-CAN Bus is suitable if compatible hardware is already available.
+The final choice depends on existing MCU hardware and distances.
 
 
 ## 6. Risks and Limitations
@@ -266,41 +254,29 @@ CAN Bus is suitable if compatible hardware is already available.
 
 | Risk | Solution |
 |---|---|
-| LTE connection loss | Automatic reconnect and retry. |
-| Heroku unavailable | Handle missing data and retry. |
-| Outdated data | Check timestamps. |
+| LTE or Heroku connection loss | Automatic reconnect and retry. |
+| Outdated or invalid data | Validate JSON and timestamps. |
 | Unauthorized access | HTTPS and API tokens. |
-| Invalid JSON | Validate responses. |
 | Power failure | Reliable power supply and automatic startup. |
 
 ### Raspberry Pi → MCUs
 
 | Risk | Solution |
 |---|---|
-| Communication loss | Timeouts and retries. |
-| Wrong MCU receives data | Unique addresses and validation. |
-| Incorrect parking mapping | Fixed MCU-to-parking-space mapping. |
+| Communication loss | Timeouts, ACK and retries. |
+| Wrong MCU or parking data | Unique addresses and fixed mapping. |
+| Corrupted messages | Framing, validation and error checking. |
 | Cable damage or interference | Suitable cables and shielding. |
 | Wireless interference | Check signal strength and coverage. |
-| MCU failure | Detect missing acknowledgements. |
-| Outdated LED status | Use timeouts and a defined fallback display. |
-| Power failure | Stable power supplies. |
+| MCU failure or outdated LED status | Detect missing ACKs and use a fallback display. |
 
 
 ## 7. Conclusion
 
-**Parkit → Raspberry Pi:**
+**Parkit → Raspberry Pi:** HTTPS REST API with JSON.
 
-HTTP REST API is the recommended solution.
+**Raspberry Pi → MCUs:** RS-485, Ethernet, USB Serial, Wi-Fi, or CAN Bus.
 
-**Raspberry Pi → MCUs:**
+RS-485 with a compact serial protocol is a strong option for 8 distributed MCUs.
 
-The most suitable options are:
-
-- RS-485
-- Ethernet
-- USB Serial
-- Wi-Fi
-- CAN Bus
-
-The final choice depends on the existing MCU hardware, available interfaces, and distances between devices.
+The final decision depends on the existing MCU interfaces, cable distances, and installation conditions.

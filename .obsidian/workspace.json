@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "workstream/led-integration/research/research-led/research.md",
+                "file": "workstream/led-integration/research/Detailed LED Architecture/Connections/possibleConnections.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "research"
+              "title": "possibleConnections"
             }
           }
         ]
@@ -190,6 +190,7 @@
   },
   "active": "bd134b2b11785e8e",
   "lastOpenFiles": [
+    "workstream/led-integration/research/research-led/research.md",
     "workstream/led-integration/research/hardware/Posible solutions.md",
     "workstream/led-integration/research/hardware/posible-solutions.md",
     "workstream/led-integration/research/hardware/imgg/architecture-3-lorawan-epaper.png",
@@ -201,7 +202,6 @@
     "workstream/led-integration/research/hardware/architecture-options.md",
     "workstream/led-integration/research/hardware/Parking Display Requirements Notes.md",
     "Pasted image 20261019092254.png",
-    "workstream/led-integration/research/research-led/research.md",
     "Unbenannt",
     "project-notes/meeting-notes.md",
     "project-notes/decisions.md",
