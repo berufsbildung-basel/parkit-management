@@ -21,15 +21,27 @@ The Raspberry Pi connects to the internet via a SIM card (4G/LTE).
 
 Every 60 seconds, the Raspberry Pi requests parking data from PARKIT.
 
-PARKIT responds with JSON data.
+PARKIT responds with JSON data containing the status, license plate, and reservation time for each parking space.
 
 **Example response:**
 
 ```json
 {
-  "P1": "RESERVED",
-  "P2": "FREE",
-  "P3": "OCCUPIED"
+  "P1": {
+    "status": "RESERVED",
+    "license_plate": "BS123456",
+    "reserved_until": "2026-10-28T15:30:00Z"
+  },
+  "P2": {
+    "status": "FREE",
+    "license_plate": null,
+    "reserved_until": null
+  },
+  "P3": {
+    "status": "OCCUPIED",
+    "license_plate": "ZH987654",
+    "reserved_until": null
+  }
 }
 ```
 
@@ -72,7 +84,7 @@ The Raspberry Pi communicates with 8 MCUs.
 
 Each MCU controls one parking space with two LED matrices.
 
-Each MCU receives only the status of its assigned parking space.
+Each MCU receives only the information needed for its assigned parking space.
 
 Each MCU has a unique ID for individual communication.
 
@@ -102,13 +114,13 @@ The Raspberry Pi receives JSON data from PARKIT.
 
 It filters the data and creates a separate message for each MCU.
 
-The message format depends on the connection method.
+The message contains only the information needed by the MCU.
 
 **Possible data formats:**
 
 - JSON: Easy to read and process, suitable for USB, Wi-Fi, and Ethernet.
 - Text: Simple messages for serial communication.
-- Binary: Small messages, suitable for RS-485 and CAN Bus.
+- Binary: Compact messages, suitable for RS-485 and CAN Bus.
 
 **Example mapping:**
 
@@ -128,16 +140,20 @@ The message format depends on the connection method.
 ```json
 {
   "mcu_id": 1,
-  "status": "RESERVED"
+  "status": "RESERVED",
+  "license_plate": "BS123456",
+  "reserved_until": "2026-10-28T15:30:00Z"
 }
 ```
 
 **Example simple serial message:**
 
-`1:RESERVED\n`
+`1|RESERVED|BS123456|2026-10-28T15:30:00Z\n`
 
 - `1` = MCU address
 - `RESERVED` = Parking status
+- `BS123456` = License plate
+- `2026-10-28T15:30:00Z` = Reservation end time
 - `\n` = End of message
 
 **Example compact binary message:**
@@ -147,17 +163,21 @@ The message format depends on the connection method.
 - `0x01` = MCU address 1
 - `0x02` = RESERVED status (example encoding)
 
-For RS-485, a message also needs framing and error checking.
+This binary example only contains the address and status.
 
-CAN Bus uses CAN identifiers and frames instead of this simple byte format.
+Additional bytes are needed for the license plate and reservation time.
+
+RS-485 also requires message framing and error checking.
+
+CAN Bus uses CAN identifiers and frames.
 
 **Communication process:**
 
 1. Raspberry Pi receives all parking data from PARKIT.
-2. Raspberry Pi selects the status for each MCU.
-3. Raspberry Pi converts the status into the selected message format.
+2. Raspberry Pi selects the data for each MCU.
+3. Raspberry Pi converts it into the selected message format.
 4. Raspberry Pi sends the message to the correct MCU.
-5. MCU checks its address and reads the status.
+5. MCU checks its address and processes the data.
 6. MCU updates both LED matrices.
 7. MCU can send an acknowledgement (ACK).
 
