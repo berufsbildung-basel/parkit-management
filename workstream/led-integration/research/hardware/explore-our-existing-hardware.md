@@ -1,9 +1,5 @@
 # Explore Our Existing Hardware
 
-| Date | 29.09.2026 |
-|---|---|
-| Project | P.A.R.K.I.T |
-| Topic | Explore our existing hardware |
 
 ---
 
