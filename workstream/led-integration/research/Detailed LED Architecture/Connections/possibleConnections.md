@@ -47,11 +47,11 @@ PARKIT responds with JSON data containing the status, license plate, and reserva
 
 ### Connection Options
 
-| Method | How it works | Advantages | Disadvantages |
-|---|---|---|---|
+| Method        | How it works                                              | Advantages                                           | Disadvantages                                |
+| ------------- | --------------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------- |
 | HTTP REST API | Raspberry Pi sends an HTTPS GET request every 60 seconds. | Simple, supported by Rails, no permanent connection. | Repeated requests, updates every 60 seconds. |
-| MQTT | PARKIT sends data through an MQTT broker. | Low bandwidth, real-time updates. | Requires a broker and additional setup. |
-| WebSockets | Raspberry Pi maintains a connection to PARKIT. | Real-time, bidirectional communication. | More complex connection handling. |
+| MQTT          | PARKIT sends data through an MQTT broker.                 | Low bandwidth, real-time updates.                    | Requires a broker and additional setup.      |
+| WebSockets    | Raspberry Pi maintains a connection to PARKIT.            | Real-time, bidirectional communication.              | More complex connection handling.            |
 
 ### Recommended Method: HTTP REST API
 
@@ -90,13 +90,13 @@ Each MCU has a unique ID for individual communication.
 
 ### Connection Options
 
-| Method | How it works | Advantages | Disadvantages |
-|---|---|---|---|
-| RS-485 | All MCUs share a serial bus with unique addresses. | Long distances, robust, few cables. | Requires transceivers and bus setup. |
-| Ethernet | Each MCU connects through a network switch. | Stable, individual IP addresses. | More cables, Ethernet hardware required. |
-| USB Serial | Each MCU connects via USB Serial. | Simple, reliable, easy to debug. | Short cables, USB hub needed. |
-| Wi-Fi | Each MCU connects to a Wi-Fi network. | Wireless, flexible, easy to expand. | Interference, connection loss. |
-| CAN Bus | MCUs share a bus using message identifiers. | Robust, good error detection. | Additional hardware and configuration. |
+| Method     | How it works                                       | Advantages                          | Disadvantages                            |
+| ---------- | -------------------------------------------------- | ----------------------------------- | ---------------------------------------- |
+| RS-485     | All MCUs share a serial bus with unique addresses. | Long distances, robust, few cables. | Requires transceivers and bus setup.     |
+| Ethernet   | Each MCU connects through a network switch.        | Stable, individual IP addresses.    | More cables, Ethernet hardware required. |
+| USB Serial | Each MCU connects via USB Serial.                  | Simple, reliable, easy to debug.    | Short cables, USB hub needed.            |
+| Wi-Fi      | Each MCU connects to a Wi-Fi network.              | Wireless, flexible, easy to expand. | Interference, connection loss.           |
+| CAN Bus    | MCUs share a bus using message identifiers.        | Robust, good error detection.       | Additional hardware and configuration.   |
 
 ### Comparison Based on Project Requirements
 
@@ -224,13 +224,13 @@ With Ethernet, USB, or Wi-Fi, messages can be sent through individual connection
 
 ### Raspberry Pi → MCUs
 
-| Method | Hardware / Adapters | Cables | Protocol |
-|---|---|---|---|
-| RS-485 | Transceivers, USB-RS485 adapter | Twisted-pair bus cable | Modbus RTU / custom serial |
-| Ethernet | Ethernet interfaces, switch | Ethernet cables | TCP/IP, HTTP |
-| USB Serial | USB interfaces, powered hub if needed | USB cables | USB Serial |
-| Wi-Fi | Wi-Fi MCUs, access point | None for data | TCP/IP, HTTP / MQTT |
-| CAN Bus | CAN controllers and transceivers | Twisted-pair bus cable | CAN |
+| Method     | Hardware / Adapters                   | Cables                 | Protocol                   |
+| ---------- | ------------------------------------- | ---------------------- | -------------------------- |
+| RS-485     | Transceivers, USB-RS485 adapter       | Twisted-pair bus cable | Modbus RTU / custom serial |
+| Ethernet   | Ethernet interfaces, switch           | Ethernet cables        | TCP/IP, HTTP               |
+| USB Serial | USB interfaces, powered hub if needed | USB cables             | USB Serial                 |
+| Wi-Fi      | Wi-Fi MCUs, access point              | None for data          | TCP/IP, HTTP / MQTT        |
+| CAN Bus    | CAN controllers and transceivers      | Twisted-pair bus cable | CAN                        |
 
 **Additional requirements:**
 
