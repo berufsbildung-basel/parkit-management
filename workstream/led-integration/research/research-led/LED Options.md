@@ -1,31 +1,34 @@
-Passende panels die wir schon haben:
-	- LED Matrix 64x64 p3
+# LED Matrix – Possible Options (128 × 64 Pixels)
 
-Vollgende möglichkeiten gibt es noch:
-## LED-Matrix – Mögliche Optionen (128 × 64 Pixel)
+Existing panels that we already have:
+- LED Matrix 64x64 P3
 
-|     | Option           | Auflösung | Gesamtgrösse | Link                                                                                                              | Bewertung |
-| --- | ---------------- | --------- | ------------ | ----------------------------------------------------------------------------------------------------------------- | --------- |
-| 1   | 2 × 64 × 64 P3   | 128 × 64  | 384 × 192 mm | [Waveshare](https://www.waveshare.com/RGB-Matrix-P3-64x64.htm?utm_source=chatgpt.com)                             | * * * * * |
-| 2   | 4 × 64 × 32 P3   | 128 × 64  | 384 × 192 mm | [Adafruit](https://www.digikey.ch/de/products/detail/adafruit-industries-llc/2279/7034991?utm_source=chatgpt.com) | * *       |
-| 3   | 2 × 64 × 64 P2   | 128 × 64  | 256 × 128 mm | [Waveshare](https://www.waveshare.com/rgb-matrix-p2-64x64.htm?utm_source=chatgpt.com)                             | * * * *   |
-| 4   | 2 × 64 × 64 P2.5 | 128 × 64  | 320 × 160 mm | [Waveshare](https://www.waveshare.com/product/rgb-matrix-p2.5-64x64.htm?utm_source=chatgpt.com)                   | * * * * * |
+The following options are also available:
 
-Meine empfehlung ist:  
+|     | Option           | Resolution | Total Size   | Product Link                                                                               | Rating     |
+| --- | ---------------- | ---------- | ------------ | ------------------------------------------------------------------------------------------ | ---------- |
+| 1   | 2 × 64 × 64 P3   | 128 × 64   | 384 × 192 mm | [Waveshare](https://www.waveshare.com/RGB-Matrix-P3-64x64.htm)                             | 🌟🌟🌟🌟🌟 |
+| 2   | 4 × 64 × 32 P3   | 128 × 64   | 384 × 192 mm | [Adafruit](https://www.digikey.ch/de/products/detail/adafruit-industries-llc/2279/7034991) | ⭐⭐         |
+| 3   | 2 × 64 × 64 P2   | 128 × 64   | 256 × 128 mm | [Waveshare](https://www.waveshare.com/rgb-matrix-p2-64x64.htm)                             | ⭐⭐⭐⭐       |
+| 4   | 2 × 64 × 64 P2.5 | 128 × 64   | 320 × 160 mm | [Waveshare](https://www.waveshare.com/product/rgb-matrix-p2.5-64x64.htm)                   | 🌟🌟🌟🌟🌟 |
 
-### 2x 64x64 led matrix mit einem pixel pitch von 3mm (Option 1).   
+## My Recommendation
 
-Diese Option macht am meisten sinn wegen folgenden punkten:
-1. Es existiert schon eines dieser panels
-2. Es unterscheidet sich nur im PP zu den anderen
-3. Der PP ist vorteilhaft weil man alles aus aus grössere entfernung lesen kann
+### 2 × 64 × 64 LED Matrix with a pixel pitch of 3 mm (Option 1)
 
-Option 2 ist umständlich da wir dort doppelt so viele panels kaufen müssen. 
+I think this option makes the most sense for the following reasons:
 
-Option 3 hat einen kleineren pixelpitch als 1 und ist darum von weitem weniger gut lesbar aber hat eine bessere auflösung als 1 auf kurze distanz.
+1. We already have one of these panels.
+2. The main difference compared to the other options is the pixel pitch.
+3. The larger pixel pitch is useful because the display is easier to read from a longer distance.
 
-Option 4 diese unterscheidet sich auch nur im pixelpitch.
+## Other Options
 
+**Option 2:**  
+This option is less practical because we would need to buy twice as many panels.
 
+**Option 3:**  
+This option has a smaller pixel pitch than Option 1. This makes it better for viewing from a short distance, but less suitable for viewing from far away. The pixels are closer together, so the image looks sharper.
 
-
+**Option 4:**  
+This option is also very similar to Option 1. The main difference is the pixel pitch.
