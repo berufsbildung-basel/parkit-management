@@ -59,13 +59,13 @@ The Raspberry Pi distributes parking data individually to 8 MCUs. Each MCU contr
 
 ### Connection Options
 
-| Method | Explanation | Hardware / Cables | Advantages | Disadvantages | Suitability |
-|---|---|---|---|---|---|
-| **RS-485** | Serial communication over a shared cable bus using device addresses. | USB-RS485 adapter, transceivers, twisted-pair cable | Long distances, robust, fewer cables | Extra hardware, addressing required | **Very good** |
-| Ethernet | Each MCU communicates over a wired network using its own IP address. | Ethernet interfaces, switch, LAN cables | Stable, individual addressing | More hardware and cables | Very good |
-| USB Serial | Each MCU connects directly to the Raspberry Pi through USB. | USB interfaces, powered USB hub | Simple, reliable | Limited cable length | Good |
-| Wi-Fi | MCUs exchange data wirelessly over a local network. | Wi-Fi MCUs, access point | No data cables, flexible | Interference, connection loss | Good |
-| CAN Bus | Multiple MCUs communicate over a shared bus with message identifiers. | CAN controllers, transceivers, bus cable | Robust, built-in error detection | More complex setup | Very good |
+| Method     | Explanation                                                           | Hardware / Cables                                   | Advantages                           | Disadvantages                       | Suitability   |
+| ---------- | --------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------ | ----------------------------------- | ------------- |
+| **RS-485** | Serial communication over a shared cable bus using device addresses.  | USB-RS485 adapter, transceivers, twisted-pair cable | Long distances, robust, fewer cables | Extra hardware, addressing required | **Very good** |
+| Ethernet   | Each MCU communicates over a wired network using its own IP address.  | Ethernet interfaces, switch, LAN cables             | Stable, individual addressing        | More hardware and cables            | Very good     |
+| USB Serial | Each MCU connects directly to the Raspberry Pi through USB.           | USB interfaces, powered USB hub                     | Simple, reliable                     | Limited cable length                | Good          |
+| Wi-Fi      | MCUs exchange data wirelessly over a local network.                   | Wi-Fi MCUs, access point                            | No data cables, flexible             | Interference, connection loss       | Good          |
+
 
 ### Recommended: RS-485
 
