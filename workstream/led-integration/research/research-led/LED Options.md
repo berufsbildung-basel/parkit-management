@@ -13,7 +13,7 @@ Vollgende möglichkeiten gibt es noch:
 
 Meine empfehlung ist:  
 
-2x 64x64 led matrix mit einem pixel pitch von 3mm(Option 1).   
+### 2x 64x64 led matrix mit einem pixel pitch von 3mm(Option 1).   
 
 Da wir schon eines von diesen panels haben und die restlichen Panels nicht gross von den anderen unterscheiden.  
 
