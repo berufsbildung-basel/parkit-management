@@ -100,6 +100,7 @@ Requirement ID prefixes:
 | `DISP-03` | Information must remain readable under expected lighting conditions. |
 | `DISP-04` | The system must define how content is handled when it does not fit on the display. |
 | `DISP-05` | Displays must be installed where drivers can clearly see the relevant parking information when entering or approaching the parking spaces. |
+| `DISP-06` | The display must use accessible colour combinations and must not rely on colour alone to communicate information, ensuring readability for users with colour vision deficiencies. |
 
 ### Integration Requirements
 

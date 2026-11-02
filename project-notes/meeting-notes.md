@@ -304,3 +304,27 @@ The diagrams should reflect the technical solutions, not only the high-level con
 Before selecting the final architecture and hardware, we need to define the required data, compare power and communication options, and validate the solutions through tests and measurements.
 
 **No final decision has been made on Wi-Fi, RS-485, 4G HAT, or power distribution.**
+
+---
+
+---
+
+## 02-11-2026 — LED Integration Meeting
+
+### Discussed
+
+- Different LED display designs in Storybook: parking spot number, licence plate, date, time, and countdown timer.
+- Colour accessibility for people with colour vision deficiencies.
+- A separate API endpoint for LED Integration.
+- API key authentication instead of Okta for the LED Orchestrator.
+- Using the parking spot number to identify each display.
+
+### Next Steps
+
+- Create different LED display designs in Storybook.
+- Check readability and accessible colour combinations.
+- Review the designs with the team.
+- Define the JSON response for the LED Orchestrator.
+- Implement and test the LED-specific API endpoint.
+
+---
