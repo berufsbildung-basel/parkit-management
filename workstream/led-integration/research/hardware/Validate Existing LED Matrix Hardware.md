@@ -60,7 +60,7 @@ The Raspberry Pi 4 officially supports the following operating systems:
 For our purposes, **Raspberry Pi OS Lite** is the best fit
 
 
-2. **Data transmission** AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+2. **Data transmission** 
 
 **Mosquitto  ( MQTT )**
 This is a system that will make it possible to send data to a specific microcontroller
@@ -93,24 +93,3 @@ There must be a configuration file (containing passwords, the MQTT broker IP add
 
 
 
-
-
-```
-Verify that the existing LED hardware can be connected and used  
-to display a simple message.
-
-**Tasks:**
-
-- Identify the required power supply, cable, and connector.
-- Obtain/order the missing component.
-- Connect the existing hardware.
-- Identify/install the required library/software.
-- Display a simple test message.
-- Document the setup and result.
-
-**Current blocker:**  
-Required power cable/connector is missing.
-
-**Expected outcome:**  
-The existing LED hardware is tested and its basic setup,connections, and required software are documented.
-```
