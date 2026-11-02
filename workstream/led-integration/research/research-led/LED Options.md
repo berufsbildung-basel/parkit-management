@@ -16,9 +16,9 @@ Meine empfehlung ist:
 ### 2x 64x64 led matrix mit einem pixel pitch von 3mm (Option 1).   
 
 Diese Option macht am meisten sinn wegen folgenden punkten:
-	- Es existiert schon eines dieser panels
-	- Es unterscheidet sich nur im PP zu den anderen
-	- Der PP ist vorteilhaft weil man alles aus aus grössere entfernung lesen kann
+	1. Es existiert schon eines dieser panels
+	2. Es unterscheidet sich nur im PP zu den anderen
+	3. Der PP ist vorteilhaft weil man alles aus aus grössere entfernung lesen kann
 
 Option 2 ist umständlich da wir dort doppelt so viele panels kaufen müssen. 
 
