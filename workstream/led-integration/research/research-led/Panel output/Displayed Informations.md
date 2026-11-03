@@ -42,58 +42,13 @@
 - Total capacity: **72 characters**
     
 
-_Note: The calculation does not include additional character spacing or space reserved for the Adobe logo._
+_Note: The calculation does not include additional character spacing.
 
-### 1.3 Adobe Logo
 
-| Property    | Value               |
-| ----------- | ------------------- |
-| Text        | `adobe`             |
-| Colour      | Red (`#FF0000`)     |
-| Font scale  | 2 × 2               |
-| Position    | Bottom-right corner |
-| Edge margin | 1 pixel             |
 
 ---
 
 ## 2. Parkit Integration
-
-### 2.1 Required Data
-
-- Parking space number
-    
-- Licence plate
-    
-- Reservation start time
-    
-- Reservation end time
-    
-- Reservation status
-    
-
-### 2.2 Automatic Updates
-
-The display updates when:
-
-- New reservation is created
-    
-- Existing reservation is modified
-    
-- Reservation is cancelled
-    
-- Parking space assignment changes
-    
-- Reservation starts or ends
-    
-
-**Synchronization:** Automatic synchronization with Parkit.
-
-### 2.3 Connection Errors
-
-- Display `NO DATA` if current information is unavailable.
-    
-- Avoid displaying incorrect or outdated reservation information.
-    
 
 ---
 

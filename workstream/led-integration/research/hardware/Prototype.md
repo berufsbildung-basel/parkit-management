@@ -13,62 +13,60 @@ This document will outline the configuration steps, the usernames and passwords 
 
 
 ### Router
-# Linksys Router – Konfiguration
+# Linksys Router – Configuration
 
-## 1. Router-Informationen
+## 1. Router Information
 
-- **Modell:** Linksys WRT54GL (Wireless-G 2.4 GHz)
-    
+- **Model:** Linksys WRT54GL (Wireless-G 2.4 GHz)
+
 - **Firmware:** v4.30.11
-    
-- **Gateway:** `192.168.1.1`
-    
-- **Router-IP:** `192.168.1.1`
-    
 
-## 2. Zugriff auf die Router-Einstellungen
+- **Gateway:** `192.168.1.1`
+
+- **Router IP:** `192.168.1.1`
+
+
+## 2. Accessing the Router Settings
 
 **URL:** [http://192.168.1.1](http://192.168.1.1/)
 
 - **Username:** `admin`
-    
-- **Passwort:** Im Passwortmanager hinterlegt
-    
 
-**Problem:** Beim normalen Zugriff über Chrome traten folgende Fehler auf:
+- **Password:** ParkitPTWlan1234
+
+
+**Problem:** The following errors occurred when attempting to access the settings normally via Chrome:
 
 - `400 Bad Request`
-    
+
 - `ERR_SSL_VERSION_OR_CIPHER_MISMATCH`
-    
 
-**Lösung:** Chrome im Inkognito-Modus öffnen (`Cmd + Shift + N`) und die HTTP-Adresse aufrufen.
 
-## 3. WLAN-Konfiguration
+**Solution:** Open Chrome in Incognito mode (`Cmd + Shift + N`) and enter the HTTP address.
+
+## 3. Wi-Fi Configuration
 
 - **SSID:** `router-parkit-pt`
-    
-- **WLAN-Passwort:** Im Passwortmanager hinterlegt
-    
-- **Router-Passwort:** Im Passwortmanager hinterlegt
-    
-- **Sicherheitsmodus:** WPA2 Personal
-    
-- **Verschlüsselung:** TKIP+AES (gemäss Screenshot)
-    
 
-## 4. Netzwerk und DHCP
+- **Wi-Fi Password:** ParkitPTWlan1234
 
-- **Router-IP:** `192.168.1.1`
-    
-- **DHCP:** Aktiviert
-    
-- **Netzwerk:** `192.168.1.0/24`
-    
+- **Router Password:** ParkitPTWlan1234
 
-Der Router vergibt automatisch IP-Adressen an verbundene Geräte.
+- **Security Mode:** WPA2 Personal
+
+- **Encryption:** TKIP+AES (as shown in the screenshot)
 
 
+## 4. Network and DHCP
+
+- **Router IP:** `192.168.1.1`
+
+- **DHCP:** Enabled
+
+- **Network:** `192.168.1.0/24`
+
+
+The router automatically assigns IP addresses to connected devices.
 
 
 ### MCU
