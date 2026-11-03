@@ -87,7 +87,7 @@ A library that enables control of an LED panel
 
 2. **Additional Files**
 
-**secrets**
+**Secrets**
 There must be a configuration file (containing passwords, the MQTT broker IP address, etc.).
 
 
