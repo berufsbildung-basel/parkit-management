@@ -15,7 +15,7 @@
 
 - **Username:** `admin`
 
-- **Password:** -
+- **Password:** https://vault-amer.adobe.net/ui/vault/secrets-engines/kv2_parkit/kv/team%2FRouter_Prototype
 
 
 **Problem:** The following errors occurred when attempting to access the settings normally via Chrome:
@@ -31,10 +31,10 @@
 
 - **SSID:** `router-parkit-pt`
 
-- **Wi-Fi Password:** -
+- **Wi-Fi Password:** https://vault-amer.adobe.net/ui/vault/secrets-engines/kv2_parkit/kv/team%2FRouter_Prototype
 ##### 4. Netzwerk und DHCP
 
-- **Router Password:** -
+- **Router Password:** https://vault-amer.adobe.net/ui/vault/secrets-engines/kv2_parkit/kv/team%2FRouter_Prototype
 
 - **Security Mode:** WPA2 Personal
 
