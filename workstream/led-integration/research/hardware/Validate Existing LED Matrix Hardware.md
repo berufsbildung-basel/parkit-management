@@ -23,23 +23,22 @@ The purpose of this document is to identify and list the hardware available for 
 
 Hardware used for the prototype:
 
-| Component                | Qty. | Role                                                                                        |
-| ------------------------ | ---- | ------------------------------------------------------------------------------------------- |
-| Raspberry Pi 4           | 1    | Orchestrator: receives Parkit data, runs the MQTT broker and routes data to the controllers |
-| Interstate 75 W + Pico W | 1    | MCU: receives MQTT messages and drives the LED panel                                        |
-| LED Matrix Panels        | 1    | Display: Displays parking information                                                       |
-| Voltcraft ESP-3010       | 1    | Laboratory power supply unit: Power supply for the MCU and display                          |
-|                          | 1    | Router                                                                                      |
+| Component                            | Qty. | Role                                                                                        |
+| ------------------------------------ | ---- | ------------------------------------------------------------------------------------------- |
+| Raspberry Pi 4                       | 1    | Orchestrator: receives Parkit data, runs the MQTT broker and routes data to the controllers |
+| Interstate 75 W + Pico W             | 1    | MCU: receives MQTT messages and drives the LED panel                                        |
+| LED Matrix Panels                    | 1    | Display: Displays parking information                                                       |
+| Voltcraft ESP-3010                   | 1    | Laboratory power supply unit: Power supply for the MCU and display                          |
+| Linksys WRT54GL (Wireless-G 2.4 GHz) | 1    | Router                                                                                      |
 
 Cables used for Hardware:
 
-| Component                 | Qty. | Role                                                           |
-| ------------------------- | ---- | -------------------------------------------------------------- |
-| USB-C                     | 1    | This is for powering the Raspberry Pi 4                        |
-|                           | 1    | This is for powering the lab power supply                      |
-|                           | 1    | This is for powering the MCU (and the displays simultaneously) |
-| 5V Power Data Cables 4Pin | 1    | This is for powering the displays.                             |
-| Micro USB                 | 1    | This is for programming the MCU.                               |
+| Component                 | Qty. | Role                                                                                    |
+| ------------------------- | ---- | --------------------------------------------------------------------------------------- |
+| USB-C                     | 1    | This is for powering the Raspberry Pi 4                                                 |
+| 5V Power Data Cables 4Pin | 1    | This is for powering the displays.                                                      |
+| Micro USB                 | 1    | This is for programming the MCU, for powering the MCU (and the displays simultaneously) |
+
 
 ### Software
 
@@ -74,6 +73,11 @@ This is a container that allows for the remote, automated restarting of specific
 
 **Uptime Kuma**
 This is an availability monitoring program
+
+.
+	WE NEED SOMETHING WHEN ORCHESTRATOR FAILS COMPLETELY
+	(ceases to function)
+.
 
 #### Raspberry Pi Pico W (1 version)
 
