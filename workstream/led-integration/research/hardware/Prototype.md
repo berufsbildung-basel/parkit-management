@@ -32,6 +32,7 @@ Task - To start with, the task was to display a simple message on the LED panel.
 
 We connected the LED panel to the laptop like this:
 
+<img width="2711" height="2806" alt="image" src="https://github.com/user-attachments/assets/04959d8e-01c7-43eb-b5e0-8818be5ee853" />
 
 image, how the connection looks like
 
