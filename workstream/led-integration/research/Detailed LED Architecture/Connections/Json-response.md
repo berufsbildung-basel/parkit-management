@@ -109,33 +109,7 @@ Das Panel zeigt den Status `OCCUPIED`, das Kennzeichen und die erwartete Endzeit
 - Belegt seit: 17:00
 - Voraussichtlich belegt bis: 19:00
 
----
 
-## 5. CAR – NO_DATA
-
-Es sind keine gültigen Parkplatzdaten vorhanden.
-
-Das Panel zeigt ausschliesslich `NO DATA`.
-
-### JSON Response
-
-```json
-{
-  "panelId": "54",
-  "type": "CAR",
-  "status": "NO_DATA",
-  "licensePlate": null,
-  "country": null,
-  "availableUntil": null,
-  "startTime": null,
-  "endTime": null
-}
-```
-
-### Panel-Anzeige
-
-- Status: NO DATA
-- Keine weiteren Informationen
 
 ---
 
@@ -224,21 +198,6 @@ anstelle der verfügbaren Plätze an.
 | availableUntil | ISO 8601/null | Verfügbar bis |
 
 ---
-
-## 8. API-Endpunkte
-
-### Cars
-
-GET /api/panels/cars/{panelId}
-
-Liefert die Daten für einen einzelnen Autoparkplatz.
-
-Unterstützte Panel-Versionen:
-
-- V1
-- V2
-- V3
-- V4
 
 ### Motorcycles
 
