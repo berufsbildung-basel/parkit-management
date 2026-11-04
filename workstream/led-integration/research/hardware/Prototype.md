@@ -2,11 +2,6 @@
 - Components
 	- Raspberry Pi 4
 	- Router
-		- Linksys Router – Konfiguration
-			- Router-Informationen
-			- Zugriff auf die Router-Einstellungen
-			- WLAN-Konfiguration
-			- Netzwerk und DHCP
 	- MCU
 ## Overview
 
