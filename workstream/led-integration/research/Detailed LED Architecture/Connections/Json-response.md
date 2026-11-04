@@ -1,5 +1,6 @@
 # Parking Place Panels V2 – API Documentation
 
+
 ## 1. Übersicht
 
 Die Parking Place Panels unterstützen zwei unterschiedliche Parkplatztypen:
