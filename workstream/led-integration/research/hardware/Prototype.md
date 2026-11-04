@@ -76,5 +76,3 @@ Der Router vergibt automatisch IP-Adressen an verbundene Geräte.
 
 ### MCU
 
-
-
