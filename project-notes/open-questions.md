@@ -4,30 +4,42 @@ This document tracks unresolved questions that require research, clarification, 
 
 Detailed research belongs in the relevant workstream. Resulting tasks are tracked on the Project Board.
 
+The "Related Requirement" column references requirement IDs defined in the [LED Integration README](../workstream/led-integration/README.md).
+
 ---
 
 ## LED Matrix Integration
 
-**Related work:** [`workstream/led-integration/`](../workstream/led-integration/)
+**Related work:** [`led-integration/`](../workstream/led-integration/)
 
 ### Architecture & Hardware
 
 | Question | Related Requirement | Status |
 |---|---|---|
-| Is the Intel NUC required as the orchestrator, or can a Raspberry Pi be used instead? | `INT-03`, `INT-04` | Open |
+| Should we use Raspberry Pi 4 or 5 for the final system? | `HW-01`, `HW-04` | Open |
 | Which existing hardware can be reused, and what additional components are required? | `HW-01`, `HW-03` | Open |
 | Can the existing Raspberry Pi Pico W / Interstate 75 W be reused in the proposed architectures? | `HW-01`, `HW-03` | Open |
 | How are the components connected in each architecture, including required cables and adapters? | `HW-01` | Open |
 | What power supplies are required for the controllers and LED panels? | `HW-01`, `HW-02` | Open |
+| Should we use a microSD card or SSD for the Raspberry Pi 4/5? | `HW-06` | Open |
+| Can one Raspberry Pi control all 8 parking spaces, and how many LED controllers are needed? | `HW-03`, `HW-04` | Open |
+| How should we distribute power from the two available outlets to all 16 LED panels and their controllers? | `HW-01`, `HW-02` | Open |
+| Can each Interstate 75 W share a 5 V power supply with its two LED panels, and what power capacity is required? | `HW-01`, `HW-02` | Open |
 
 ### Software & Parkit Integration
 
 | Question | Related Requirement | Status |
 |---|---|---|
 | What changes are required in the existing Parkit application? | `INT-03`, `INT-04` | Open |
-| What interface should be used between Parkit and the LED system? | `INT-01`, `INT-02` | Open |
 | Which OS, software, drivers, and libraries are required for each architecture? | — | Open |
 | How should the orchestrator communicate with the display controllers? | `INT-02`, `REL-01`, `REL-02` | Open |
+| Can the existing Parkit API provide the current status of all 8 parking spaces? | `INT-01`, `FR-03` | Open |
+| How will Raspberry Pi authenticate with the Parkit API? | `INT-02`, `SEC-01` | Open |
+| What commands should Raspberry Pi send to the LED controllers via USB? | `INT-02` | Open |
+How will Raspberry Pi access the Parkit API securely? | `INT-02`, `SEC-01`, `SEC-03` | Open |
+| What polling interval is needed to update LED displays within 1 minute? | `FR-04` | Open |
+| Is the existing Parkit API v1 still suitable for LED Integration, or does it need changes? | `INT-01`, `INT-02` | Open |
+| What exact JSON payload should the orchestrator receive from Parkit? | `INT-01`, `FR-03` | Open |
 
 ### Display
 
@@ -39,18 +51,17 @@ Detailed research belongs in the relevant workstream. Resulting tasks are tracke
 | What viewing distance and lighting conditions must the display support? | `DISP-01`, `DISP-03`, `DISP-05` | Open |
 | What display format should be used for Swiss and foreign licence plates? | `LP-01`, `LP-02`, `LP-03` | Open |
 | Are there any privacy restrictions on displaying licence plate information? | `LP-04` | Open |
-| How frequently must the LED displays be updated to keep parking availability current? | `FR-07`, `REL-04` | Open |
 
 ### Communication & Installation
 
 | Question | Related Requirement | Status |
 |---|---|---|
-| Can Ethernet cables be installed to the required parking locations? | `HW-01`, `HW-05` | Open |
-| Is LoRa suitable for communication across the three parking levels? | `HW-05` | Open |
-| If LoRa is used, how will the LoRa controller connect to the LED display? | `HW-01`, `HW-05` | Open |
-| Is mobile/cellular connectivity a suitable option for communication with the parking equipment? | `HW-05` | Open |
-| Where will the orchestrator, controllers, network equipment, and power supplies be installed? | `HW-01`, `HW-02` | Open |
+| Which 4G router and SIM plan should we use (e.g. Wingo)? | `HW-07`, `HW-08` | Open |
+| How much mobile data will the system use per month? | `HW-09` | Open |
+| Is mobile network coverage reliable in the parking area? | `HW-05`, `REL-01` | Open |
+| How should the orchestrator connect to the LED controllers (Wi-Fi or RS-485), and which protocol should we use? | `INT-02`, `HW-01`, `REL-01` | Open || Where will the orchestrator, controllers, network equipment, and power supplies be installed? | `HW-01`, `HW-02` | Open |
 | What power connections are available at the installation locations? | `HW-01`, `HW-02` | Open |
+| Should we use a Raspberry Pi 4G HAT or a separate 4G router? | `HW-05`, `HW-07` | Open |
 
 ### LED Hardware Test
 
@@ -59,12 +70,13 @@ Detailed research belongs in the relevant workstream. Resulting tasks are tracke
 | What exact connection, cable, and power components are required to test the existing LED hardware? | `HW-01` | Open |
 | Is any additional hardware required for the test setup? | `HW-01` | Open |
 | Which software/library should be used to display a test message? | — | Open |
+| How can we display two different images on two separate LED panels? | `DISP-02`, `HW-01` | Open |
 
 ---
 
 ## Project Presentation & Administration Approval
 
-**Related work:** [`workstream/project-presentation/`](../workstream/project-presentation/)
+**Related work:** [`project-presentation/`](../workstream/project-presentation/)
 
 | Question | Related Requirement | Status |
 |---|---|---|
@@ -81,11 +93,13 @@ Detailed research belongs in the relevant workstream. Resulting tasks are tracke
 | What is the available project budget? | — | Open |
 | What is the total estimated cost of each architecture, including installation? | — | Open |
 | What are the expected electricity, maintenance, and replacement costs over 10 years? | — | Open |
+| What will the mobile internet subscription and network equipment cost over 10 years? | — | Open |
 
 ---
 
+
 ## Expiring Reservation Reminder
 
-**Related work:** [`workstream/reservation-reminder/`](../workstream/reservation-reminder/)
+**Related work:** [`reservation-reminder/`](../workstream/reservation-reminder/)
 
 No open questions documented yet.
