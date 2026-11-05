@@ -3,4 +3,6 @@
 **/.DS_Store
 *.textClipping
 .obsidian/
+.obsidian
 .DS_Store
+**/.obsidian
