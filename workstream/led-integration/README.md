@@ -26,6 +26,22 @@ A driver already has a reservation and uses the LED display to confirm which par
 
 A driver enters the parking area, sees that a parking space is currently free, and then reserves it in Parkit.
 
+### LED Display Use Cases
+
+The LED system must support different display scenarios based on parking availability, reservation periods, vehicle types, and special situations.
+
+These include:
+
+- Available and reserved parking spaces (AM, PM, full-day, and multi-day).
+- Consecutive and upcoming reservations.
+- Guest reservations with or without licence plate numbers.
+- Motorcycle parking spaces.
+- Reservation changes and cancellations.
+- Unavailable parking spaces and communication errors.
+- Special display designs for holidays.
+
+The detailed scenarios are documented in [LED Display Use Cases](././led-display-use-cases.md).
+
 ---
 
 ## Target Users

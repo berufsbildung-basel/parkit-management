@@ -6,7 +6,6 @@
 .LSOverride
 ._*
 *.textClipping
-<<<<<<< HEAD
 .Spotlight-V100/
 .Trashes/
 
@@ -36,6 +35,3 @@
 .env
 .env.*
 !.env.example
-=======
-**/.obsidian
->>>>>>> origin/main
