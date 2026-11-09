@@ -35,4 +35,7 @@
 .env
 .env.*
 !.env.example
+<<<<<<< HEAD
 **/.obsidian
+=======
+>>>>>>> af0b544f11a02770bbbf9bf627873b1c0a704e41
