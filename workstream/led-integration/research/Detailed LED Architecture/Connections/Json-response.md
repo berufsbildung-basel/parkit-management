@@ -1,4 +1,4 @@
-# Parking Place Panels V2 – API Documentation
+# Parking Place Panels 
 
 
 ## 1. Übersicht
