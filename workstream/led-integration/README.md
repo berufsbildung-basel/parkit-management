@@ -58,12 +58,26 @@ Requirement IDs are used to link requirements to features, technical decisions, 
 
 ### Functional Requirements
 
+Requirement ID prefixes:
+
+| Prefix | Meaning |
+|---|---|
+| FR | Functional Requirement |
+| LP | Licence Plate Requirement |
+| DISP | Display Requirement |
+| INT | Integration Requirement |
+| REL | Reliability Requirement |
+| SEC | Security Requirement |
+| HW | Hardware & Infrastructure Requirement |
+
+---
+
 | ID | Requirement |
 |---|---|
 | `FR-01` | The system must display the parking space assigned to the driver's reservation. |
 | `FR-02` | The system must show whether a parking space is currently available for reservation. |
 | `FR-03` | Displayed information must match the current reservation data in Parkit. |
-| `FR-04` | Displayed information must be updated when a reservation or assigned parking space changes. |
+| `FR-04` | LED displays must reflect reservation changes in Parkit within a maximum of 1 minute. |
 | `FR-05` | The system must support morning, afternoon, and full-day reservations. |
 | `FR-06` | The system must correctly represent when a parking space is available or reserved. |
 | `FR-07` | Displayed parking availability must remain current. |
@@ -81,11 +95,12 @@ Requirement IDs are used to link requirements to features, technical decisions, 
 
 | ID | Requirement |
 |---|---|
-| `DISP-01` | Displayed information must be clearly readable by drivers. |
+| `DISP-01` | LED information must be readable from the required distance and viewing angles under the parking area's lighting conditions. |
 | `DISP-02` | The display must support the required content, characters, and lines. |
 | `DISP-03` | Information must remain readable under expected lighting conditions. |
 | `DISP-04` | The system must define how content is handled when it does not fit on the display. |
 | `DISP-05` | Displays must be installed where drivers can clearly see the relevant parking information when entering or approaching the parking spaces. |
+| `DISP-06` | The display must use accessible colour combinations and must not rely on colour alone to communicate information, ensuring readability for users with colour vision deficiencies. |
 
 ### Integration Requirements
 
@@ -105,6 +120,9 @@ Requirement IDs are used to link requirements to features, technical decisions, 
 | `REL-02` | Communication should be retried or restored automatically where appropriate. |
 | `REL-03` | Communication and integration errors must be logged. |
 | `REL-04` | The system must avoid displaying outdated or incorrect parking information when current data is unavailable. |
+| `REL-05` | The system must automatically reconnect after a mobile network failure. |
+| `REL-06` | The LED software must automatically retry failed API requests and recover after connection is restored. |
+| `REL-07` | LED displays must show a safe status when current parking information is unavailable. |
 
 ### Security Requirements
 
@@ -123,8 +141,11 @@ Requirement IDs are used to link requirements to features, technical decisions, 
 | `HW-02` | Hardware must be suitable for the intended installation environment. |
 | `HW-03` | Individual components should be replaceable without major changes to Parkit or the overall architecture. |
 | `HW-04` | Additional displays or controllers should be addable without major redesign. |
-| `HW-05` | Reliable communication must be possible between the office and the parking area, which are separated by three floors. |
-
+| `HW-05` | Reliable communication must be possible between cloud-hosted Parkit and the LED equipment in the parking area. |
+| `HW-06` | The orchestrator must use reliable storage (microSD or SSD) for the operating system and software. |
+| `HW-07` | The LED system must use mobile internet via SIM card to connect to Parkit. |
+| `HW-08` | The mobile connection must support regular polling and LED updates within 1 minute. |
+| `HW-09` | The SIM data plan must provide enough monthly data for continuous operation. |
 ---
 
 ## Evaluation Criteria
