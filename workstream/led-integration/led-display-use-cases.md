@@ -84,3 +84,5 @@ The exact layout, colours, text, and information priority will be defined during
 | `DISP-UC-36` | Holidays. |
 
 ---
+
+# Notes
