@@ -9,14 +9,16 @@ This guide explains how the PARKIT Orchestrator was installed, how to connect to
 | Hostname | `PARKIT-Orchestrator` |
 | Local network address | `parkit-orchestrator.local` |
 | Username | `parkit-orchestrator` |
-| Password | https://vault-amer.adobe.net/ui/vault/secrets-engines/kv2_parkit/kv/team%2FRaspberryPi|
+| Password | Stored in the team password manager; **not in GitHub** |
 | Operating system | Raspberry Pi OS Lite (64-bit), Debian 13 (Trixie) |
 | CPU architecture | `aarch64` |
 | Memory | 8 GB (about 7.6 GiB usable) |
 | Python | 3.13.5 |
 | Remote access | SSH with password authentication |
+| Wi-Fi network (SSID) | `router-parkit-pt` |
 | Time zone | `Europe/Zurich` |
 | Keyboard | Swiss (`ch`) |
+
 
 
 ## 2. What you need
@@ -24,7 +26,7 @@ This guide explains how the PARKIT Orchestrator was installed, how to connect to
 - Raspberry Pi, power supply, and microSD card (32 GB used here)
 - SD card reader and a Mac or another computer
 - Raspberry Pi Imager (version 2.0.12 used here)
-- Local Wi-Fi or a phone hotspot
+- PARKIT Wi-Fi router with SSID `router-parkit-pt`
 
 Download Raspberry Pi Imager: https://www.raspberrypi.com/software/
 
@@ -58,17 +60,16 @@ Use **Bern, Switzerland**, time zone **Europe/Zurich**, and keyboard layout **ch
 
 ### Step 5 — Create the user
 
-Set the username to `parkit-orchestrator`. Create a strong password and save it in the team password manager(https://vault-amer.adobe.net/ui/vault/secrets-engines/kv2_parkit/kv/team%2FRaspberryPi).
+Set the username to `parkit-orchestrator`. Create a strong password and save it in the team password manager.
 
 ![User account setup with password hidden](img/05-create-user.png)
 
 ### Step 6 — Set up Wi-Fi
 
-Choose **Secure Network** and enter the exact Wi-Fi name (SSID) and password. During the first setup, an iPhone hotspot was used. Leave **Hidden SSID** off unless the network is hidden.
+Choose **Secure Network** and set the Wi-Fi name (SSID) to **`router-parkit-pt`**. Enter the router Wi-Fi password from the team password manager. Leave **Hidden SSID** off unless the router network is hidden.
 
-![Wi-Fi configuration screen](img/06-wifi-settings.png)
+![Wi-Fi configuration screen (check the SSID against the current router settings)](img/06-wifi-settings.png)
 
-![iPhone hotspot setup with password hidden](img/07-iphone-hotspot.png)
 
 ### Step 7 — Enable SSH
 
@@ -88,8 +89,8 @@ Complete the setup, write the OS to the card, wait for verification, and safely 
 
 ## 4. Start the Pi without a monitor
 
-1. Turn on the iPhone hotspot.
-2. Connect your Mac to the same hotspot.
+1. Make sure the Wi-Fi router `router-parkit-pt` is powered on.
+2. Connect your Mac to the `router-parkit-pt` Wi-Fi network.
 3. Insert the microSD card into the Pi.
 4. Connect a suitable power supply and wait a few minutes for the first boot.
 5. Open **Terminal** on the Mac.
@@ -104,13 +105,13 @@ On the first connection, check the host key fingerprint against a trusted value 
 
 ![Successful SSH login](img/10-ssh-login.png)
 
-If `.local` does not work, find the Pi's IP address in the hotspot device list and use:
+If `.local` does not work, find the Pi's IP address in the router's connected-device list and use:
 
 ```bash
 ssh parkit-orchestrator@<PI_IP_ADDRESS>
 ```
 
-Some phone hotspots block communication between connected devices. In that case, local SSH may not work even if both devices are connected.
+If SSH cannot connect, check that both devices are on `router-parkit-pt` and that the router does not have client isolation enabled.
 
 ## 5. Change system settings
 
@@ -226,5 +227,3 @@ sudo shutdown -h now   # Shut down safely
 ```
 
 Wait until shutdown is complete before unplugging the power.
-
-
