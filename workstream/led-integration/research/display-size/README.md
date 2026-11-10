@@ -141,7 +141,9 @@ For 8 bays: 32 tiles plus 4 spares, 8 controllers, 8 power supplies, 8 backplate
 | BerryBase.ch | Adafruit 64x32, 5 mm pitch (ADA2277) | CHF 49.90 | 2 in stock. Product seems to be at end of life. |
 | Waveshare shop | RGB-Matrix-P5-64x32 (SKU 25848) | USD 21.99 list | Stock could not be confirmed, site did not load. |
 
-Order in two steps: 4 tiles for one prototype (about CHF 90), then the remaining 32 in one batch after the tests pass.
+Order in two steps: 4 tiles for one prototype, then the remaining 32 in one batch after the tests pass.
+
+**Prototype order placed on 10 November 2026:** 4 tiles from the AliExpress listing above. Tiles EUR 96.96 (EUR 24.24 each), shipping EUR 50.17, total EUR 147.13. That is EUR 36.78 per tile delivered, before any import charges. Shipping is a third of the cost, so for the full order compare delivered prices, not list prices, and ask the seller for a combined shipping quote.
 
 ### 5.3 How the proposal meets the criteria
 
@@ -174,6 +176,6 @@ If T4 fails, fall back to option D (2 tiles side by side, 128 x 32) or option B 
 ## 7. Decisions this spec asks for
 
 1. Accept criteria C1 to C10 as the way to judge display hardware.
-2. Buy 4 P5 tiles and one power supply for a prototype.
+2. Buy 4 P5 tiles and one power supply for a prototype. (Tiles ordered on 10 November 2026, power supply still open.)
 3. Decide on the full order (32 tiles + spares) only after T1 to T7 are done.
 4. Record the result in [decisions.md](../../../../project-notes/decisions.md) and close the related entries in [open-questions.md](../../../../project-notes/open-questions.md).
