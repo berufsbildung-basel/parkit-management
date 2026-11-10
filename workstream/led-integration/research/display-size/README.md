@@ -145,7 +145,39 @@ Order in two steps: 4 tiles for one prototype, then the remaining 32 in one batc
 
 **Prototype order placed on 10 November 2026:** 4 tiles from the AliExpress listing above. Tiles EUR 96.96 (EUR 24.24 each), shipping EUR 50.17, total EUR 147.13. That is EUR 36.78 per tile delivered, before any import charges. Shipping is a third of the cost, so for the full order compare delivered prices, not list prices, and ask the seller for a combined shipping quote.
 
-### 5.3 How the proposal meets the criteria
+### 5.3 Shopping list
+
+Prices and stock checked on 10 November 2026.
+
+**Step 1: prototype, one display on the bench**
+
+| Qty | Item | Source | Price | Status |
+|---|---|---|---|---|
+| 4 | P5 tile 64x32, 320 x 160 mm, with ribbon and power cable | AliExpress, item 1005011661208809 | EUR 147.13 total incl. shipping | Ordered 10 November 2026 |
+| 1 | Pimoroni Interstate 75 W, RP2350A (PIM727) | BerryBase.ch | CHF 22.90 | To order. 17 in stock |
+| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, red (T1325526) | BerryBase.ch | CHF 1.65 | To order |
+| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, black (T1325525) | BerryBase.ch | CHF 1.65 | To order |
+| 4 | Wago 221-415 connector, 5-way (2 needed, 2 spare) | BerryBase.ch | from CHF 0.75 each | To order |
+| 1 | Interstate 75 W with Pico W (RP2040) | In hand | - | Stays on the P3 panels for comparison |
+| 1 | Voltcraft ESP-3010 lab supply | In hand (`DEC-008`) | - | Powers the tiles on the bench. Set 5.0 V before connecting |
+
+Bench wiring: cut one plug off each test lead and clamp the open end into a Wago. Clamp the four tile power cables into the same Wago (one Wago for plus, one for minus). The controller is powered by USB-C from the laptop.
+
+**Step 2: full build, 8 displays. Order only after the tests in section 6 pass.**
+
+| Needed | In hand after step 1 | To buy | Item | Note |
+|---|---|---|---|---|
+| 36 | 4 | 32 | P5 tile 64x32 (32 mounted + 4 spare) | One batch, same seller as the prototype if T4 passed |
+| 8 | 1 | 7 | Interstate 75 W, RP2350A | The older Pico W board becomes the spare. All 8 displays then run the same firmware |
+| 8 | 0 | 8 | 5 V power supply | Model and size after T3 |
+| 8 | 0 | 8 | Backplate, about 660 x 340 mm | Custom |
+| 20 | 2 spare | 18 | Wago 221-415 (2 per display + spares) | |
+| 20 m + 20 m | 0 | 20 m + 20 m | Wire 1.5 mm², red and black | Estimate, about 2 m of each per display. Not sold by BerryBase.ch |
+| 1 | 0 | 1 | 4G Wi-Fi router with SIM | Chosen elsewhere, see section 3 |
+
+Ribbon cables, tile power cables and screws come with the tiles.
+
+### 5.4 How the proposal meets the criteria
 
 | Criterion | Result |
 |---|---|
