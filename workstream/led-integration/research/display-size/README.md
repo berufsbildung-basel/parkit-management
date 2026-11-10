@@ -154,12 +154,14 @@ Prices and stock checked on 10 November 2026.
 | Qty | Item | Source | Price | Status |
 |---|---|---|---|---|
 | 4 | P5 tile 64x32, 320 x 160 mm, with ribbon and power cable | AliExpress, item 1005011661208809 | EUR 147.13 total incl. shipping | Ordered 10 November 2026 |
-| 1 | Pimoroni Interstate 75 W, RP2350A (PIM727) | BerryBase.ch | CHF 22.90 | To order. 17 in stock |
-| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, red (T1325526) | BerryBase.ch | CHF 1.65 | To order |
-| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, black (T1325525) | BerryBase.ch | CHF 1.65 | To order |
-| 4 | Wago 221-415 connector, 5-way (2 needed, 2 spare) | BerryBase.ch | from CHF 0.75 each | To order |
+| 1 | Pimoroni Interstate 75 W, RP2350A (PIM727) | BerryBase.ch | CHF 22.90 | Ordered 10 November 2026 |
+| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, red (T1325526) | BerryBase.ch | CHF 1.65 | Ordered 10 November 2026 |
+| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, black (T1325525) | BerryBase.ch | CHF 1.65 | Ordered 10 November 2026 |
+| 4 | Wago 221-415 connector, 5-way (2 needed, 2 spare) | BerryBase.ch | from CHF 0.75 each | Ordered 10 November 2026 |
 | 1 | Interstate 75 W with Pico W (RP2040) | In hand | - | Stays on the P3 panels for comparison |
 | 1 | Voltcraft ESP-3010 lab supply | In hand (`DEC-008`) | - | Powers the tiles on the bench. Set 5.0 V before connecting |
+
+The BerryBase.ch order came to CHF 38.70 in total: CHF 29.20 for the items plus CHF 9.50 shipping, VAT included.
 
 Bench wiring: cut one plug off each test lead and clamp the open end into a Wago. Clamp the four tile power cables into the same Wago (one Wago for plus, one for minus). The controller is powered by USB-C from the laptop.
 
@@ -208,6 +210,6 @@ If T4 fails, fall back to option D (2 tiles side by side, 128 x 32) or option B 
 ## 7. Decisions this spec asks for
 
 1. Accept criteria C1 to C10 as the way to judge display hardware.
-2. Buy 4 P5 tiles and one power supply for a prototype. (Tiles ordered on 10 November 2026, power supply still open.)
+2. Buy 4 P5 tiles and one power supply for a prototype. (Tiles, one controller and bench connectors ordered on 10 November 2026, power supply still open.)
 3. Decide on the full order (32 tiles + spares) only after T1 to T7 are done.
 4. Record the result in [decisions.md](../../../../project-notes/decisions.md) and close the related entries in [open-questions.md](../../../../project-notes/open-questions.md).
