@@ -9,7 +9,7 @@ This guide explains how the PARKIT Orchestrator was installed, how to connect to
 | Hostname | `PARKIT-Orchestrator` |
 | Local network address | `parkit-orchestrator.local` |
 | Username | `parkit-orchestrator` |
-| Password | Stored in the team password manager; **not in GitHub** |
+| Password | https://vault-amer.adobe.net/ui/vault/secrets-engines/kv2_parkit/kv/team%2FRaspberryPi|
 | Operating system | Raspberry Pi OS Lite (64-bit), Debian 13 (Trixie) |
 | CPU architecture | `aarch64` |
 | Memory | 8 GB (about 7.6 GiB usable) |
@@ -58,7 +58,7 @@ Use **Bern, Switzerland**, time zone **Europe/Zurich**, and keyboard layout **ch
 
 ### Step 5 — Create the user
 
-Set the username to `parkit-orchestrator`. Create a strong password and save it in the team password manager.
+Set the username to `parkit-orchestrator`. Create a strong password and save it in the team password manager(https://vault-amer.adobe.net/ui/vault/secrets-engines/kv2_parkit/kv/team%2FRaspberryPi).
 
 ![User account setup with password hidden](img/05-create-user.png)
 
