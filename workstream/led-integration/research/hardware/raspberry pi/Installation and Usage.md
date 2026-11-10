@@ -18,7 +18,6 @@ This guide explains how the PARKIT Orchestrator was installed, how to connect to
 | Time zone | `Europe/Zurich` |
 | Keyboard | Swiss (`ch`) |
 
-> **Check the hardware model:** The terminal screenshot shows **Raspberry Pi 4 Model B Rev 1.5, 8 GB**. The device was first described as a Raspberry Pi 5. The actual model should be checked on the device or with `cat /proc/device-tree/model`.
 
 ## 2. What you need
 
@@ -228,27 +227,4 @@ sudo shutdown -h now   # Shut down safely
 
 Wait until shutdown is complete before unplugging the power.
 
-## 10. Troubleshooting
 
-| Problem | What to check |
-|---|---|
-| `Could not resolve hostname` | Check hotspot connection, hostname, or use the Pi's IP address. |
-| `Connection timed out` | Check power, Wi-Fi, and whether the hotspot allows devices to talk to each other. |
-| `Connection refused` | Check whether SSH was enabled in Imager. |
-| `Permission denied` | Check username and password; Linux passwords are case-sensitive. |
-| SSH stops after changing Wi-Fi | Reconnect using the new network and IP address. |
-| Python package install fails | Check internet/package availability; use a virtual environment for project dependencies. |
-
-## 11. Security and team handover
-
-- Never commit passwords, Wi-Fi passwords, SSH private keys, or Connect tokens to GitHub.
-- Share credentials through the team password manager.
-- The original screenshots showed secrets. **Rotate the exposed Linux password, hotspot password, and Connect token** before sharing the system widely.
-- The images in this folder use redacted versions of the screenshots.
-- For regular team access, consider individual Linux accounts and SSH keys instead of sharing one password.
-- Keep a record of the device model, network, power supply, and installed project dependencies.
-
----
-
-**Documentation date:** 10 November 2026  
-**Project:** PARKIT Orchestrator
