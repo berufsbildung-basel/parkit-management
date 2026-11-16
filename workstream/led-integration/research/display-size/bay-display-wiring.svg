@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif" role="img" aria-label="Wiring of one bay display: a shared 4G Wi-Fi router feeds the controller over Wi-Fi, the controller drives four LED tiles in a chain, and one 5 volt supply powers the controller and all four tiles.">
+  <defs>
+    <marker id="ah-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker>
+    <marker id="ah-pwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8521a"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="650" fill="#faf9f5"/>
+
+  <!-- shared zone -->
+  <rect x="140" y="40" width="840" height="100" fill="none" stroke="#b3afa4" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="964" y="62" text-anchor="end" font-size="12" fill="#6b675e">Shared by all 8 displays</text>
+
+  <rect x="170" y="60" width="210" height="64" fill="#ffffff" stroke="#c9c5bb"/>
+  <rect x="170" y="60" width="4" height="64" fill="#1f5fa8"/>
+  <text x="188" y="88" font-size="13.5" font-weight="600" fill="#1d2126">4G Wi-Fi router</text>
+  <text x="188" y="106" font-size="11.5" fill="#5d6470">with SIM card</text>
+
+  <rect x="520" y="60" width="210" height="64" fill="#ffffff" stroke="#c9c5bb"/>
+  <rect x="520" y="60" width="4" height="64" fill="#1f5fa8"/>
+  <text x="538" y="88" font-size="13.5" font-weight="600" fill="#1d2126">Parkit</text>
+  <text x="538" y="106" font-size="11.5" fill="#5d6470">cloud service</text>
+
+  <line x1="520" y1="92" x2="386" y2="92" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ah-data)"/>
+  <text x="452" y="84" text-anchor="middle" font-size="12" fill="#1f5fa8">reservations</text>
+
+  <!-- display frame -->
+  <rect x="140" y="170" width="840" height="420" fill="#f1efe8" stroke="#b3afa4" stroke-width="1"/>
+  <text x="964" y="196" text-anchor="end" font-size="12" fill="#6b675e">One display, rear view. Tile area 640 x 320 mm</text>
+
+  <!-- Wi-Fi -->
+  <line x1="275" y1="124" x2="275" y2="262" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ah-data)"/>
+  <text x="286" y="160" font-size="12" fill="#1f5fa8">Wi-Fi</text>
+
+  <!-- controller -->
+  <rect x="170" y="268" width="210" height="64" fill="#ffffff" stroke="#c9c5bb"/>
+  <rect x="170" y="268" width="4" height="64" fill="#1f5fa8"/>
+  <text x="188" y="296" font-size="13.5" font-weight="600" fill="#1d2126">Interstate 75 W</text>
+  <text x="188" y="314" font-size="11.5" fill="#5d6470">controller with Pico W</text>
+
+  <!-- power supply -->
+  <rect x="170" y="400" width="210" height="64" fill="#ffffff" stroke="#c9c5bb"/>
+  <rect x="170" y="400" width="4" height="64" fill="#b8521a"/>
+  <text x="188" y="428" font-size="13.5" font-weight="600" fill="#1d2126">5 V power supply</text>
+  <text x="188" y="446" font-size="11.5" fill="#5d6470">one per display</text>
+
+  <!-- tiles -->
+  <g stroke="#c9c5bb" fill="#ffffff">
+    <rect x="470" y="230" width="236" height="116"/>
+    <rect x="714" y="230" width="236" height="116"/>
+    <rect x="470" y="354" width="236" height="116"/>
+    <rect x="714" y="354" width="236" height="116"/>
+  </g>
+  <g fill="#3b4252">
+    <rect x="470" y="230" width="4" height="116"/>
+    <rect x="714" y="230" width="4" height="116"/>
+    <rect x="470" y="354" width="4" height="116"/>
+    <rect x="714" y="354" width="4" height="116"/>
+  </g>
+  <g text-anchor="middle" fill="#1d2126" font-size="13.5" font-weight="600">
+    <text x="588" y="254">Tile 1</text>
+    <text x="832" y="254">Tile 2</text>
+    <text x="832" y="446">Tile 3</text>
+    <text x="588" y="446">Tile 4</text>
+  </g>
+  <g text-anchor="middle" fill="#5d6470" font-size="11.5">
+    <text x="588" y="271">P5, 64 x 32 dots</text>
+    <text x="832" y="271">P5, 64 x 32 dots</text>
+    <text x="832" y="462">P5, 64 x 32 dots</text>
+    <text x="588" y="462">P5, 64 x 32 dots</text>
+  </g>
+
+  <!-- data chain -->
+  <path d="M380,300 H832 V400 H646" fill="none" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ah-data)"/>
+  <g fill="#1f5fa8">
+    <circle cx="588" cy="300" r="4.5"/>
+    <circle cx="832" cy="300" r="4.5"/>
+    <circle cx="832" cy="400" r="4.5"/>
+  </g>
+  <text x="425" y="291" text-anchor="middle" font-size="12" fill="#1f5fa8">picture</text>
+
+  <!-- power -->
+  <line x1="24" y1="432" x2="164" y2="432" stroke="#b8521a" stroke-width="2" marker-end="url(#ah-pwr)"/>
+  <text x="80" y="422" text-anchor="middle" font-size="12" fill="#b8521a">230 V mains</text>
+
+  <line x1="275" y1="400" x2="275" y2="338" stroke="#b8521a" stroke-width="2" marker-end="url(#ah-pwr)"/>
+  <text x="286" y="373" font-size="12" fill="#b8521a">5 V</text>
+
+  <path d="M275,464 V530 H920 V330" fill="none" stroke="#b8521a" stroke-width="2"/>
+  <path d="M500,530 V330" fill="none" stroke="#b8521a" stroke-width="2"/>
+  <g fill="#b8521a">
+    <circle cx="500" cy="330" r="4.5"/>
+    <circle cx="500" cy="425" r="4.5"/>
+    <circle cx="920" cy="330" r="4.5"/>
+    <circle cx="920" cy="425" r="4.5"/>
+  </g>
+  <text x="388" y="522" text-anchor="middle" font-size="12" fill="#b8521a">5 V</text>
+  <text x="500" y="552" text-anchor="middle" font-size="12" fill="#b8521a">harness 1</text>
+  <text x="920" y="552" text-anchor="middle" font-size="12" fill="#b8521a">harness 2</text>
+
+  <!-- legend -->
+  <line x1="150" y1="622" x2="190" y2="622" stroke="#1f5fa8" stroke-width="2"/>
+  <text x="200" y="626" font-size="12" fill="#3b4252">ribbon cable (HUB75)</text>
+  <line x1="370" y1="622" x2="410" y2="622" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="420" y="626" font-size="12" fill="#3b4252">wireless</text>
+  <line x1="510" y1="622" x2="550" y2="622" stroke="#b8521a" stroke-width="2"/>
+  <text x="560" y="626" font-size="12" fill="#3b4252">power</text>
+  <circle cx="650" cy="622" r="4.5" fill="#3b4252"/>
+  <text x="662" y="626" font-size="12" fill="#3b4252">plugs into this tile</text>
+</svg>
