@@ -7,10 +7,11 @@ Status: Proposal, not yet decided. Nothing in here is tested
 1. [Context](#1-context)
 2. [Risks](#2-risks)
 3. [Fastening Options](#3-fastening-options)
+4. [Backplate](#4-backplate)
 
 ## 1. Context
 
-We have 8 parking spaces; this document will outline the available options for connecting 4 LED panels and a microcontroller into a single unit.
+We have 8 parking spaces; this document will outline the available options for mounting the unit separately, including the cover and fasteners.
 
 Above each parking space, there is a metal rail; power cables will be routed through it, and LED panels indicating the status will be mounted on it.
 
@@ -61,6 +62,39 @@ A short length of DIN rail (TS35) is fixed to the top of the lid. Standard DIN c
 - Requires a rail-to-DIN interface bracket, since DIN clips don't attach directly to the rail.
 - Tool-free detachment for maintenance; generally lower load rating than a dedicated channel clamp — verify before relying on this as sole support.
 
-### Rear panel
+## 4. Backplate 
 
-Material: not yet determined.
+| | Reliability | Fire resistance | Moisture | Corrosion | Weight | Availability |
+|---|---|---|---|---|---|---|
+| **3D-printed PETG/ASA** | Low — creeps over time | Burns | Doesn't absorb | Not applicable | ~0.4–0.6 kg | Print it yourself, sized exactly as needed |
+| **3D-printed Fire-retardant ABS/PC FR (V0)** | Medium — holds shape better | Self-extinguishing, but still combustible | Barely absorbs | Not applicable | ~0.4–0.6 kg | Print it yourself, sized exactly as needed |
+| **Aluminium sheet** | High — doesn't creep or fatigue | Non-combustible (A1) | Doesn't absorb | Not an issue (only the fasteners are) | ~1.9 kg | Cutting/bending order, takes a bit longer |
+
+**Note:** for the plastic options, the whole enclosure can be 3D-printed as one piece, with a sliding/removable back cover made of metal instead — that way the mounting points, which carry the actual load, stay on the metal part, while the rest of the box can stay in plastic.
+
+
+### Additional design requirements for the enclosure
+
+Regardless of which material is chosen, the enclosure design must account for:
+
+1. **Moisture protection**
+ 
+Keep water, condensation, and dust out, even with vents open
+
+2. **Cable openings** 
+
+Sized for the power and HUB75 data cables, without becoming a weak point for moisture
+
+3. **Ventilation**
+
+Enough airflow for the heat from 4 LED panels to escape
+
+4. **Mounting to the metal rail** 
+
+A solid attachment point to the ceiling structure
+
+5. **Mounting the LED panels**
+
+A reliable way to fix the panels inside the enclosur
+
+## 5. Attaching the LED Panels to the Backplate
