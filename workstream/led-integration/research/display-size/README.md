@@ -154,10 +154,10 @@ Prices and stock checked on 10 November 2026.
 | Qty | Item | Source | Price | Status |
 |---|---|---|---|---|
 | 4 | P5 tile 64x32, 320 x 160 mm, with ribbon and power cable | AliExpress, item 1005011661208809 | EUR 147.13 total incl. shipping | Ordered 10 November 2026 |
-| 1 | Pimoroni Interstate 75 W, RP2350A (PIM727) | BerryBase.ch | CHF 22.90 | Ordered 10 November 2026 |
-| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, red (T1325526) | BerryBase.ch | CHF 1.65 | Ordered 10 November 2026 |
-| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, black (T1325525) | BerryBase.ch | CHF 1.65 | Ordered 10 November 2026 |
-| 4 | Wago 221-415 connector, 5-way (2 needed, 2 spare) | BerryBase.ch | from CHF 0.75 each | Ordered 10 November 2026 |
+| 1 | Pimoroni Interstate 75 W, RP2350A (PIM727) | BerryBase.ch | CHF 22.90 | In the office since 18.11.2026(Ordered 10.11.2026) |
+| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, red (T1325526) | BerryBase.ch | CHF 1.65 | In the office since 18.11.2026(Ordered 10.11.2026) |
+| 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, black (T1325525) | BerryBase.ch | CHF 1.65 |In the office since 18.11.2026(Ordered 10.11.2026) |
+| 4 | Wago 221-415 connector, 5-way (2 needed, 2 spare) | BerryBase.ch | from CHF 0.75 each | In the office since 18.11.2026(Ordered 10.11.2026) |
 | 1 | Interstate 75 W with Pico W (RP2040) | In hand | - | Stays on the P3 panels for comparison |
 | 1 | Voltcraft ESP-3010 lab supply | In hand (`DEC-008`) | - | Powers the tiles on the bench. Set 5.0 V before connecting |
 
