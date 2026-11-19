@@ -142,12 +142,77 @@ Requirement ID prefixes:
 
 ### Security Requirements
 
-| ID | Requirement |
-|---|---|
-| `SEC-01` | Only authorized systems or users may control the LED displays. |
-| `SEC-02` | Unauthorized changes to displayed information must be prevented. |
-| `SEC-03` | Communication between Parkit and the LED system must be appropriately secured. |
-| `SEC-04` | Physical access to displays, controllers, and related hardware must be considered. |
+The following security requirements apply to both architecture options:
+
+- Option A — Without Orchestrator: Each LED controller communicates directly with the Parkit API.
+- Option B — With Orchestrator: A central orchestrator communicates with Parkit and distributes information to the LED controllers.
+`A / B` indicates that a requirement applies to both architecture options.
+
+The requirements are further examined in [LED Integration — Security & Architecture Evaluation Spec](research/security-architecture/README.md).
+
+#### Authentication
+
+| ID | Requirement | Option |
+|---|---|---|
+| `SEC-01` | Only authorized systems or users may control the LED displays. | A / B |
+| `SEC-02` | Unauthorized changes to displayed information must be prevented. | A / B |
+| `SEC-03` | Communication between Parkit and the LED system must be appropriately secured. | A / B |
+| `SEC-04` | Physical access to displays, controllers, and related hardware must be considered. | A / B |
+| `SEC-05` | Only registered and authorized devices may access the LED integration interfaces. | A / B |
+| `SEC-06` | Each device must verify the identity of the system it communicates with. | A / B |
+| `SEC-07` | Authentication mechanisms must be suitable for the selected hardware. | A / B |
+| `SEC-08` | Credentials must not be exposed through logs or transmitted without appropriate protection. | A / B |
+| `SEC-09` | The feasibility of mutual device authentication must be evaluated. | A / B |
+
+#### Authorization
+
+| ID | Requirement | Option |
+|---|---|---|
+| `SEC-10` | The LED system must have read-only access to the reservation and parking information required for display operation. | A / B |
+| `SEC-11` | Controllers must not be able to modify reservations or other Parkit business data. | A / B |
+| `SEC-12` | Access should be restricted to the required parking spaces and operations. | A / B |
+| `SEC-13` | Unauthorized devices must not be able to change displayed information. | A / B |
+| `SEC-14` | Permission boundaries between Parkit, the orchestrator (if used) and controllers must be documented. | A / B |
+
+#### Communication Security
+
+| ID | Requirement | Option |
+|---|---|---|
+| `SEC-15` | Communication with the Parkit API must use an appropriately secured connection. | A / B |
+| `SEC-16` | Server identity verification and certificate validation must be evaluated. | A / B |
+| `SEC-17` | The local communication channel must protect against unauthorized commands and data modification. | B |
+| `SEC-18` | Replay protection and message freshness must be considered. | A / B |
+| `SEC-19` | Required network ports and exposed services must be minimized. | A / B |
+
+#### Credential Management
+
+| ID | Requirement | Option |
+|---|---|---|
+| `SEC-20` | Credentials must be protected against unauthorized access. | A / B |
+| `SEC-21` | Credentials must be revocable when devices are lost, replaced or compromised. | A / B |
+| `SEC-22` | Credential rotation must be possible without unnecessary system disruption. | A / B |
+| `SEC-23` | The impact of storing credentials on eight controllers versus one orchestrator must be evaluated. | A / B |
+
+#### Caching and Data Freshness
+
+| ID | Requirement | Option |
+|---|---|---|
+| `SEC-24` | Cached reservation data must have a defined validity period. | A / B |
+| `SEC-25` | Displays must not present expired information as current. | A / B |
+| `SEC-26` | The system must support reservation updates within one minute, as required by `FR-04`. | A / B |
+| `SEC-27` | When current information is unavailable, displays must enter a defined safe state. | A / B |
+| `SEC-28` | Cache invalidation, recovery after reconnection and time synchronization must be evaluated. | A / B |
+
+#### Physical and Operational Security
+
+| ID | Requirement | Option |
+|---|---|---|
+| `SEC-29` | Physical access to controllers, network equipment and the orchestrator (if used) must be considered. | A / B |
+| `SEC-30` | Devices must not expose unnecessary debugging or administrative interfaces. | A / B |
+| `SEC-31` | Security-relevant failures must be logged without exposing sensitive data. | A / B |
+| `SEC-32` | The LED system must not compromise normal Parkit operation. | A / B |
+
+
 
 ### Hardware & Infrastructure Requirements
 

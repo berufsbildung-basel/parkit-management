@@ -72,6 +72,30 @@ How will Raspberry Pi access the Parkit API securely? | `INT-02`, `SEC-01`, `SEC
 | Which software/library should be used to display a test message? | — | Open |
 | How can we display two different images on two separate LED panels? | `DISP-02`, `HW-01` | Open |
 
+### Security & Architecture Evaluation
+
+**Related work:** [`security-architecture/`](../workstream/led-integration/research/security-architecture/README.md)
+
+**Option A:** Without Orchestrator  
+**Option B:** With Orchestrator
+
+| Question | Related Requirement | Option | Status |
+|---|---|---|---|
+| Can the existing LED controllers reliably communicate with Parkit over HTTPS? | `SEC-07`, `SEC-15`, `SEC-16`, `HW-05` | A | Open |
+| How should individual controllers authenticate with Parkit? | `SEC-05`, `SEC-06`, `SEC-07` | A | Open |
+| Can access be restricted to one parking space per controller? | `SEC-10`, `SEC-12` | A | Open |
+| How can credentials be securely stored and revoked on microcontrollers? | `SEC-08`, `SEC-20`, `SEC-21`, `SEC-22` | A | Open |
+| Which local communication protocol is suitable between orchestrator and controllers? | `INT-02`, `SEC-17`, `SEC-18` | B | Open |
+| How do controllers verify the orchestrator's identity? | `SEC-06`, `SEC-09` | B | Open |
+| Should the orchestrator push updates or should controllers request them? | `INT-02`, `FR-04`, `REL-01` | B | Open |
+| How should the orchestrator authenticate and authorize individual controllers? | `SEC-05`, `SEC-09`, `SEC-12`, `SEC-14` | B | Open |
+| Should caching be implemented, and where should cached data be stored? | `SEC-24`, `SEC-25`, `SEC-28`, `REL-04` | A / B | Open |
+| How are outdated or manipulated messages detected? | `SEC-18`, `SEC-25`, `REL-04` | A / B | Open |
+| How should the system behave when the network connection fails? | `SEC-27`, `REL-01`, `REL-02`, `REL-07` | A / B | Open |
+| What are the consequences of a compromised controller or orchestrator? | `SEC-05`, `SEC-12`, `SEC-20`, `SEC-21`, `SEC-29` | A / B | Open |
+| Which architecture requires less security maintenance over time? | `SEC-22`, `SEC-23`, `HW-03` | A / B | Open |
+| How can devices be securely registered, replaced and decommissioned? | `SEC-05`, `SEC-21`, `SEC-22`, `HW-03` | A / B | Open |
+
 ---
 
 ## Project Presentation & Administration Approval
