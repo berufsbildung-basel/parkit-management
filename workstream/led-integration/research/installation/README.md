@@ -8,6 +8,8 @@ Status: Proposal, not yet decided. Nothing in here is tested
 2. [Risks](#2-risks)
 3. [Fastening Options](#3-fastening-options)
 4. [Backplate](#4-backplate)
+5. Attaching the LED Panels to the Backplate
+6. Dimensions, Weight, Ventilation, Cable Access
 
 ## 1. Context
 
@@ -98,3 +100,23 @@ A solid attachment point to the ceiling structure
 A reliable way to fix the panels inside the enclosur
 
 ## 5. Attaching the LED Panels to the Backplate
+
+
+-----AA----
+## 6. Dimensions, Weight, Ventilation, Cable Access
+Outer enclosure footprint: ~675 × 355 mm, ~44 mm deep (from the current 3D model).
+Estimated weight:
+4× LED panels: ~1.4–1.8 kg
+Enclosure lid + tray (3D-printed): ~0.4–0.6 kg
+Aluminium backplate (3mm): ~1.9 kg
+Total: roughly 3.5–4.5 kg — higher than the 2.5 kg figure used in earlier risk notes, so mounting hardware should be sized against this updated number, not the original estimate.
+Ventilation: two perforated patches (≈3mm holes) on opposite side walls for passive cross-flow; keep clear of the backplate's structural mounting points. Vents should be side-mounted, not top-mounted — the unit sits flush against the ceiling, so hot air has nowhere to rise into above it. Louvered vents (angled slats with a drip edge) are preferred over plain holes so rain/condensation can't enter directly; a small drip hole at the lowest point of the enclosure is recommended as a backup in case condensation forms inside. If passive airflow proves insufficient once built, a small filtered fan can be added as a fallback.
+Cable access: one Ø9mm grommeted hole for the power cable, one slot (~22×5mm) for the HUB75 ribbon — both already defined in the enclosure model, routed through the same rail that carries the existing cable ladder. 
+
+## 8. Comparison Table
+
+## 9. Recommended Solution
+
+## 10. 3D-Model
+
+A 3D model will be created later.
