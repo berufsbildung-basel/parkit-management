@@ -34,7 +34,7 @@ The exact layout, colours, text, and information priority will be defined during
 | `DISP-UC-11` | Two consecutive reservations (AM → PM). |
 | `DISP-UC-12` | Multiple consecutive reservations on different days. |
 | `DISP-UC-13` | Current reservation is ending soon. |
-| `DISP-UC-14` | Display the next reservation (`NEXT`) with date and time. |
+<!-- | `DISP-UC-14` | Display the next reservation (`NEXT`) with date and time. | -->
 
 ## 4. Guest and Special Reservations
 
@@ -42,7 +42,7 @@ The exact layout, colours, text, and information priority will be defined during
 |---|---|
 | `DISP-UC-15` | Guest reservation with a licence plate number. |
 | `DISP-UC-16` | Guest reservation without a licence plate number. |
-| `DISP-UC-17` | Admin reserves a parking space for another person. |
+<!-- | `DISP-UC-17` | Admin reserves a parking space for another person. | -->
 | `DISP-UC-18` | Reservation with a long foreign licence plate number. |
 
 ## 5. Motorcycle Parking Spaces
@@ -61,12 +61,12 @@ The exact layout, colours, text, and information priority will be defined during
 
 | ID | Use Case |
 |---|---|
-| `DISP-UC-26` | Reservation is cancelled. |
+<!-- | `DISP-UC-26` | Reservation is cancelled. |
 | `DISP-UC-27` | Reservation date or time is changed. |
 | `DISP-UC-28` | Licence plate number is changed. |
 | `DISP-UC-29` | Assigned parking space is changed. |
 | `DISP-UC-30` | Reservation starts. |
-| `DISP-UC-31` | Reservation ends. |
+| `DISP-UC-31` | Reservation ends. | -->
 
 ## 7. Unavailability and Errors
 
@@ -74,14 +74,14 @@ The exact layout, colours, text, and information priority will be defined during
 |---|---|
 | `DISP-UC-32` | Parking space is temporarily unavailable. |
 | `DISP-UC-33` | Connection to Parkit is lost. |
-| `DISP-UC-34` | Reservation data is outdated. |
-| `DISP-UC-35` | Reservation data is incomplete or invalid. |
+<!-- | `DISP-UC-34` | Reservation data is outdated. |
+| `DISP-UC-35` | Reservation data is incomplete or invalid. | -->
 
 ## 8. Special Display Designs
 
 | ID | Use Case |
 |---|---|
-| `DISP-UC-36` | Holidays. |
+<!-- | `DISP-UC-36` | Holidays. | -->
 
 ---
 
