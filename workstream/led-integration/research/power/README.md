@@ -12,7 +12,7 @@
 2. [Criteria](#2-criteria)
 3. [Out of scope](#3-out-of-scope)
 4. [Deliberation](#4-deliberation)
-5. [Power budget](#5-power-budget)
+5. [Power budget and cost](#5-power-budget-and-cost)
 6. [Proposed hardware](#6-proposed-hardware)
 7. [Open tests](#7-open-tests)
 8. [Decisions this spec asks for](#8-decisions-this-spec-asks-for)
@@ -44,7 +44,7 @@ The goal for production: the team installs the displays itself, can move a displ
 
 - **The building installation.** Which socket, which circuit and which breaker are given by Facility Management. This spec only lists the questions to ask (see [8](#8-decisions-this-spec-asks-for)).
 - **Enclosure and mounting.** Covered by the installation research ([PR #10](https://github.com/berufsbildung-basel/parkit-management/pull/10)). This spec only states what the enclosure must hold (supply size, inlet, earth).
-- **Exact energy cost per year.** It depends on the real content, brightness and operating hours. [5.4](#54-brightness-as-a-lever) gives upper limits; the real value follows from PT2.
+- **The real energy cost.** It depends on the real content, brightness, operating hours and tariff. [5.5](#55-electricity-cost) gives upper limits; the real value follows from PT2.
 - **The bench setup.** The prototype runs on the Voltcraft lab supply (`DEC-008`), see the display spec.
 
 ## 4. Deliberation
@@ -80,7 +80,7 @@ Sources: Mean Well datasheets [LRS-200](https://www.meanwell.com/Upload/PDF/LRS-
 
 **Why RSP-200-5:** one display draws about 119 W from mains at full white, above the 75 W limit, so the LRS-200 fails PC5. The RSP-200-5 meets the harmonics rule, has the lowest switch-on current (helps PC4), has no voltage switch that can be set wrong, and keeps the flat 30 mm height. The HRP-200-5 is the fallback if the RSP is not available.
 
-## 5. Power budget
+## 5. Power budget and cost
 
 Assumptions:
 
@@ -101,6 +101,11 @@ Assumptions:
 | RSP-200-5 rating | 40 A | 200 W |
 | **Supply load** | **51 %** (66 % with reserve) | |
 | **Mains side** (101.5 W / 0.855) | **0.54 A** at 230 V | **119 W** (125 VA) |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/display-power-dark.svg">
+  <img src="img/display-power-light.svg" alt="Bar chart: one display draws 101.5, 77.5, 53.5 and 29.5 W at 5 V at 100, 75, 50 and 25 % brightness, against a 200 W supply rating" width="720">
+</picture>
 
 The 49 % headroom also covers the temperature derating of the supply in a closed enclosure (check against the derating curve in the datasheet, see PT4).
 
@@ -123,6 +128,11 @@ Rule: mount the supply in the middle of the backplate so each run stays at or be
 | **Total** | | **about 975 W, 4.6 A** |
 
 The router and Pi adapters have no power factor correction, so their 25 W are counted as 0.22 A (power factor 0.5, estimate).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/system-power-dark.svg">
+  <img src="img/system-power-light.svg" alt="Bar chart: the whole system draws 975, 750, 526 and 301 W from mains at 100, 75, 50 and 25 % brightness, far below the 3680 W of one 16 A socket" width="720">
+</picture>
 
 ### 5.3 Mains line
 
@@ -153,7 +163,7 @@ The tiles dim by switching the LEDs on and off very fast (PWM). The LED current,
 
 Model used here (estimates, to be confirmed by PT1 and PT2):
 
-- Tile current = 0.2 A (driver chips, always on) + brightness x 4.8 A. At 100 % this gives the 5 A from [5](#5-power-budget).
+- Tile current = 0.2 A (driver chips, always on) + brightness x 4.8 A. At 100 % this gives the 5 A from [5](#5-power-budget-and-cost).
 - Controller stays at 0.3 A.
 - Supply efficiency and power factor as at full load. At light load both get a little worse, so the real mains current is a bit higher than shown for 25 % and 50 %.
 - Content is still full white. Real designs light only part of the pixels (black background), so real values are lower again. Full white is the case the hardware must survive.
@@ -184,26 +194,42 @@ What brightness changes, and what it does not:
 - **It does not allow a smaller supply.** The brightness is set in the firmware. A firmware bug, a test pattern or a reset to default can drive the tiles at 100 %. The supply must survive that, so it stays sized for full white (PC2).
 - **It does not change the switch-on current.** The 40 A spike comes from the supply's input capacitors, not from the LEDs. PT3 is needed at any brightness.
 
+### 5.5 Electricity cost
+
+Assumptions:
+
+- **Price:** CHF 0.30 per kWh (assumption, check the real tariff with Facility Management).
+- **Content:** full white, so these are upper limits. Real designs light only part of the pixels.
+- **24/7:** displays on all the time, 8,760 hours per year.
+- **Office hours:** displays on Monday to Friday, 06:00 to 20:00 (3,640 hours per year, holidays ignored), dark the rest of the time (5,120 hours). Dark is not off: the tile driver chips, the controllers, the supplies, the router and the Pi keep running. That is about 8 W per display and 88 W for the whole system (estimate: 4 x 0.2 A + 0.3 A at 5 V, supply about 70 % efficient at this light load, plus 25 W router and Pi).
+
+| Brightness | 24/7, kWh per year | 24/7, CHF per year | Office hours, kWh per year | Office hours, CHF per year |
+|---|---|---|---|---|
+| 100 % | 8,538 | 2,562 | 3,998 | 1,199 |
+| 75 % | 6,571 | 1,971 | 3,180 | 954 |
+| 50 % | 4,604 | 1,381 | 2,363 | 709 |
+| 25 % | 2,637 | 791 | 1,546 | 464 |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/energy-cost-dark.svg">
+  <img src="img/energy-cost-light.svg" alt="Grouped bar chart: cost per year at CHF 0.30/kWh, 24/7 versus office hours, at 100, 75, 50 and 25 % brightness" width="720">
+</picture>
+
+What this shows:
+
+- **The two levers multiply.** Office hours alone save more than half. 50 % brightness plus office hours costs about CHF 710 per year instead of CHF 2,560, a saving of about 72 %.
+- **The dark hours cost about CHF 135 per year** (88 W x 5,120 h = 450 kWh). Switching the whole line off at night with a timer would save that, but then all 8 supplies start together every morning. That makes the switch-on test PT3 a daily event, not a rare one after a power cut. Our proposal: keep the displays powered and dark at night.
+- **Real content costs less.** A design with a black background and text lights maybe a fifth of the pixels. PT2 measures the real designs and replaces these upper limits.
+
 ## 6. Proposed hardware
 
 ### 6.1 Line from the wall to the displays
 
 The line is a star, not a chain: one distribution box, one cord per display.
 
-```
-Wall socket 16 A (type 23)
-   |
-   | feed cord, 16 A, 3 x 1.5 mm², type 23 plug
-   |
-Distribution box on the rail, IP44, 16 A, 10+ sockets
-   |-- cord --> Display 1   (IEC C13 into the display's fused inlet)
-   |-- cord --> Display 2
-   |   ...
-   |-- cord --> Display 8
-   |-- 4G router adapter
-   |-- Pi adapter (only if the orchestrator is used)
-   '-- spare
-```
+<img src="img/mains-line.svg" alt="Diagram: wall socket, 16 A feed to a distribution box on the rail, one mains cord from the box to each of the 8 displays, plus the router and the optional Pi" width="900">
+
+*One 16 A feed from the wall socket to the distribution box. From there, every display, the router and the Pi have their own cord. Each display makes its own 5 V.*
 
 - **Star, not chain.** Never plug a power strip into another power strip. A star keeps one contact point per display and makes each display independent (PC6).
 - **Rated for 16 A.** The socket is fused at 16 A, so the feed cord and the distribution box must also be rated 16 A (type 23, 3 x 1.5 mm²), even though the load is only 4.6 A. A 10 A strip on a 16 A circuit is not protected against overload.
@@ -212,15 +238,9 @@ Distribution box on the rail, IP44, 16 A, 10+ sockets
 
 ### 6.2 Inside each display
 
-```
-IEC C14 inlet with fuse and switch
-   L, N  -->  RSP-200-5 input (L, N)
-   PE    -->  RSP-200-5 FG  and  metal backplate (earth)
-RSP-200-5 output
-   +V/-V pair 1 --> fuse 15 A --> harness 1 --> tiles 1 + 2
-   +V/-V pair 2 --> fuse 15 A --> harness 2 --> tiles 3 + 4
-   +V/-V        --> Interstate 75 W (5 V input, check the pin-out)
-```
+<img src="img/display-power-path.svg" alt="Diagram: IEC inlet with fuse and switch, mains to the RSP-200-5, 5 V output split over two 15 A fuses to tiles 1+2 and tiles 3+4 and to the Interstate 75 W, PE to the supply and the backplate" width="900">
+
+*Mains comes in through the fused inlet and goes to the supply. The 5 V side splits into one fused harness per tile pair (10 A each at full white) and the controller (0.3 A). PE goes to the supply's FG terminal and to the metal backplate.*
 
 - **Fused, switched IEC inlet.** The switch lets one display be turned off at the display. The fuse protects the mains wiring inside. Fuse T 3.15 A (slow) is our proposal: it carries 0.54 A steady and the 40 A switch-on spike. Check against the fuse's I²t data.
 - **Earth.** The supply is class I. Its FG terminal and the metal backplate are connected to PE. A silicone or plastic layer alone does not replace the earth.
@@ -250,7 +270,7 @@ Nothing below is proven. PT1 and PT2 can start with the prototype tiles that are
 
 | ID | Test | Passes when | Hardware needed |
 |---|---|---|---|
-| PT1 | Current of 2 tiles at full white on the lab supply (10 A limit, so 2 tiles, not 4). Double the result | Measured current per tile is 5 A or less. If more, recalculate [5](#5-power-budget) | Prototype tiles, Voltcraft (`DEC-008`) |
+| PT1 | Current of 2 tiles at full white on the lab supply (10 A limit, so 2 tiles, not 4). Double the result | Measured current per tile is 5 A or less. If more, recalculate [5](#5-power-budget-and-cost) | Prototype tiles, Voltcraft (`DEC-008`) |
 | PT2 | One complete display on an RSP-200-5: mains power with a plug-in power meter, at full white and at 75, 50 and 25 % brightness, plus with the real designs | Full white below 125 W. The measured values replace the model in [5.4](#54-brightness-as-a-lever) | Prototype display, 1 RSP-200-5, power meter |
 | PT3 | Switch-on on site: all 8 supplies (or the real installation) switched on together 10 times with the distribution box switch or the breaker | The breaker never trips. If it does, apply the steps in [5.3](#53-mains-line) | 8 supplies, site socket |
 | PT4 | Heat: display closed, 2 hours at full white | Supply case temperature within the derating curve, no tile or controller resets | Prototype display in its enclosure |
@@ -260,7 +280,7 @@ Nothing below is proven. PT1 and PT2 can start with the prototype tiles that are
 ## 8. Decisions this spec asks for
 
 1. Accept the plug-in design: one RSP-200-5 per display, one 16 A distribution box, one socket (Option A in [4.1](#41-where-the-5-v-is-made)).
-2. Accept 5 A per tile at full white, without a brightness cap, as the design case for the hardware. Brightness is the lever for consumption, heat and glare ([5.4](#54-brightness-as-a-lever)), not for sizing the supply.
+2. Accept 5 A per tile at full white, without a brightness cap, as the design case for the hardware. Brightness and operating hours are the levers for consumption, cost, heat and glare ([5.4](#54-brightness-as-a-lever), [5.5](#55-electricity-cost)), not for sizing the supply.
 3. Set the operating brightness on site, together with readability test T5, and decide whether the displays go dark outside office hours.
 4. Ask Facility Management (`DEC-001`):
    - Which 16 A socket can be used, and where is it relative to the rail?
