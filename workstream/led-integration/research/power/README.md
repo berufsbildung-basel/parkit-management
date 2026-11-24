@@ -2,7 +2,7 @@
 
 **Status:** Proposal, not yet decided. Nothing in here is tested on hardware. All numbers are calculated from datasheets and one assumption (5 A per tile), see [Open tests](#7-open-tests).
 
-**Summary:** Each bay display gets its own 5 V supply (Mean Well RSP-200-5, 5 V / 40 A) inside the display, fed through a fused IEC inlet and a normal plug-in cord. All displays plug into one 16 A distribution box on the rail, fed from one Swiss 16 A socket. The team can install and move displays without changing the building installation. Worst case, the whole system draws about 975 W, or 4.6 A at 230 V, which is 27 % of one 16 A socket.
+**Summary:** Each bay display gets its own 5 V supply (Mean Well RSP-200-5, 5 V / 40 A) inside the display, fed through a fused IEC inlet and a normal plug-in cord. All displays plug into one 16 A distribution box on the rail, fed from one Swiss 16 A socket. The team can install and move displays without changing the building installation. Worst case, the whole system draws about 975 W, or 4.6 A at 230 V, which is 26 % of one 16 A socket. Running the displays at lower brightness cuts this roughly in proportion, see [5.4](#54-brightness-as-a-lever).
 
 **Related:** `HW-01` to `HW-04`, `DEC-001`, `DEC-007` in the [LED Integration README](../../README.md) and [decisions.md](../../../../project-notes/decisions.md). Builds on the [Display Size and Hardware Spec](../display-size/README.md) (4 P5 tiles + 1 Interstate 75 W per display, 8 displays).
 
@@ -44,7 +44,7 @@ The goal for production: the team installs the displays itself, can move a displ
 
 - **The building installation.** Which socket, which circuit and which breaker are given by Facility Management. This spec only lists the questions to ask (see [8](#8-decisions-this-spec-asks-for)).
 - **Enclosure and mounting.** Covered by the installation research ([PR #10](https://github.com/berufsbildung-basel/parkit-management/pull/10)). This spec only states what the enclosure must hold (supply size, inlet, earth).
-- **Energy cost per year.** It depends on the real content and brightness. It can be calculated once PT2 is measured.
+- **Exact energy cost per year.** It depends on the real content, brightness and operating hours. [5.4](#54-brightness-as-a-lever) gives upper limits; the real value follows from PT2.
 - **The bench setup.** The prototype runs on the Voltcraft lab supply (`DEC-008`), see the display spec.
 
 ## 4. Deliberation
@@ -129,7 +129,7 @@ The router and Pi adapters have no power factor correction, so their 25 W are co
 | | Value | Note |
 |---|---|---|
 | Socket capacity | 16 A x 230 V = 3680 W | Swiss 16 A socket (type 23) |
-| Steady load, worst case | 4.6 A, 975 W | **27 %** of the socket |
+| Steady load, worst case | 4.6 A, 975 W | **26 %** of the socket |
 | Voltage loss on a 25 m feed, 3 x 1.5 mm² | 2.8 V (1.2 %) | No problem |
 | Leakage current to earth | < 8 mA (8 x < 1 mA) | A 30 mA RCD (FI) trips between 15 and 30 mA. Below 10 mA (a third of 30 mA) is the usual safe limit |
 | **Switch-on current** | **8 x 40 A = up to 320 A peak** | **The real limit, see below** |
@@ -146,6 +146,43 @@ If PT3 fails, in this order:
 1. Ask Facility Management whether the circuit has a type C breaker or can get one.
 2. Add an inrush current limiter for 16 A in front of the distribution box (product still to be found, ideally plug-in).
 3. Split the displays over two sockets on different circuits (4 + 4).
+
+### 5.4 Brightness as a lever
+
+The tiles dim by switching the LEDs on and off very fast (PWM). The LED current, and with it the power, scales roughly with the brightness setting. A small part does not scale: the driver chips on each tile draw current even when all LEDs are off.
+
+Model used here (estimates, to be confirmed by PT1 and PT2):
+
+- Tile current = 0.2 A (driver chips, always on) + brightness x 4.8 A. At 100 % this gives the 5 A from [5](#5-power-budget).
+- Controller stays at 0.3 A.
+- Supply efficiency and power factor as at full load. At light load both get a little worse, so the real mains current is a bit higher than shown for 25 % and 50 %.
+- Content is still full white. Real designs light only part of the pixels (black background), so real values are lower again. Full white is the case the hardware must survive.
+
+**One display**
+
+| Brightness | Current per tile | 5 V side | Supply load (RSP-200-5) | Mains side |
+|---|---|---|---|---|
+| 100 % | 5.0 A | 20.3 A, 101.5 W | 51 % | 119 W, 0.54 A |
+| 75 % | 3.8 A | 15.5 A, 77.5 W | 39 % | 91 W, 0.41 A |
+| 50 % | 2.6 A | 10.7 A, 53.5 W | 27 % | 63 W, 0.29 A |
+| 25 % | 1.4 A | 5.9 A, 29.5 W | 15 % | 35 W, 0.16 A |
+
+**All displays, with router and Pi (25 W)**
+
+| Brightness | 5 V side, 8 displays | Mains total | Mains current | Share of a 16 A socket | Energy per year at 24/7, full white |
+|---|---|---|---|---|---|
+| 100 % | 812 W | 975 W | 4.6 A | 26 % | about 8,500 kWh |
+| 75 % | 620 W | 750 W | 3.5 A | 20 % | about 6,600 kWh |
+| 50 % | 428 W | 526 W | 2.5 A | 14 % | about 4,600 kWh |
+| 25 % | 236 W | 301 W | 1.5 A | 8 % | about 2,600 kWh |
+
+The energy column is an upper limit: all pixels white, all day, every day. Real content, and switching the displays dark at night or on weekends, both bring it down a lot. PT2 gives the real number for the designs.
+
+What brightness changes, and what it does not:
+
+- **It lowers consumption, heat and energy cost** about in proportion. 50 % brightness roughly halves all of them. In a dark garage, 25 to 50 % is probably bright enough and also avoids glare (display spec C6). The right level is found on site together with readability test T5.
+- **It does not allow a smaller supply.** The brightness is set in the firmware. A firmware bug, a test pattern or a reset to default can drive the tiles at 100 %. The supply must survive that, so it stays sized for full white (PC2).
+- **It does not change the switch-on current.** The 40 A spike comes from the supply's input capacitors, not from the LEDs. PT3 is needed at any brightness.
 
 ## 6. Proposed hardware
 
@@ -214,7 +251,7 @@ Nothing below is proven. PT1 and PT2 can start with the prototype tiles that are
 | ID | Test | Passes when | Hardware needed |
 |---|---|---|---|
 | PT1 | Current of 2 tiles at full white on the lab supply (10 A limit, so 2 tiles, not 4). Double the result | Measured current per tile is 5 A or less. If more, recalculate [5](#5-power-budget) | Prototype tiles, Voltcraft (`DEC-008`) |
-| PT2 | One complete display on an RSP-200-5: mains power with a plug-in power meter, at full white and at the planned brightness | Full white below 125 W. The value at the planned brightness is the basis for the energy cost | Prototype display, 1 RSP-200-5, power meter |
+| PT2 | One complete display on an RSP-200-5: mains power with a plug-in power meter, at full white and at 75, 50 and 25 % brightness, plus with the real designs | Full white below 125 W. The measured values replace the model in [5.4](#54-brightness-as-a-lever) | Prototype display, 1 RSP-200-5, power meter |
 | PT3 | Switch-on on site: all 8 supplies (or the real installation) switched on together 10 times with the distribution box switch or the breaker | The breaker never trips. If it does, apply the steps in [5.3](#53-mains-line) | 8 supplies, site socket |
 | PT4 | Heat: display closed, 2 hours at full white | Supply case temperature within the derating curve, no tile or controller resets | Prototype display in its enclosure |
 | PT5 | Voltage at the farthest tile at full white | 4.9 V or more at the tile input | Prototype display, multimeter |
@@ -223,11 +260,12 @@ Nothing below is proven. PT1 and PT2 can start with the prototype tiles that are
 ## 8. Decisions this spec asks for
 
 1. Accept the plug-in design: one RSP-200-5 per display, one 16 A distribution box, one socket (Option A in [4.1](#41-where-the-5-v-is-made)).
-2. Accept 5 A per tile at full white, without a brightness cap, as the design case. A brightness cap stays a design choice for glare (display spec C6), not a requirement for the power design.
-3. Ask Facility Management (`DEC-001`):
+2. Accept 5 A per tile at full white, without a brightness cap, as the design case for the hardware. Brightness is the lever for consumption, heat and glare ([5.4](#54-brightness-as-a-lever)), not for sizing the supply.
+3. Set the operating brightness on site, together with readability test T5, and decide whether the displays go dark outside office hours.
+4. Ask Facility Management (`DEC-001`):
    - Which 16 A socket can be used, and where is it relative to the rail?
    - Breaker type (B or C) and whether the circuit has a 30 mA RCD.
    - What else is on that circuit?
-4. Who builds or checks the mains part of each display (inlet to supply)?
-5. Update the display spec: replace the LRS-50-5 with the RSP-200-5 in the parts list (done in this PR).
-6. Record the result in [decisions.md](../../../../project-notes/decisions.md) and close the power entry in [open-questions.md](../../../../project-notes/open-questions.md).
+5. Who builds or checks the mains part of each display (inlet to supply)?
+6. Update the display spec: replace the LRS-50-5 with the RSP-200-5 in the parts list (done in this PR).
+7. Record the result in [decisions.md](../../../../project-notes/decisions.md) and close the power entry in [open-questions.md](../../../../project-notes/open-questions.md).
