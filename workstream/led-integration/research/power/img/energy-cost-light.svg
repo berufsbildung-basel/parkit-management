@@ -10,24 +10,24 @@
 <line x1="72" x2="696" y1="336.0" y2="336.0" stroke="#e4e3df" stroke-width="1"/>
 <text x="62" y="340.0" font-size="12" text-anchor="end" fill="#52514e">0</text>
 <line x1="72" x2="696" y1="254.7" y2="254.7" stroke="#e4e3df" stroke-width="1"/>
-<text x="62" y="258.7" font-size="12" text-anchor="end" fill="#52514e">1'000</text>
+<text x="62" y="258.7" font-size="12" text-anchor="end" fill="#52514e">1,000</text>
 <line x1="72" x2="696" y1="173.3" y2="173.3" stroke="#e4e3df" stroke-width="1"/>
-<text x="62" y="177.3" font-size="12" text-anchor="end" fill="#52514e">2'000</text>
+<text x="62" y="177.3" font-size="12" text-anchor="end" fill="#52514e">2,000</text>
 <line x1="72" x2="696" y1="92.0" y2="92.0" stroke="#e4e3df" stroke-width="1"/>
-<text x="62" y="96.0" font-size="12" text-anchor="end" fill="#52514e">3'000</text>
+<text x="62" y="96.0" font-size="12" text-anchor="end" fill="#52514e">3,000</text>
 <line x1="72" x2="696" y1="336" y2="336" stroke="#b9b8b2" stroke-width="1"/>
-<path d="M121.0,336.0 L121.0,131.6 Q121.0,127.6 125.0,127.6 L141.0,127.6 Q145.0,127.6 145.0,131.6 L145.0,336.0 Z" fill="#2a78d6"><title>24/7 100 %: 2'562</title></path>
-<text x="133.0" y="120.6" font-size="12" text-anchor="middle" fill="#0b0b0b">2'562</text>
-<path d="M155.0,336.0 L155.0,242.5 Q155.0,238.5 159.0,238.5 L175.0,238.5 Q179.0,238.5 179.0,242.5 L179.0,336.0 Z" fill="#eb6834"><title>Office hours 100 %: 1'199</title></path>
-<text x="167.0" y="231.5" font-size="12" text-anchor="middle" fill="#0b0b0b">1'199</text>
+<path d="M121.0,336.0 L121.0,131.6 Q121.0,127.6 125.0,127.6 L141.0,127.6 Q145.0,127.6 145.0,131.6 L145.0,336.0 Z" fill="#2a78d6"><title>24/7 100 %: 2,562</title></path>
+<text x="133.0" y="120.6" font-size="12" text-anchor="middle" fill="#0b0b0b">2,562</text>
+<path d="M155.0,336.0 L155.0,242.5 Q155.0,238.5 159.0,238.5 L175.0,238.5 Q179.0,238.5 179.0,242.5 L179.0,336.0 Z" fill="#eb6834"><title>Office hours 100 %: 1,199</title></path>
+<text x="167.0" y="231.5" font-size="12" text-anchor="middle" fill="#0b0b0b">1,199</text>
 <text x="150.0" y="358" font-size="13" text-anchor="middle" fill="#52514e">100 %</text>
-<path d="M277.0,336.0 L277.0,179.7 Q277.0,175.7 281.0,175.7 L297.0,175.7 Q301.0,175.7 301.0,179.7 L301.0,336.0 Z" fill="#2a78d6"><title>24/7 75 %: 1'971</title></path>
-<text x="289.0" y="168.7" font-size="12" text-anchor="middle" fill="#0b0b0b">1'971</text>
+<path d="M277.0,336.0 L277.0,179.7 Q277.0,175.7 281.0,175.7 L297.0,175.7 Q301.0,175.7 301.0,179.7 L301.0,336.0 Z" fill="#2a78d6"><title>24/7 75 %: 1,971</title></path>
+<text x="289.0" y="168.7" font-size="12" text-anchor="middle" fill="#0b0b0b">1,971</text>
 <path d="M311.0,336.0 L311.0,262.4 Q311.0,258.4 315.0,258.4 L331.0,258.4 Q335.0,258.4 335.0,262.4 L335.0,336.0 Z" fill="#eb6834"><title>Office hours 75 %: 954</title></path>
 <text x="323.0" y="251.4" font-size="12" text-anchor="middle" fill="#0b0b0b">954</text>
 <text x="306.0" y="358" font-size="13" text-anchor="middle" fill="#52514e">75 %</text>
-<path d="M433.0,336.0 L433.0,227.7 Q433.0,223.7 437.0,223.7 L453.0,223.7 Q457.0,223.7 457.0,227.7 L457.0,336.0 Z" fill="#2a78d6"><title>24/7 50 %: 1'381</title></path>
-<text x="445.0" y="216.7" font-size="12" text-anchor="middle" fill="#0b0b0b">1'381</text>
+<path d="M433.0,336.0 L433.0,227.7 Q433.0,223.7 437.0,223.7 L453.0,223.7 Q457.0,223.7 457.0,227.7 L457.0,336.0 Z" fill="#2a78d6"><title>24/7 50 %: 1,381</title></path>
+<text x="445.0" y="216.7" font-size="12" text-anchor="middle" fill="#0b0b0b">1,381</text>
 <path d="M467.0,336.0 L467.0,282.3 Q467.0,278.3 471.0,278.3 L487.0,278.3 Q491.0,278.3 491.0,282.3 L491.0,336.0 Z" fill="#eb6834"><title>Office hours 50 %: 709</title></path>
 <text x="479.0" y="271.3" font-size="12" text-anchor="middle" fill="#0b0b0b">709</text>
 <text x="462.0" y="358" font-size="13" text-anchor="middle" fill="#52514e">50 %</text>
