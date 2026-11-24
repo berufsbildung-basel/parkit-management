@@ -20,15 +20,18 @@ Identify the hardware currently available for the LED project, understand the ba
 | Role | Qty | Item | Source | Price | Status |
 |---|---:|---|---|---|---|
 | Display | 4 | P5 tile 64x32, 320 x 160 mm, with ribbon and power cable | AliExpress, item 1005011661208809 | EUR 147.13 total incl. shipping | In the office since 24.11.2026 (Ordered 10 November 2026) |
+| Display | 1 | RGB Matrix Panel P3 2020 64×64-32s-m6, 192 x 192 mm | In hand | - | - |
+| Display | 1 | RGB Matrix Panel P4 2020 64×32-16s, 256 x 128 mm | In hand | - | - |
 | Driver board / microcontroller | 1 | Pimoroni Interstate 75 W, RP2350A (PIM727) | BerryBase.ch | CHF 22.90 | In the office since 18.11.2026 (ordered 10.11.2026) |
+| Driver board / microcontroller | 5 | Interstate 75 W with Pico W (RP2040) | In hand | - | - |
+| Data wiring | 4 | HUB75 ribbon cable, short | In hand | - | - |
+| Data wiring | 1 | HUB75 ribbon cable, long | In hand | - | - |
 | Power wiring | 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, red (T1325526) | BerryBase.ch | CHF 1.65 | In the office since 18.11.2026 (ordered 10.11.2026) |
 | Power wiring | 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, black (T1325525) | BerryBase.ch | CHF 1.65 | In the office since 18.11.2026 (ordered 10.11.2026) |
 | Power wiring | 4 | Wago 221-415 connector, 5-way (2 needed, 2 spare) | BerryBase.ch | from CHF 0.75 each | In the office since 18.11.2026 (ordered 10.11.2026) |
-| Driver board / microcontroller | 5 | Interstate 75 W with Pico W (RP2040) | In hand | - | - |
 | Power supply | 1 | Voltcraft ESP-3010 lab supply | In hand (DEC-008) | - | - |
-| Display | 1 | RGB Matrix Panel P3 2020 64×64-32s-m6, 192 x 192 mm | In hand | - | - |
-| Display | 1 | RGB Matrix Panel P4 2020 64×32-16s, 256 x 128 mm | In hand | - | - |
 | Orchestrator | 1 | Intel NUC 13 Pro (exact model to confirm) | In hand | - | - |
+| Orchestrator | 1 | Raspberry Pi 4B | In hand | - | - |
 
  
 
