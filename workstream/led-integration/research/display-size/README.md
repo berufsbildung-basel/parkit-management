@@ -124,7 +124,7 @@ Each bay display is four P5 64x32 tiles in 2 rows x 2 columns on one backplate, 
 |---|---|---|---|
 | 4 | P5 LED tile, 320 x 160 mm, 64 x 32 pixels, HUB75 | Waveshare RGB-Matrix-P5-64x32 or an equal tile | All 4 tiles of one display, better all 36, from the same batch so colours match |
 | 1 | Controller | Pimoroni Interstate 75 W | The existing boards (Pico W) are reused if test T1 passes |
-| 1 | 5 V power supply | Mean Well LRS-50-5 (5 V, 10 A) | Size is an estimate, see test T3. Has open mains terminals: needs a cover and qualified wiring |
+| 1 | 5 V power supply | Mean Well RSP-200-5 (5 V, 40 A, with PFC) | Sized for full white without a brightness cap, see the [Production Power Spec](../power/README.md). Has open mains terminals: needs a cover and qualified wiring |
 | 1 | Backplate, about 660 x 340 mm | Custom | Holds tiles flush, carries controller and supply |
 | 4 | HUB75 ribbon cable | Comes with the tiles | Controller to tile 1, then tile to tile |
 | 2 | Tile power harness | Comes with the tiles | Each feeds two tiles |
@@ -171,7 +171,7 @@ Bench wiring: cut one plug off each test lead and clamp the open end into a Wago
 |---|---|---|---|---|
 | 36 | 4 | 32 | P5 tile 64x32 (32 mounted + 4 spare) | One batch, same seller as the prototype if T4 passed |
 | 8 | 1 | 7 | Interstate 75 W, RP2350A | The older Pico W board becomes the spare. All 8 displays then run the same firmware |
-| 8 | 0 | 8 | 5 V power supply | Model and size after T3 |
+| 8 | 0 | 8 | 5 V power supply, Mean Well RSP-200-5 | Plus mains parts, see the [Production Power Spec](../power/README.md) section 6.3 |
 | 8 | 0 | 8 | Backplate, about 660 x 340 mm | Custom |
 | 20 | 2 spare | 18 | Wago 221-415 (2 per display + spares) | |
 | 20 m + 20 m | 0 | 20 m + 20 m | Wire 1.5 mm², red and black | Estimate, about 2 m of each per display. Not sold by BerryBase.ch |
