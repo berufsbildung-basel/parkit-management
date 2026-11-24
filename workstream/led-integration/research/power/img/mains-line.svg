@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-label="Mains line: one socket, one distribution box, one cord per display">
+<rect width="900" height="420" rx="8" fill="#fcfcfb"/>
+<g style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
+<rect x="40" y="40" width="200" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="40" y="40" width="4" height="56" rx="2" fill="#2a78d6"/>
+<text x="54" y="65.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Wall socket</text>
+<text x="54" y="82.0" font-size="12" fill="#52514e">Swiss 16 A, type 23</text>
+<rect x="350" y="40" width="230" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="350" y="40" width="4" height="56" rx="2" fill="#2a78d6"/>
+<text x="364" y="65.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Distribution box</text>
+<text x="364" y="82.0" font-size="12" fill="#52514e">IP44, 16 A, 10+ sockets</text>
+<line x1="240" y1="68" x2="350" y2="68" stroke="#2a78d6" stroke-width="2.5"/>
+<text x="295" y="60" font-size="11.5" text-anchor="middle" fill="#52514e">16 A feed</text>
+<line x1="465" y1="96" x2="465" y2="170" stroke="#2a78d6" stroke-width="1.5"/>
+<path d="M465,170 L86.0,190 L86.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="40.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="40.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="54.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 1</text>
+<text x="54.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<path d="M465,170 L190.0,190 L190.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="144.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="144.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="158.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 2</text>
+<text x="158.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<path d="M465,170 L294.0,190 L294.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="248.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="248.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="262.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 3</text>
+<text x="262.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<path d="M465,170 L398.0,190 L398.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="352.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="352.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="366.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 4</text>
+<text x="366.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<path d="M465,170 L502.0,190 L502.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="456.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="456.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="470.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 5</text>
+<text x="470.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<path d="M465,170 L606.0,190 L606.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="560.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="560.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="574.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 6</text>
+<text x="574.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<path d="M465,170 L710.0,190 L710.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="664.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="664.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="678.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 7</text>
+<text x="678.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<path d="M465,170 L814.0,190 L814.0,230" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="768.0" y="230" width="92" height="56" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="768.0" y="230" width="4" height="56" rx="2" fill="#eb6834"/>
+<text x="782.0" y="255.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Display 8</text>
+<text x="782.0" y="272.0" font-size="12" fill="#52514e">RSP-200-5</text>
+<text x="80.0" y="214" font-size="11.5" text-anchor="end" fill="#52514e">IEC cord</text>
+<rect x="650" y="40" width="210" height="26" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="650" y="40" width="4" height="26" rx="2" fill="#52514e"/>
+<text x="664" y="58.0" font-size="13.5" font-weight="600" fill="#0b0b0b">4G router (own adapter)</text>
+<rect x="650" y="74" width="210" height="26" rx="6" fill="#ffffff" stroke="#d6d5d0"/>
+<rect x="650" y="74" width="4" height="26" rx="2" fill="#52514e"/>
+<text x="664" y="92.0" font-size="13.5" font-weight="600" fill="#0b0b0b">Pi 4 (only if used)</text>
+<path d="M580,56 L650,53" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<path d="M580,80 L650,87" fill="none" stroke="#2a78d6" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="40" y1="340" x2="70" y2="340" stroke="#2a78d6" stroke-width="2"/>
+<text x="78" y="344" font-size="12" fill="#52514e">230 V mains cord (one per device, never chained)</text>
+<line x1="40" y1="364" x2="70" y2="364" stroke="#2a78d6" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="78" y="368" font-size="12" fill="#52514e">optional</text>
+<rect x="40" y="384" width="4" height="14" rx="2" fill="#eb6834"/>
+<text x="52" y="395" font-size="12" fill="#52514e">5 V is made inside each display</text>
+</g></svg>
