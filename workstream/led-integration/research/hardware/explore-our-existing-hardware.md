@@ -19,7 +19,7 @@ Identify the hardware currently available for the LED project, understand the ba
 
 | Role | Qty | Item | Source | Price | Status |
 |---|---:|---|---|---|---|
-| Display | 4 | P5 tile 64x32, 320 x 160 mm, with ribbon and power cable | AliExpress, item 1005011661208809 | EUR 147.13 total incl. shipping | Ordered 10 November 2026 |
+| Display | 4 | P5 tile 64x32, 320 x 160 mm, with ribbon and power cable | AliExpress, item 1005011661208809 | EUR 147.13 total incl. shipping | In the office since 24.11.2026 (Ordered 10 November 2026) |
 | Driver board / microcontroller | 1 | Pimoroni Interstate 75 W, RP2350A (PIM727) | BerryBase.ch | CHF 22.90 | In the office since 18.11.2026 (ordered 10.11.2026) |
 | Power wiring | 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, red (T1325526) | BerryBase.ch | CHF 1.65 | In the office since 18.11.2026 (ordered 10.11.2026) |
 | Power wiring | 1 | Test lead 1 mm², 2 x 4 mm banana plug, 50 cm, black (T1325525) | BerryBase.ch | CHF 1.65 | In the office since 18.11.2026 (ordered 10.11.2026) |
