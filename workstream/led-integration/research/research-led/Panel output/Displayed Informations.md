@@ -251,4 +251,4 @@ _Note: Times are examples. Actual reservation periods are defined in Parkit._
 
 - Display complete or partially hidden licence plates?
 
-![[Pasted image 20261019092254.png]]
+![Displayed information](Pasted%20image%2020261019092254.png)

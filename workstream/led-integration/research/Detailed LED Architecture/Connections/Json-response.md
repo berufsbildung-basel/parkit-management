@@ -9,22 +9,24 @@ The Parking Place Panels support two different parking types:
 
 The API provides the current parking status and all the information needed to display the panels.
 
+The following status names and availability fields are a proposed API contract for team review. PARKIT knows reservations, not physical vehicle presence. Unknown availability must not be inferred as UNAVAILABLE.
+
 ### Supported Statuses
 
 | Status | Description |
 |---|---|
-| FREE | The parking space is free |
+| BOOKABLE | The parking space is available for booking |
 | RESERVED | The parking space is reserved |
-| OCCUPIED | The parking space is occupied |
+| UNAVAILABLE | The parking space is unavailable |
 | NO_DATA | No valid data is available |
 
 ---
 
-## 2. CAR – FREE
+## 2. CAR – BOOKABLE
 
-The parking space is free.
+The parking space is available for booking.
 
-The panel shows the status `FREE` and the time until the parking space becomes available.
+The panel shows the status `BOOKABLE` and the time until the current booking availability ends.
 
 ### JSON Response
 
@@ -32,7 +34,7 @@ The panel shows the status `FREE` and the time until the parking space becomes a
 {
   "panelId": "54",
   "type": "CAR",
-  "status": "FREE",
+  "status": "BOOKABLE",
   "licensePlate": null,
   "country": null,
   "availableUntil": "2026-11-03T12:00:00+01:00",
@@ -43,7 +45,7 @@ The panel shows the status `FREE` and the time until the parking space becomes a
 
 ### Panel Display
 
-- Status: FREE
+- Status: BOOKABLE
 - Available until: 12:00
 - License plate: Not displayed
 
@@ -80,42 +82,23 @@ The panel shows the status `RESERVED`, the license plate, and the end time of th
 
 ---
 
-## 4. CAR – OCCUPIED
+## 4. CAR – UNAVAILABLE
 
-The parking space is occupied.
-
-The panel shows the status `OCCUPIED`, the license plate, and the expected end time of the occupation.
-
-### JSON Response
+The space cannot be booked for a reason other than an active reservation. This requires an explicit availability restriction from PARKIT; the API field/source must be agreed with the team. No physical vehicle presence is inferred.
 
 ```json
-{
-  "panelId": "54",
-  "type": "CAR",
-  "status": "OCCUPIED",
-  "licensePlate": "BS 123456",
-  "country": "CH",
-  "availableUntil": null,
-  "startTime": "2026-11-03T17:00:00+01:00",
-  "endTime": "2026-11-03T19:00:00+01:00"
-}
+{"panelId":"54","type":"CAR","status":"UNAVAILABLE","licensePlate":null,"country":null,"availableUntil":null,"startTime":null,"endTime":null}
 ```
 
-### Panel Display
+## 5. NO_DATA
 
-- Status: OCCUPIED
-- License plate: BS 123456
-- Country: CH
-- Occupied since: 17:00
-- Expected occupied until: 19:00
-
----
+Missing, outdated or invalid data must display NO DATA and suppress reservation details and counts (UC-33–35). Freshness thresholds and recovery rules must follow the agreed display specification and PR #8.
 
 ## 6. MOTORCYCLE – P45
 
 For motorcycle parking spaces, multiple parking spots are grouped together.
 
-The API provides the total number of spaces as well as the number of free, occupied, and reserved spaces.
+The API provides the total number of spaces as well as the number of available, unavailable, and reserved spaces.
 
 ### JSON Response
 
@@ -123,10 +106,10 @@ The API provides the total number of spaces as well as the number of free, occup
 {
   "panelId": "45",
   "type": "MOTORCYCLE",
-  "status": "FREE",
+  "status": "BOOKABLE",
   "totalSpaces": 6,
   "availableSpaces": 2,
-  "occupiedSpaces": 4,
+  "unavailableSpaces": 4,
   "reservedSpaces": 0,
   "availableUntil": "2026-11-03T12:00:00+01:00"
 }
@@ -134,22 +117,22 @@ The API provides the total number of spaces as well as the number of free, occup
 
 ### Panel Display
 
-- Status: FREE
+- Status: BOOKABLE
 - Available until: 12:00
 - Free spaces: 2
 - Total spaces: 6
 - Display: 2/6
 
-### Example for OCCUPIED
+### Example for UNAVAILABLE
 
 ```json
 {
   "panelId": "45",
   "type": "MOTORCYCLE",
-  "status": "OCCUPIED",
+  "status": "UNAVAILABLE",
   "totalSpaces": 6,
   "availableSpaces": 0,
-  "occupiedSpaces": 6,
+  "unavailableSpaces": 6,
   "reservedSpaces": 0,
   "availableUntil": null
 }
@@ -157,12 +140,12 @@ The API provides the total number of spaces as well as the number of free, occup
 
 ### Panel Display
 
-- Status: OCCUPIED
+- Status: UNAVAILABLE
 - Free spaces: 0
 - Total spaces: 6
-- Display: 6/6
+- Display: 0/6
 
-Note: In the OCCUPIED state, the panel shows the occupied spaces instead of the available spaces.
+The count represents bookable spaces, not detected vehicle occupancy.
 
 ---
 
@@ -174,12 +157,12 @@ Note: In the OCCUPIED state, the panel shows the occupied spaces instead of the 
 |---|---|---|
 | panelId | string | Unique panel ID |
 | type | string | CAR |
-| status | string | FREE, RESERVED, OCCUPIED, NO_DATA |
+| status | string | BOOKABLE, RESERVED, UNAVAILABLE, NO_DATA |
 | licensePlate | string/null | Vehicle license plate |
 | country | string/null | Country code, e.g. CH |
-| availableUntil | ISO 8601/null | Time until available |
-| startTime | ISO 8601/null | Start of reservation or occupancy |
-| endTime | ISO 8601/null | End of reservation or expected occupancy |
+| availableUntil | ISO 8601/null | End of current booking availability |
+| startTime | ISO 8601/null | Start of reservation |
+| endTime | ISO 8601/null | End of reservation |
 
 ### MOTORCYCLE
 
@@ -187,12 +170,12 @@ Note: In the OCCUPIED state, the panel shows the occupied spaces instead of the 
 |---|---|---|
 | panelId | string | Unique panel ID |
 | type | string | MOTORCYCLE |
-| status | string | FREE, RESERVED, OCCUPIED, NO_DATA |
+| status | string | BOOKABLE, RESERVED, UNAVAILABLE, NO_DATA |
 | totalSpaces | integer | Total number of parking spaces |
 | availableSpaces | integer | Number of available parking spaces |
-| occupiedSpaces | integer | Number of occupied parking spaces |
+| unavailableSpaces | integer | Number of unavailable parking spaces |
 | reservedSpaces | integer | Number of reserved parking spaces |
-| availableUntil | ISO 8601/null | Time until available |
+| availableUntil | ISO 8601/null | End of current booking availability |
 
 ---
 
@@ -212,9 +195,9 @@ Supported panel version:
 
 ### CAR
 
-- For FREE, `licensePlate` is usually null.
+- For BOOKABLE, `licensePlate` is usually null.
 - For RESERVED, `licensePlate` may be provided.
-- For OCCUPIED, `licensePlate` may be provided.
+- For UNAVAILABLE, reservation fields are null.
 - For NO_DATA, all business data fields are null.
 - Time values are transmitted in ISO 8601 format.
 - The frontend handles the display of the time.
@@ -223,15 +206,15 @@ Supported panel version:
 
 - `totalSpaces` must be greater than 0.
 - `availableSpaces` must not be negative.
-- `occupiedSpaces` must not be negative.
+- `unavailableSpaces` must not be negative.
 - `reservedSpaces` must not be negative.
 - For mutually exclusive space categories, the following applies:
 
-  totalSpaces = availableSpaces + occupiedSpaces + reservedSpaces
+  totalSpaces = availableSpaces + unavailableSpaces + reservedSpaces
 
-- If `availableSpaces > 0`, the status is FREE.
-- If `availableSpaces = 0` and all spaces are occupied, the status is OCCUPIED.
-- Invalid or missing data results in `NO_DATA`.
+- If `availableSpaces > 0`, the status is BOOKABLE.
+- If `availableSpaces = 0` and all spaces are reserved, the status is RESERVED. If no spaces are available and at least one has an explicit non-reservation restriction, the proposed aggregate status is UNAVAILABLE.
+- Outdated, invalid or missing data results in `NO_DATA`.
 
 ---
 
@@ -258,7 +241,7 @@ Two different API response types are used:
 1. CAR
 2. MOTORCYCLE
 
-For CAR, the states FREE, RESERVED, OCCUPIED, and NO_DATA are supported.
+For CAR, the states BOOKABLE, RESERVED, UNAVAILABLE, and NO_DATA are supported.
 
 For MOTORCYCLE, the number of parking spaces is also transmitted.
 

@@ -1,6 +1,8 @@
-# PARKIT Orchestrator — Installation and Usage
+# PARKIT Raspberry Pi Prototype — Installation and Usage
 
-This guide explains how the PARKIT Orchestrator was installed, how to connect to it, and how to run code. The Raspberry Pi runs without a screen, keyboard, or desktop interface.
+This guide explains how the PARKIT Raspberry Pi prototype was installed, how to connect to it, and how to run code. The Raspberry Pi runs without a screen, keyboard, or desktop interface.
+
+The final orchestrator device has not been selected (see [decisions](../../../../../project-notes/decisions.md) and display specification section 4.3). Coordinate the final naming with PR #8. The existing hostname and username are temporary setup identifiers, not an architecture decision.
 
 ## 1. System details
 
@@ -179,7 +181,7 @@ Paste this code:
 import time
 
 for i in range(3):
-    print(f"PARKIT Orchestrator: test {i + 1}")
+    print(f"PARKIT Raspberry Pi: test {i + 1}")
     time.sleep(1)
 
 print("Test complete")
