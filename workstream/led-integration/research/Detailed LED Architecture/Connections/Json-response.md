@@ -1,31 +1,32 @@
-# Parking Place Panels V2 – API Documentation
+# Parking Place Panels
 
+## 1. Overview
 
-## 1. Übersicht
+The Parking Place Panels support two different parking types:
 
-Die Parking Place Panels unterstützen zwei unterschiedliche Parkplatztypen:
+- **CAR:** Individual car parking spaces (V1, V2, V3, V4)
+- **MOTORCYCLE:** Motorcycle parking spaces with multiple slots (P45)
 
-- **CAR:** Einzelne Autoparkplätze (V1, V2, V3, V4)
-- **MOTORCYCLE:** Motorradparkplätze mit mehreren Stellplätzen (P45)
+The API provides the current parking status and all the information needed to display the panels.
 
-Die API liefert den aktuellen Parkplatzstatus und alle benötigten Informationen für die Darstellung auf den Panels.
+The following status names and availability fields are a proposed API contract for team review. PARKIT knows reservations, not physical vehicle presence. Unknown availability must not be inferred as UNAVAILABLE.
 
-### Unterstützte Status
+### Supported Statuses
 
-| Status | Beschreibung |
+| Status | Description |
 |---|---|
-| FREE | Parkplatz ist frei |
-| RESERVED | Parkplatz ist reserviert |
-| OCCUPIED | Parkplatz ist belegt |
-| NO_DATA | Keine gültigen Daten verfügbar |
+| BOOKABLE | The parking space is available for booking |
+| RESERVED | The parking space is reserved |
+| UNAVAILABLE | The parking space is unavailable |
+| NO_DATA | No valid data is available |
 
 ---
 
-## 2. CAR – FREE
+## 2. CAR – BOOKABLE
 
-Der Parkplatz ist frei.
+The parking space is available for booking.
 
-Das Panel zeigt den Status `FREE` und die Uhrzeit, bis wann der Parkplatz verfügbar ist.
+The panel shows the status `BOOKABLE` and the time until the current booking availability ends.
 
 ### JSON Response
 
@@ -33,7 +34,7 @@ Das Panel zeigt den Status `FREE` und die Uhrzeit, bis wann der Parkplatz verfü
 {
   "panelId": "54",
   "type": "CAR",
-  "status": "FREE",
+  "status": "BOOKABLE",
   "licensePlate": null,
   "country": null,
   "availableUntil": "2026-11-03T12:00:00+01:00",
@@ -42,19 +43,19 @@ Das Panel zeigt den Status `FREE` und die Uhrzeit, bis wann der Parkplatz verfü
 }
 ```
 
-### Panel-Anzeige
+### Panel Display
 
-- Status: FREE
-- Verfügbar bis: 12:00
-- Kennzeichen: Nicht angezeigt
+- Status: BOOKABLE
+- Available until: 12:00
+- License plate: Not displayed
 
 ---
 
 ## 3. CAR – RESERVED
 
-Der Parkplatz ist reserviert.
+The parking space is reserved.
 
-Das Panel zeigt den Status `RESERVED`, das Kennzeichen und die Endzeit der Reservierung.
+The panel shows the status `RESERVED`, the license plate, and the end time of the reservation.
 
 ### JSON Response
 
@@ -71,54 +72,33 @@ Das Panel zeigt den Status `RESERVED`, das Kennzeichen und die Endzeit der Reser
 }
 ```
 
-### Panel-Anzeige
+### Panel Display
 
 - Status: RESERVED
-- Kennzeichen: BS 123456
-- Land: CH
-- Reservierung von: 12:00
-- Reservierung bis: 14:00
+- License plate: BS 123456
+- Country: CH
+- Reservation from: 12:00
+- Reservation until: 14:00
 
 ---
 
-## 4. CAR – OCCUPIED
+## 4. CAR – UNAVAILABLE
 
-Der Parkplatz ist belegt.
-
-Das Panel zeigt den Status `OCCUPIED`, das Kennzeichen und die erwartete Endzeit der Belegung.
-
-### JSON Response
+The space cannot be booked for a reason other than an active reservation. This requires an explicit availability restriction from PARKIT; the API field/source must be agreed with the team. No physical vehicle presence is inferred.
 
 ```json
-{
-  "panelId": "54",
-  "type": "CAR",
-  "status": "OCCUPIED",
-  "licensePlate": "BS 123456",
-  "country": "CH",
-  "availableUntil": null,
-  "startTime": "2026-11-03T17:00:00+01:00",
-  "endTime": "2026-11-03T19:00:00+01:00"
-}
+{"panelId":"54","type":"CAR","status":"UNAVAILABLE","licensePlate":null,"country":null,"availableUntil":null,"startTime":null,"endTime":null}
 ```
 
-### Panel-Anzeige
+## 5. NO_DATA
 
-- Status: OCCUPIED
-- Kennzeichen: BS 123456
-- Land: CH
-- Belegt seit: 17:00
-- Voraussichtlich belegt bis: 19:00
-
-
-
----
+Missing, outdated or invalid data must display NO DATA and suppress reservation details and counts (UC-33–35). Freshness thresholds and recovery rules must follow the agreed display specification and PR #8.
 
 ## 6. MOTORCYCLE – P45
 
-Bei Motorradparkplätzen werden mehrere Stellplätze zusammengefasst.
+For motorcycle parking spaces, multiple parking spots are grouped together.
 
-Die API liefert die Gesamtanzahl sowie die Anzahl freier, belegter und reservierter Stellplätze.
+The API provides the total number of spaces as well as the number of available, unavailable, and reserved spaces.
 
 ### JSON Response
 
@@ -126,77 +106,76 @@ Die API liefert die Gesamtanzahl sowie die Anzahl freier, belegter und reservier
 {
   "panelId": "45",
   "type": "MOTORCYCLE",
-  "status": "FREE",
+  "status": "BOOKABLE",
   "totalSpaces": 6,
   "availableSpaces": 2,
-  "occupiedSpaces": 4,
+  "unavailableSpaces": 4,
   "reservedSpaces": 0,
   "availableUntil": "2026-11-03T12:00:00+01:00"
 }
 ```
 
-### Panel-Anzeige
+### Panel Display
 
-- Status: FREE
-- Verfügbar bis: 12:00
-- Freie Plätze: 2
-- Gesamtplätze: 6
-- Anzeige: 2/6
+- Status: BOOKABLE
+- Available until: 12:00
+- Free spaces: 2
+- Total spaces: 6
+- Display: 2/6
 
-### Beispiel für OCCUPIED
+### Example for UNAVAILABLE
 
 ```json
 {
   "panelId": "45",
   "type": "MOTORCYCLE",
-  "status": "OCCUPIED",
+  "status": "UNAVAILABLE",
   "totalSpaces": 6,
   "availableSpaces": 0,
-  "occupiedSpaces": 6,
+  "unavailableSpaces": 6,
   "reservedSpaces": 0,
   "availableUntil": null
 }
 ```
 
-### Panel-Anzeige
+### Panel Display
 
-- Status: OCCUPIED
-- Freie Plätze: 0
-- Gesamtplätze: 6
-- Anzeige: 6/6
+- Status: UNAVAILABLE
+- Free spaces: 0
+- Total spaces: 6
+- Display: 0/6
 
-Hinweis: Bei OCCUPIED zeigt das Panel die belegten Plätze
-anstelle der verfügbaren Plätze an.
+The count represents bookable spaces, not detected vehicle occupancy.
 
 ---
 
-## 7. Felddefinitionen
+## 7. Field Definitions
 
 ### CAR
 
-| Feld | Datentyp | Beschreibung |
+| Field | Data Type | Description |
 |---|---|---|
-| panelId | string | Eindeutige Panel-ID |
+| panelId | string | Unique panel ID |
 | type | string | CAR |
-| status | string | FREE, RESERVED, OCCUPIED, NO_DATA |
-| licensePlate | string/null | Fahrzeugkennzeichen |
-| country | string/null | Ländercode, z. B. CH |
-| availableUntil | ISO 8601/null | Verfügbar bis |
-| startTime | ISO 8601/null | Beginn der Reservierung oder Belegung |
-| endTime | ISO 8601/null | Ende der Reservierung oder erwarteten Belegung |
+| status | string | BOOKABLE, RESERVED, UNAVAILABLE, NO_DATA |
+| licensePlate | string/null | Vehicle license plate |
+| country | string/null | Country code, e.g. CH |
+| availableUntil | ISO 8601/null | End of current booking availability |
+| startTime | ISO 8601/null | Start of reservation |
+| endTime | ISO 8601/null | End of reservation |
 
 ### MOTORCYCLE
 
-| Feld | Datentyp | Beschreibung |
+| Field | Data Type | Description |
 |---|---|---|
-| panelId | string | Eindeutige Panel-ID |
+| panelId | string | Unique panel ID |
 | type | string | MOTORCYCLE |
-| status | string | FREE, RESERVED, OCCUPIED, NO_DATA |
-| totalSpaces | integer | Gesamtanzahl Stellplätze |
-| availableSpaces | integer | Anzahl verfügbarer Stellplätze |
-| occupiedSpaces | integer | Anzahl belegter Stellplätze |
-| reservedSpaces | integer | Anzahl reservierter Stellplätze |
-| availableUntil | ISO 8601/null | Verfügbar bis |
+| status | string | BOOKABLE, RESERVED, UNAVAILABLE, NO_DATA |
+| totalSpaces | integer | Total number of parking spaces |
+| availableSpaces | integer | Number of available parking spaces |
+| unavailableSpaces | integer | Number of unavailable parking spaces |
+| reservedSpaces | integer | Number of reserved parking spaces |
+| availableUntil | ISO 8601/null | End of current booking availability |
 
 ---
 
@@ -204,73 +183,68 @@ anstelle der verfügbaren Plätze an.
 
 GET /api/panels/motorcycles/{panelId}
 
-Liefert die Daten für Motorradparkplätze.
+Returns the data for motorcycle parking spaces.
 
-Unterstützte Panel-Version:
+Supported panel version:
 
 - P45
 
 ---
 
-## 9. Validierungsregeln
+## 9. Validation Rules
 
 ### CAR
 
-- Bei FREE ist `licensePlate` normalerweise null.
-- Bei RESERVED kann `licensePlate` angegeben werden.
-- Bei OCCUPIED kann `licensePlate` angegeben werden.
-- Bei NO_DATA sind alle fachlichen Datenfelder null.
-- Zeitangaben werden im ISO-8601-Format übertragen.
-- Die Darstellung der Uhrzeit erfolgt im Frontend.
+- For BOOKABLE, `licensePlate` is usually null.
+- For RESERVED, `licensePlate` may be provided.
+- For UNAVAILABLE, reservation fields are null.
+- For NO_DATA, all business data fields are null.
+- Time values are transmitted in ISO 8601 format.
+- The frontend handles the display of the time.
 
 ### MOTORCYCLE
 
-- `totalSpaces` muss grösser als 0 sein.
-- `availableSpaces` darf nicht negativ sein.
-- `occupiedSpaces` darf nicht negativ sein.
-- `reservedSpaces` darf nicht negativ sein.
-- Bei gegenseitig ausschliessenden Platzkategorien gilt:
+- `totalSpaces` must be greater than 0.
+- `availableSpaces` must not be negative.
+- `unavailableSpaces` must not be negative.
+- `reservedSpaces` must not be negative.
+- For mutually exclusive space categories, the following applies:
 
-  totalSpaces = availableSpaces + occupiedSpaces + reservedSpaces
+  totalSpaces = availableSpaces + unavailableSpaces + reservedSpaces
 
-- Wenn availableSpaces > 0, ist der Status FREE.
-- Wenn availableSpaces = 0 und alle Plätze belegt sind,
-  ist der Status OCCUPIED.
-- Bei ungültigen oder fehlenden Daten wird NO_DATA verwendet.
+- If `availableSpaces > 0`, the status is BOOKABLE.
+- If `availableSpaces = 0` and all spaces are reserved, the status is RESERVED. If no spaces are available and at least one has an explicit non-reservation restriction, the proposed aggregate status is UNAVAILABLE.
+- Outdated, invalid or missing data results in `NO_DATA`.
 
 ---
 
-## 10. Panel-Versionen
+## 10. Panel Versions
 
-| Version | Parkplatztyp | Beschreibung |
+| Version | Parking Type | Description |
 |---|---|---|
-| V1 | CAR | Standardanzeige |
-| V2 | CAR | Alternative Logo-Darstellung |
-| V3 | CAR | Alternative Zeitdarstellung |
-| V4 | CAR | Uhrzeit und Kennzeichen im Vordergrund |
-| P45 | MOTORCYCLE | Anzeige mehrerer Motorradstellplätze |
+| V1 | CAR | Standard display |
+| V2 | CAR | Alternative logo display |
+| V3 | CAR | Alternative time display |
+| V4 | CAR | Time and license plate in the foreground |
+| P45 | MOTORCYCLE | Display for multiple motorcycle spaces |
 
-Die Panel-Version beeinflusst ausschliesslich die Darstellung.
+The panel version affects only the display.
 
-Die fachlichen Parkplatzdaten bleiben für V1 bis V4 identisch.
+The actual parking data remains identical for V1 to V4.
 
 ---
 
-## 11. Empfehlung
+## 11. Recommendation
 
-Es werden zwei unterschiedliche API-Response-Typen verwendet:
+Two different API response types are used:
 
 1. CAR
 2. MOTORCYCLE
 
-Für CAR werden die Zustände FREE, RESERVED, OCCUPIED
-und NO_DATA unterstützt.
+For CAR, the states BOOKABLE, RESERVED, UNAVAILABLE, and NO_DATA are supported.
 
-Für MOTORCYCLE werden zusätzlich die Stellplatzanzahlen
-übertragen.
+For MOTORCYCLE, the number of parking spaces is also transmitted.
 
-Die Panel-Version wird unabhängig von den Parkplatzdaten
-konfiguriert.
+The panel version is configured independently from the parking data.
 
-Dadurch können alle Panel-Versionen dieselbe API verwenden,
-ohne dass für jede Version eine eigene JSON-Struktur benötigt wird.
+This allows all panel versions to use the same API without requiring a separate JSON structure for each version.
